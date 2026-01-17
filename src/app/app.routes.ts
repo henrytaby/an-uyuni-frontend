@@ -3,6 +3,7 @@ import { AppLayoutComponent } from './shared/layout/app-layout/app-layout.compon
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
+
   {
     path: '',
     component: AppLayoutComponent,
@@ -10,95 +11,51 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./features/dashboard/ecommerce/ecommerce.component').then(m => m.EcommerceComponent),
-        pathMatch: 'full',
-        title: 'Ecommerce Dashboard | Enterprise Admin'
-      },
-      {
-        path: 'calendar',
-        loadComponent: () => import('./features/calender/calender.component').then(m => m.CalenderComponent),
-        title: 'Calender | Enterprise Admin'
+        loadChildren: () => import('./features/dashboard/dashboard.routes').then(m => m.routes),
       },
       {
         path: 'profile',
-        loadComponent: () => import('./features/profile/profile.component').then(m => m.ProfileComponent),
-        title: 'Profile | Enterprise Admin'
+        loadChildren: () => import('./features/profile/profile.routes').then(m => m.routes),
       },
       {
-        path: 'form-elements',
-        loadComponent: () => import('./features/forms/form-elements/form-elements.component').then(m => m.FormElementsComponent),
-        title: 'Forms | Enterprise Admin'
+        path: 'calendar',
+        loadChildren: () => import('./features/calendar/calendar.routes').then(m => m.routes),
       },
       {
-        path: 'basic-tables',
-        loadComponent: () => import('./features/tables/basic-tables/basic-tables.component').then(m => m.BasicTablesComponent),
-        title: 'Tables | Enterprise Admin'
+        path: 'forms',
+        loadChildren: () => import('./features/forms/forms.routes').then(m => m.routes),
+      },
+      {
+        path: 'tables',
+        loadChildren: () => import('./features/tables/tables.routes').then(m => m.routes),
+      },
+      {
+        path: 'charts',
+        loadChildren: () => import('./features/charts/charts.routes').then(m => m.routes),
       },
       {
         path: 'blank',
-        loadComponent: () => import('./features/blank/blank.component').then(m => m.BlankComponent),
+        loadComponent: () => import('./features/system/pages/blank/blank.component').then(m => m.BlankComponent),
         title: 'Blank | Enterprise Admin'
       },
       {
         path: 'invoice',
-        loadComponent: () => import('./features/invoices/invoices.component').then(m => m.InvoicesComponent),
-        title: 'Invoice | Enterprise Admin'
+        loadChildren: () => import('./features/invoice/invoice.routes').then(m => m.routes),
       },
+
       {
-        path: 'line-chart',
-        loadComponent: () => import('./features/charts/line-chart/line-chart.component').then(m => m.LineChartComponent),
-        title: 'Line Chart | Enterprise Admin'
-      },
-      {
-        path: 'bar-chart',
-        loadComponent: () => import('./features/charts/bar-chart/bar-chart.component').then(m => m.BarChartComponent),
-        title: 'Bar Chart | Enterprise Admin'
-      },
-      {
-        path: 'alerts',
-        loadComponent: () => import('./features/ui-elements/alerts/alerts.component').then(m => m.AlertsComponent),
-        title: 'Alerts | Enterprise Admin'
-      },
-      {
-        path: 'avatars',
-        loadComponent: () => import('./features/ui-elements/avatar-element/avatar-element.component').then(m => m.AvatarElementComponent),
-        title: 'Avatars | Enterprise Admin'
-      },
-      {
-        path: 'badge',
-        loadComponent: () => import('./features/ui-elements/badges/badges.component').then(m => m.BadgesComponent),
-        title: 'Badges | Enterprise Admin'
-      },
-      {
-        path: 'buttons',
-        loadComponent: () => import('./features/ui-elements/buttons/buttons.component').then(m => m.ButtonsComponent),
-        title: 'Buttons | Enterprise Admin'
-      },
-      {
-        path: 'images',
-        loadComponent: () => import('./features/ui-elements/images/images.component').then(m => m.ImagesComponent),
-        title: 'Images | Enterprise Admin'
-      },
-      {
-        path: 'videos',
-        loadComponent: () => import('./features/ui-elements/videos/videos.component').then(m => m.VideosComponent),
-        title: 'Videos | Enterprise Admin'
+        path: 'ui',
+        loadChildren: () => import('./features/ui/ui.routes').then(m => m.routes),
       },
     ]
   },
   {
-    path: 'signin',
-    loadComponent: () => import('./features/auth/sign-in/sign-in.component').then(m => m.SignInComponent),
-    title: 'Sign In | Enterprise Admin'
-  },
-  {
-    path: 'signup',
-    loadComponent: () => import('./features/auth/sign-up/sign-up.component').then(m => m.SignUpComponent),
-    title: 'Sign Up | Enterprise Admin'
+    path: '',
+    loadChildren: () => import('./features/auth/auth.routes').then(m => m.routes)
   },
   {
     path: '**',
-    loadComponent: () => import('./features/other-page/not-found/not-found.component').then(m => m.NotFoundComponent),
+    loadComponent: () => import('./features/system/pages/not-found/not-found.component').then(m => m.NotFoundComponent),
     title: 'Not Found | Enterprise Admin'
   },
 ];

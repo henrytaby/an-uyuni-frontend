@@ -1,133 +1,115 @@
-# Free Angular Tailwind Admin Dashboard Template - TailAdmin Angular
+# Uyuni Frontend (Angular Enterprise)
 
-TailAdmin Angular is a **free and open-source admin dashboard template** built with **Angular** and **Tailwind CSS**. It provides developers with everything they need to create a feature-rich, data-driven **back-end, dashboard, or admin panel** for any type of web project.
+![Angular Version](https://img.shields.io/badge/Angular-v21+-dd0031.svg)
+![Architecture](https://img.shields.io/badge/Architecture-DDD%20Lite-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-![TailAdmin Angular Admin Dashboard](./angular-tailwind.png)
+Bienvenido a **Uyuni Frontend**, una aplicación empresarial moderna construida con **Angular v21** y **TailwindCSS**, siguiendo una arquitectura escalable basada en **Domain-Driven Design (DDD)** y **Modular Monolith**.
 
-
-With TailAdmin Angular, you’ll get access to a complete set of **dashboard UI components, elements, and ready-to-use pages** to build a modern, high-quality admin panel. Whether it’s for a **complex web application** or a **lightweight project**, TailAdmin Angular is designed to speed up development of any kind of dashboards and admin panels.
-
-TailAdmin leverages the **powerful ecosystem of Angular 20+**, along with **TypeScript** and the utility-first styling of **Tailwind CSS v4**. Combined, they make TailAdmin Angular a perfect foundation to launch your dashboard or admin panel quickly and effectively.
-
-TailAdmin Angular comes with essential UI components and layouts for building **feature-rich, data-driven dashboards** and **admin panels**. TailAdmin Angular is built on:
-
-* **Angular 20+**
-* **TypeScript**
-* **Tailwind CSS v4**
-
-### Quick Links
-
-- ✨ [Visit Website](https://tailadmin.com/)
-- 🚀 [Angular Demo](https://angular-demo.tailadmin.com/)
-- 📄 [Documentation](https://tailadmin.com/docs)
-- ⬇️ [Download](https://tailadmin.com/download)
-- 🖌️ [Figma Design File (Free Edition)](https://www.figma.com/community/file/1463141366275764364)
-- ⚡ [Get PRO Version](https://tailadmin.com/pricing)
 ---
 
-## Feature Comparison
+## 🚀 Características Principales
 
-| Feature | Free Version | Pro Version 🌟 |
-|---------|--------------|----------------|
-| **Dashboards** | 1 Unique Dashboard | 7 Unique Dashboards: Analytics, Ecommerce, Marketing, SaaS, CRM, Stocks, Logistics and more (more coming soon) 📈 |
-| **UI Elements and Components** | 100+ UI elements and components | Included in 500+ components and UI elements |
-| **Design Files** | Basic Figma design files | Complete Figma design system file |
-| **Support** | Community support| Email support |
+-   **Arquitectura Enterprise**: Estructura sólida dividida en `Core`, `Shared` y `Features`.
+-   **Lazy Loading**: Carga perezosa implementada en todos los módulos de funcionalidad.
+-   **Angular Signals**: Gestión de estado reactivo moderna y performante.
+-   **TailwindCSS**: Estalizado utilitario para un desarrollo UI rápido y consistente.
+-   **Standalone Components**: Adopción total del paradigma moderno de Angular (sin `NgModules` innecesarios).
+-   **Rendimiento**: Optimizado para Core Web Vitals.
 
-### Other Versions
+---
 
-- [Next.js Version](https://github.com/TailAdmin/free-nextjs-admin-dashboard)
-- [React.js Version](https://github.com/TailAdmin/free-react-tailwind-admin-dashboard)
-- [Vue.js Version](https://github.com/TailAdmin/vue-tailwind-admin-dashboard)
-- [Angular Version](https://github.com/TailAdmin/free-angular-tailwind-dashboard)
-- [Laravel Version](https://github.com/TailAdmin/tailadmin-laravel)
+## 🛠️ Requisitos Previos
 
-## Installation
+Asegúrate de tener instalado:
 
-### Prerequisites
+-   **Node.js**: v18.13.0 o superior (Recomendado v20+).
+-   **NPM**: v9+ o **Yarn** / **PNPM**.
+-   **Angular CLI**: v21 (`npm install -g @angular/cli`).
 
-Before you start, make sure you have:
+---
 
-* **Node.js 20.x or later** (Node.js 20.x recommended)
-* **Angular CLI** installed globally:
+## 📦 Instalación y Uso
 
-```bash
-npm install -g @angular/cli
+1.  **Clonar el repositorio**:
+    ```bash
+    git clone https://gitlab.com/tu-empresa/uyuni-frontend.git
+    cd uyuni-frontend
+    ```
+
+2.  **Instalar dependencias**:
+    ```bash
+    npm install
+    ```
+
+3.  **Correr en desarrollo**:
+    ```bash
+    npm start
+    # O explícitamente:
+    ng serve
+    ```
+    La aplicación estará disponible en `http://localhost:4200/`.
+
+4.  **Construir para producción**:
+    ```bash
+    npm run build
+    ```
+    Los archivos compilados se generarán en `dist/ng-tailadmin/`.
+
+---
+
+## 🏛️ Arquitectura del Proyecto
+
+Este proyecto no sigue la estructura plana tradicional de Angular. Utilizamos **DDD Lite** para organizar el código por dominios de negocio.
+
+### Estructura de Carpetas
+
+```
+src/app/
+├── core/           # 🧠 Singletons (Auth, Config, Guards). Una sola instancia.
+├── shared/         # 🛠️ UI Components (Buttons, Modales, Inputs). Reutilizables.
+├── features/       # 💼 Módulos de Negocio (Dashboard, Invoice, Users).
+│   ├── dashboard/
+│   ├── invoice/
+│   │   ├── pages/      # Smart Components (Vistas con lógica)
+│   │   ├── components/ # Dumb Components (Tablas, Listas específicas)
+│   │   ├── models/     # Interfaces de dominio
+│   │   ├── services/   # Lógica de negocio HTTP
+│   │   └── invoice.routes.ts
+│   └── ...
+└── app.routes.ts   # 🚦 Router principal (Lazy Loading)
 ```
 
----
-
-### Cloning the Repository
-
-Clone the repository:
-
-```bash
-git clone https://github.com/TailAdmin/free-angular-admin-dashboard.git
-```
+> 📘 **Documentación Detallada**: Para una guía profunda sobre la arquitectura, patrones y cómo crear nuevos módulos, lee la **[Guía de Arquitectura e Inicio](docs/ARCHITECTURE.md)**.
 
 ---
 
-### Install Dependencies
+## 🎨 Patrones de Diseño
 
-```bash
-npm install
-# or
-yarn install
-```
-
----
-
-### Start Development Server
-
-```bash
-npm start
-```
-
-Then open:
-👉 `http://localhost:4200`
+-   **Smart vs Dumb Components**:
+    -   **Smart (Pages)**: Gestionan datos, inyectan servicios.
+    -   **Dumb (Components)**: Solo reciben `@Input` y emiten `@Output`.
+-   **Angular Signals**:
+    -   Uso de `signal()`, `computed()` y `effect()` para reactividad fina.
+-   **Feature Isolation**:
+    -   Un módulo Feature no debe importar componentes privados de otro módulo Feature.
 
 ---
 
-## Angualr.js Tailwind Components
+## 📚 Documentación Adicional
 
-TailAdmin Angular ships with a rich set of **ready-to-use dashboard features**:
+-   **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Guía completa para desarrolladores.
+-   **Angular Style Guide**: Seguimos estrictamente las recomendaciones oficiales.
 
-* **Ecommerce Dashboard** with essential elements
-* Modern, accessible **sidebar navigation**
-* **Data visualization** with charts and graphs
-* **User profile management** and a **custom 404 page**
-* **Tables** and **charts** (line, bar, etc.)
-* **Authentication forms** and reusable input components
-* **UI elements**: alerts, dropdowns, modals, buttons, and more
-* Built-in **Dark Mode** 🕶️
-* and many more
+---
 
+## 🤝 Contribuyendo
 
-## Changelog
+1.  Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`).
+2.  Desarrolla siguiendo la estructura `src/app/features/<nombre>`.
+3.  Asegúrate de que el build pase (`npm run build`).
+4.  Abre un Merge Request (MR).
 
-### v1.0.2 (2025-12-30)
+---
 
-- **Upgrade**: Successfully upgraded project to **Angular 21**.
-- **New Feature**: Implementing **Dynamic API Keys** management.
-  - Added functionalities to **Add**, **Edit**, **Delete**, and **Regenerate** API Keys.
-- **Enhancement**: Integrated **Flatpickr** date range picker in `StatisticsChartComponent`.
-- **Bug Fix**: Resolved `NG0100` ExpressionChangedAfterItHasBeenCheckedError in `PieChartTwoComponent`.
-- **Bug Fix**: Fixed `NG8113` warning in `AddApiKeyModalComponent` by removing unused imports.
-- **Cleanup**: Removed unused imports and optimized code across various components.
-
-### v1.1.0 (2026-01-16) - Stability & Health Check Update
-
-- **Safe Layout Migration**:
-  - Migrated `AppHeader`, `AppSidebar`, `AppLayout`, and `Backdrop` to use modern Angular `inject()` architecture.
-  - Implemented strict **SSR/Environment Guards** (`typeof document !== 'undefined'`) for all window/document access, preventing "blank screen" crashes in server-side or strict environments.
-- **Bug Fixes**:
-  - **Fixed NG0100**: Resolved `ExpressionChangedAfterItHasBeenCheckedError` in `AppSidebarComponent` by properly scheduling view updates.
-  - **Fixed Layout Thrashing**: Optimized sidebar menu calculation to run in `ngAfterViewInit`, eliminating "Layout was forced" browser warnings.
-  - **Refactored Unsafe Globals**: Secured `ThemeService`, `Modal`, `TableDropdown`, and `Dropdown` against direct DOM access errors.
-  - **Fixed Memory Leak**: Corrected event listener cleanup in `TableDropdownComponent`.
-- **UI/UX Improvements**:
-  - **Responsive Fix**: Corrected `NotificationDropdown` positioning to prevent getting cut off on mobile screens.
-  - **Sidebar Logo Logic**: Fixed regression where sidebar logo container was hidden incorrectly in collapsed mode.
-- **Code Quality**:
-  - Achieved **0 Lint Errors** (fixed strict mode accessibility and type issues).
-  - Confirmed **AOT Build Compatibility** (fixed private properties usage in templates).
+&copy; 2026 Uyuni Project. Built with ❤️ utilizing Angular 21.

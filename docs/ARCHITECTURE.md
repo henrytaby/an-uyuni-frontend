@@ -50,7 +50,8 @@ Estructura interna OBLIGATORIA de una Feature:
 -   **`services/`**: Servicios HTTP específicos del dominio.
     -   *Objetivo*: Manejar la comunicación con la API para ese dominio específico. Contienen la lógica de negocio y transformación de datos.
     -   *Ejemplo*: `InvoiceService.ts` (métodos `getInvoices`, `createInvoice`).
--   **`*.routes.ts`**: Definición de rutas internas (Lazy Loading).
+-   **`*.routes.ts`**: Definición de rutas internas (Micro-routing).
+    -   *Objetivo*: Encapsular el ruteo de la feature para permitir el Lazy Loading desde el router principal. Esto asegura que cada módulo sea autónomo y fácil de mover o conectar.
 
 ---
 

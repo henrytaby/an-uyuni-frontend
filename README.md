@@ -76,7 +76,7 @@ src/app/
 │   │   ├── components/ # Dumb Components (Tablas, Listas específicas)
 │   │   ├── models/     # Interfaces de dominio
 │   │   ├── services/   # Lógica de negocio HTTP
-│   │   └── invoice.routes.ts
+│   │   └── invoice.routes.ts # 🚦 Micro-ruteo y Lazy Loading específico del módulo
 │   └── ...
 └── app.routes.ts   # 🚦 Router principal (Lazy Loading)
 ```

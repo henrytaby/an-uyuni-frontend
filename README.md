@@ -100,6 +100,7 @@ src/app/
 ## 📚 Documentación Adicional
 
 -   **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Guía completa para desarrolladores.
+-   **[LAYOUT_GUIDE.md](docs/LAYOUT_GUIDE.md)**: Detalle del sistema de plantillas y layouts.
 -   **[Tailwind CSS v4 Docs](https://tailwindcss.com/docs/v4-beta)**: Documentación oficial de la versión instalada.
 -   **Angular Style Guide**: Seguimos estrictamente las recomendaciones oficiales.
 

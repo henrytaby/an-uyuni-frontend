@@ -11,6 +11,35 @@ El proyecto sigue una arquitectura basada en **Domain-Driven Design (DDD) Lite**
 3.  **Standalone Components**: No utilizamos `NgModules` (excepto para configuraciones muy específicas de librerías legacy).
 4.  **Smart vs. Dumb Components**: Separación entre componentes que manejan datos/lógica (Smart) y componentes puramente visuales (Dumb).
 
+### Visualización de Capas:
+
+```mermaid
+graph TD
+    subgraph "Core (🧠 Singletons)"
+        AuthService
+        ConfigService
+        Interceptors
+        Guards
+    end
+
+    subgraph "Shared (🛠️ Global Utilities)"
+        UIComponents["UI Components (Dumb)"]
+        Directives[Directivas/Pipes]
+        Layouts[Layout Base]
+    end
+
+    subgraph "Features (💼 Domain Logic)"
+        FeatureA[Dashboard Feature]
+        FeatureB[Invoice Feature]
+        FeatureC[User Profile]
+    end
+
+    FeatureA --> AuthService
+    FeatureA --> UIComponents
+    FeatureB --> ConfigService
+    FeatureB --> UIComponents
+```
+
 ---
 
 ## 2. Estructura de Directorios (The Big Picture)
@@ -25,6 +54,29 @@ Contiene la lógica que **debe existir una sola vez** en toda la aplicación (Si
 -   **`guards/`**: Guardas de rutas (`AuthGuard`) para proteger accesos.
 -   **`interceptors/`**: Interceptores HTTP (`AuthInterceptor`) para inyectar tokens JWT.
 -   **`services/`**: Servicios globales de utilidad (ej. `LayoutService`).
+
+### Flujo de Seguridad:
+
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Guard as AuthGuard
+    participant Pipe as AuthInterceptor
+    participant Service as AuthService
+    participant API as FastAPI Backend
+
+    Browser->>Guard: Intento de Acceso
+    Guard->>Service: ¿Está Autenticado?
+    Service-->>Guard: Sí / No (Signal)
+    
+    Note over Browser, API: Si está autenticado...
+    
+    Browser->>API: Solicitud HTTP
+    Pipe->>Browser: Captura Request
+    Pipe->>Service: Obtiene Token
+    Pipe->>API: Agrega Header 'Authorization'
+    API-->>Browser: Respuesta
+```
 
 ### 📂 `src/app/shared` (La Caja de Herramientas 🛠️)
 Contiene componentes, directivas y pipes reutilizables que **no tienen lógica de negocio específica**. Son "tontos" (Dumb Components) y se pueden usar en cualquier parte.
@@ -66,6 +118,16 @@ Estructura interna OBLIGATORIA de una Feature:
     -   Solo reciben datos (`@Input()`).
     -   Solo emiten eventos (`@Output()`).
     -   No inyectan servicios de negocio.
+
+### Flujo de Datos (Smart vs Dumb):
+
+```mermaid
+graph LR
+    Service[Backend API / Service] -- Data (Signal/Observable) --> Smart[Smart Component (Page)]
+    Smart -- [Property Binding] --> Dumb[Dumb Component]
+    Dumb -- (Event Binding) --> Smart
+    Smart -- Mutation --> Service
+```
 
 ### B. Signals (Gestión de Estado)
 Preferimos **Angular Signals** sobre `BehaviorSubjects` para el manejo de estado reactivo local y global (en servicios).

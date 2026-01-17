@@ -1,6 +1,7 @@
 # Uyuni Frontend (Angular Enterprise)
 
 ![Angular Version](https://img.shields.io/badge/Angular-v21+-dd0031.svg)
+![TailwindCSS Version](https://img.shields.io/badge/TailwindCSS-v4--beta-38bdf8.svg)
 ![Architecture](https://img.shields.io/badge/Architecture-DDD%20Lite-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -13,7 +14,7 @@ Bienvenido a **Uyuni Frontend**, una aplicación empresarial moderna construida 
 -   **Arquitectura Enterprise**: Estructura sólida dividida en `Core`, `Shared` y `Features`.
 -   **Lazy Loading**: Carga perezosa implementada en todos los módulos de funcionalidad.
 -   **Angular Signals**: Gestión de estado reactivo moderna y performante.
--   **TailwindCSS**: Estalizado utilitario para un desarrollo UI rápido y consistente.
+-   **TailwindCSS v4**: Estilizado utilitario de próxima generación para un desarrollo UI ultra rápido.
 -   **Standalone Components**: Adopción total del paradigma moderno de Angular (sin `NgModules` innecesarios).
 -   **Rendimiento**: Optimizado para Core Web Vitals.
 
@@ -99,6 +100,7 @@ src/app/
 ## 📚 Documentación Adicional
 
 -   **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Guía completa para desarrolladores.
+-   **[Tailwind CSS v4 Docs](https://tailwindcss.com/docs/v4-beta)**: Documentación oficial de la versión instalada.
 -   **Angular Style Guide**: Seguimos estrictamente las recomendaciones oficiales.
 
 ---

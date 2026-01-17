@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthPageLayoutComponent } from '../../../../shared/layout/auth-page-layout/auth-page-layout.component';
 import { SigninFormComponent } from '../../components/signin-form/signin-form.component';
@@ -6,6 +6,7 @@ import { AuthService } from '../../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
+  standalone: true,
   imports: [
     AuthPageLayoutComponent,
     SigninFormComponent,
@@ -14,15 +15,13 @@ import { AuthService } from '../../../../core/auth/auth.service';
   styles: ``
 })
 export class SignInComponent {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
-
-  handleSignIn(credentials: any) {
+  handleSignIn(credentials: { email: string; password: string }) {
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
@@ -34,7 +33,7 @@ export class SignInComponent {
         this.isLoading.set(false);
         this.router.navigate(['/']);
       },
-      error: (err: any) => {
+      error: (err: Error) => {
         this.isLoading.set(false);
         this.errorMessage.set('Credenciales no válidas. Inténtalo de nuevo.');
         console.error('Login error:', err);

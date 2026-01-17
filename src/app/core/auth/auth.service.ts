@@ -1,4 +1,4 @@
-import { Injectable, signal, computed } from '@angular/core';
+import { Injectable, signal, computed, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of, tap, throwError, delay } from 'rxjs';
 import { ConfigService } from '../config/config.service';
@@ -13,16 +13,14 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
+  private http = inject(HttpClient);
+  private configService = inject(ConfigService);
+
   private userSignal = signal<User | null>(null);
   private tokenSignal = signal<string | null>(localStorage.getItem('access_token'));
 
   readonly currentUser = this.userSignal.asReadonly();
   readonly isAuthenticated = computed(() => !!this.tokenSignal());
-
-  constructor(
-    private http: HttpClient,
-    private configService: ConfigService
-  ) {}
 
   login(credentials: { username: string; password: string }) {
     // Si mockAuth está habilitado, simulamos éxito para desarrollo

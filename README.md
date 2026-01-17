@@ -105,6 +105,28 @@ src/app/
 
 ---
 
+## 🛡️ Calidad de Código
+
+El proyecto incluye herramientas pre-configuradas para asegurar la calidad y consistencia del código:
+
+### 1. Linting (Análisis Estático)
+Utilizamos **ESLint** con las reglas oficiales de Angular.
+```bash
+npm run lint
+```
+
+### 2. Testing (Pruebas Unitarias)
+Utilizamos **Jest** como motor de pruebas (más rápido que Karma).
+```bash
+npm test
+```
+
+### 3. Strict Mode
+TypeScript está configurado en **Modo Estricto** para prevenir errores comunes y asegurar un tipado fuerte.
+
+
+---
+
 ## 🤝 Contribuyendo
 
 1.  Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`).

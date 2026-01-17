@@ -45,12 +45,12 @@ sequenceDiagram
     participant Shell as AppLayoutComponent
     participant Service as SidebarService
     
-    Browser->>Router: Navega a /dashboard
-    Router->>Shell: Carga AppLayoutComponent
-    Shell->>Service: Suscribe a isExpanded$ / isMobileOpen$
-    Service-->>Shell: Retorna estado actual
-    Shell->>Shell: Ajusta márgenes CSS dinámicamente
-    Shell->>Router: Renderiza Feature en <router-outlet>
+    Browser->>Router: "Navega a /dashboard"
+    Router->>Shell: "Carga AppLayoutComponent"
+    Shell->>Service: "Suscribe a isExpanded$ / isMobileOpen$"
+    Service-->>Shell: "Retorna estado actual"
+    Shell->>Shell: "Ajusta márgenes CSS dinámicamente"
+    Shell->>Router: "Renderiza Feature en <router-outlet>"
 ```
 
 ---

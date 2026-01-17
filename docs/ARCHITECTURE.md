@@ -65,17 +65,17 @@ sequenceDiagram
     participant Service as AuthService
     participant API as FastAPI Backend
 
-    Browser->>Guard: Intento de Acceso
-    Guard->>Service: ¿Está Autenticado?
-    Service-->>Guard: Sí / No (Signal)
+    Browser->>Guard: "Intento de Acceso"
+    Guard->>Service: "¿Está Autenticado?"
+    Service-->>Guard: "Sí / No (Signal)"
     
     Note over Browser, API: Si está autenticado...
     
-    Browser->>API: Solicitud HTTP
-    Pipe->>Browser: Captura Request
-    Pipe->>Service: Obtiene Token
-    Pipe->>API: Agrega Header 'Authorization'
-    API-->>Browser: Respuesta
+    Browser->>API: "Solicitud HTTP"
+    Pipe->>Browser: "Captura Request"
+    Pipe->>Service: "Obtiene Token"
+    Pipe->>API: "Agrega Header 'Authorization'"
+    API-->>Browser: "Respuesta"
 ```
 
 ### 📂 `src/app/shared` (La Caja de Herramientas 🛠️)
@@ -123,10 +123,10 @@ Estructura interna OBLIGATORIA de una Feature:
 
 ```mermaid
 graph LR
-    Service[Backend API / Service] -- Data (Signal/Observable) --> Smart[Smart Component (Page)]
-    Smart -- [Property Binding] --> Dumb[Dumb Component]
-    Dumb -- (Event Binding) --> Smart
-    Smart -- Mutation --> Service
+    Service["Backend API / Service"] -- "Data (Signal/Observable)" --> Smart["Smart Component (Page)"]
+    Smart -- "[Property Binding]" --> Dumb["Dumb Component"]
+    Dumb -- "(Event Binding)" --> Smart
+    Smart -- "Mutation" --> Service
 ```
 
 ### B. Signals (Gestión de Estado)

@@ -54,7 +54,7 @@ Asegúrate de tener instalado:
     ```bash
     npm run build
     ```
-    Los archivos compilados se generarán en `dist/ng-tailadmin/`.
+    Los archivos compilados se generarán en `dist/ng-uyuniadmin/`.
 
 ---
 

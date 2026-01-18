@@ -1,6 +1,6 @@
 import { Component, signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthPageLayoutComponent } from '../../../../shared/layout/auth-page-layout/auth-page-layout.component';
+import { AuthPageLayoutComponent } from '../../components/layout/auth-page-layout/auth-page-layout.component';
 import { SigninFormComponent } from '../../components/signin-form/signin-form.component';
 import { AuthService } from '../../../../core/auth/auth.service';
 
@@ -21,12 +21,12 @@ export class SignInComponent {
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
 
-  handleSignIn(credentials: { email: string; password: string }) {
+  handleSignIn(credentials: { username: string; password: string }) {
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
     this.authService.login({
-      username: credentials.email, // Ajustar según lo que el backend de FastAPI espere
+      username: credentials.username,
       password: credentials.password
     }).subscribe({
       next: () => {
@@ -39,5 +39,9 @@ export class SignInComponent {
         console.error('Login error:', err);
       }
     });
+  }
+
+  clearErrorMessage() {
+    this.errorMessage.set(null);
   }
 }

@@ -1,16 +1,20 @@
 import { Component, EventEmitter, Output, input } from '@angular/core';
-import { LabelComponent } from '../../../../shared/components/form/label/label.component';
-import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
-import { InputFieldComponent } from '../../../../shared/components/form/input/input-field.component';
 import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { MessageModule } from 'primeng/message';
 
 @Component({
   selector: 'app-signin-form',
   imports: [
-    LabelComponent,
-    ButtonComponent,
-    InputFieldComponent,
-    FormsModule
+    FormsModule,
+    ButtonModule,
+    InputTextModule,
+    PasswordModule,
+    FloatLabelModule,
+    MessageModule
   ],
   templateUrl: './signin-form.component.html',
   styles: `
@@ -22,23 +26,29 @@ import { FormsModule } from '@angular/forms';
   `
 })
 export class SigninFormComponent {
-  @Output() signIn = new EventEmitter<{ email: string; password: string }>();
+  @Output() signIn = new EventEmitter<{ username: string; password: string }>();
+  @Output() errorCleared = new EventEmitter<void>();
   
   isLoading = input<boolean>(false);
   errorMessage = input<string | null>(null);
 
-  showPassword = false;
-
-  email = '';
+  username = '';
   password = '';
 
-  togglePasswordVisibility() {
-    this.showPassword = !this.showPassword;
+  onSignIn() {
+    if (!this.username || !this.password) {
+       this.localError = 'Por favor, ingrese su usuario y contraseña.';
+    }
+    
+    if (this.username && this.password) {
+      this.signIn.emit({ username: this.username, password: this.password });
+    }
   }
 
-  onSignIn() {
-    if (this.email && this.password) {
-      this.signIn.emit({ email: this.email, password: this.password });
-    }
+  localError: string | null = null;
+
+  clearError() {
+    this.localError = null;
+    this.errorCleared.emit();
   }
 }

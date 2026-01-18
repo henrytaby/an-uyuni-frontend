@@ -38,7 +38,29 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 6. **Version Configuration**: Updated to Tailwind v4 and ensured compatibility with Angular 21.
 7. **PrimeNG Integration**: Integrated PrimeNG v21 with Aura theme and Tailwind v4 plugin (`tailwindcss-primeui`).
 
+## 🧠 AI Persona & Technical Directives
+- **Expert Persona**: Act strictly as an **Expert in UI/UX and Angular Architecture**. Every suggestion must prioritize scalability, performance, and "Enterprise-grade" aesthetics.
+- **UI/UX Design System**: 
+  - **Density**: Use **High Density** (compact elements, 14px base font).
+  - **Theming**: Use the **Aura Theme** from PrimeNG v21 with **Tailwind v4**.
+  - **Colors**: Predominant brand color `#38240c`. Use professional palettes, avoid flat/default colors.
+  - **Spacing**: Use CSS tokens exclusively (`--main-padding`, `--header-height`).
+  - **Aesthetics**: Glassmorphism in headers, refined dark mode transitions, and custom minimalist scrollbars.
+- **Responsive Standard**: 
+  - Mobile menus must be **vertical and high-density** (avoid cramped horizontal rows).
+  - Use `hidden lg:flex` patterns to alternate between mobile and desktop specific headers.
+- **Technical Architecture**:
+  - **Component Pattern**: Separate Layout/Smart components (in `pages/`) from Dumb/Domain components (in `components/`).
+  - **Modern Angular**: Enforce **Signals** for state, `input()`/`output()` signals, and `inject()` for DI.
+  - **DDD Lite**: Feature modules MUST be autonomous. Layouts specific to a feature reside within that feature.
+  - **Performance**: All features MUST be **lazy-loaded**.
+- **Quality & Accessibility**:
+  - **a11y**: Ensure keyboard navigation (`tabindex`, `(keydown.enter)`) and ARIA labels.
+  - **Localization**: UI text MUST be in **Spanish**.
+  - **Code Quality**: Zero tolerance for `any` types where avoidable. `ng lint` must pass always.
+
 ## ⚠️ Important Notes for AI agents
+- **Expert Mode**: Always apply the personality and standards defined above without explicit reminders.
 - **Local Configuration**: The `assets/config/config.json` file controls the `mockAuth` mode.
 - **Naming**: Selectors must follow the `app-` prefix.
 - **Imports**: Always verify relative import depth when moving files; Path aliases are preferred if configured in `tsconfig`.

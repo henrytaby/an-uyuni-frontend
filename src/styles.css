@@ -169,7 +169,22 @@
   --z-index-9999: 9999;
   --z-index-99999: 99999;
   --z-index-999999: 999999;
+
+  /* Enterprise Layout Tokens */
+  --header-height: 64px;
+  --sidebar-width: 280px;
+  --sidebar-collapsed-width: 80px;
+  --main-padding: 1rem;
 }
+
+@utility glass-header {
+  @apply sticky top-0 z-40 w-full backdrop-blur-md bg-white/80 border-b border-gray-200/50 transition-all duration-300;
+  
+  @variant dark {
+    @apply bg-gray-900/80 border-gray-800/50;
+  }
+}
+
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -260,11 +275,11 @@
 }
 
 @utility menu-item {
-  @apply relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-theme-sm;
+  @apply relative flex items-center w-full gap-3 px-3 py-2.5 font-medium rounded-lg text-theme-sm transition-all duration-200;
 }
 
 @utility menu-item-active {
-  @apply bg-brand-50 text-brand-500;
+  @apply bg-brand-50 text-brand-800 shadow-xs;
 
   @variant dark {
     @apply bg-brand-500/[0.12] text-brand-400;
@@ -272,10 +287,10 @@
 }
 
 @utility menu-item-inactive {
-  @apply text-gray-700 hover:bg-gray-100 group-hover:text-gray-700;
+  @apply text-gray-700 hover:bg-gray-100/80 hover:text-gray-900;
 
   @variant dark {
-    @apply text-gray-300 hover:bg-white/5 hover:text-gray-300;
+    @apply text-gray-300 hover:bg-white/5 hover:text-white/90;
   }
 }
 
@@ -299,6 +314,30 @@
   & svg {
     @apply !size-6;
   }
+}
+
+@utility role-item {
+  @apply flex items-center gap-3 p-3 rounded-xl border border-transparent cursor-pointer transition-all duration-200 hover:bg-gray-50 dark:hover:bg-white/5;
+}
+
+@utility role-item-active {
+  @apply bg-brand-50 border-brand-100 dark:bg-brand-500/10 dark:border-brand-500/20 shadow-sm;
+}
+
+@utility role-icon-container {
+  @apply flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 text-gray-500 text-lg transition-colors group-hover:bg-white dark:bg-gray-800 dark:text-gray-400 dark:group-hover:bg-gray-700;
+  
+  &.active {
+    @apply bg-brand-500 text-white shadow-md;
+  }
+}
+
+@utility role-label {
+  @apply text-sm font-bold text-gray-800 dark:text-gray-100 block;
+}
+
+@utility role-description {
+  @apply text-xs leading-tight;
 }
 
 @utility menu-item-icon-inactive {

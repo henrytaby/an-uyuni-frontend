@@ -54,6 +54,10 @@ export const routes: Routes = [
     loadChildren: () => import('./features/auth/auth.routes').then(m => m.routes)
   },
   {
+    path: 'prime-demo',
+    loadComponent: () => import('./features/system/prime-demo/prime-demo.component').then(m => m.PrimeDemoComponent)
+  },
+  {
     path: '**',
     loadComponent: () => import('./features/system/pages/not-found/not-found.component').then(m => m.NotFoundComponent),
     title: 'Not Found | Enterprise Admin'

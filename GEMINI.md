@@ -5,7 +5,8 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 ## 📌 Project Overview
 - **Name**: Uyuni Frontend (UyuniAdmin)
 - **Framework**: Angular v21 (Standalone Components)
-- **Styling**: Tailwind CSS v4-beta (Configured via `@theme` in `styles.css`)
+- **UI Library**: PrimeNG v21 (Aura Theme) + PrimeIcons
+- **Styling**: Tailwind CSS v4-beta (Configured via `@theme` & `tailwindcss-primeui`)
 - **Architecture**: Domain-Driven Design (DDD) Lite / Modular Monolith.
 - **Status**: Legacy code refactoring completed (Jan 2026).
 
@@ -35,6 +36,7 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 4. **Asset Cleanup**: +40 unused images removed from `/public/images`.
 5. **404 Redesign**: Created a new minimalist and corporate error page in `features/system`.
 6. **Version Configuration**: Updated to Tailwind v4 and ensured compatibility with Angular 21.
+7. **PrimeNG Integration**: Integrated PrimeNG v21 with Aura theme and Tailwind v4 plugin (`tailwindcss-primeui`).
 
 ## ⚠️ Important Notes for AI agents
 - **Local Configuration**: The `assets/config/config.json` file controls the `mockAuth` mode.

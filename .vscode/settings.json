@@ -2,7 +2,7 @@
     "[css]": {
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
-            "source.fixAll.stylelint": false
+            "source.fixAll.stylelint": "never"
         },
         "editor.defaultFormatter": null
     },

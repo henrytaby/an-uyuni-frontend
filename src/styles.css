@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap") layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap") layer(base);
 
 @import "tailwindcss";
 @plugin "tailwindcss-primeui";
@@ -11,8 +11,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --font-size-base: 14px;
   --font-*: initial;
-  --font-inter: Inter, sans-serif;
+  --font-roboto: Roboto, sans-serif;
 
   --breakpoint-*: initial;
   --breakpoint-2xsm: 375px;
@@ -180,6 +181,65 @@
 */
 @layer base {
 
+  :root {
+    /* Define base font size for rem calculations if needed, though usually browser default is 16px.
+       We will enforce 14px on body. */
+    --p-content-background: #ffffff;
+    --p-text-color: #1a1f2c; /* More contrast */
+    --p-primary-color: #38240c;
+    --p-primary-50: #f7f2ed;
+    --p-primary-100: #eee3d6;
+    --p-primary-200: #dec8b0;
+    --p-primary-300: #c29f7b;
+    --p-primary-400: #a17b50;
+    --p-primary-500: #734c19;
+    --p-primary-600: #5e3d14;
+    --p-primary-700: #4a3010;
+    --p-primary-800: #38240c;
+    --p-primary-900: #291a09;
+    --p-primary-950: #1a1105;
+  }
+
+  /* High Density overrides for PrimeNG components */
+  /* These need to be robust enough to override default Aura but flexible for Tailwind utilities */
+  
+  /* Global Component Density */
+  .p-component, .p-component * {
+    font-size: 14px; /* Enterprise Standard */
+  }
+
+  /* Compact Input Fields */
+  .p-inputtext {
+    @apply !py-1.5 !px-3 !text-sm; /* Compact padding */
+  }
+
+  /* Compact Buttons */
+  .p-button {
+    @apply !py-1.5 !px-3 !text-sm !font-medium;
+    
+    .p-button-icon {
+        @apply !text-base; /* Slightly smaller icons */
+    }
+  }
+
+  /* Compact DataTables */
+  .p-datatable .p-datatable-thead > tr > th {
+    @apply !py-2 !px-3 !text-sm !font-semibold !bg-gray-50 dark:!bg-gray-800;
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    @apply !py-2 !px-3 !text-sm;
+  }
+  
+  /* Compact Dropdowns */
+  .p-dropdown {
+      @apply !items-center;
+      
+      .p-dropdown-label {
+        @apply !py-1.5 !px-3 !text-sm;
+      }
+  }
+
   *,
   ::after,
   ::before,
@@ -194,7 +254,8 @@
   }
 
   body {
-    @apply relative font-normal font-inter z-1 bg-gray-50;
+    @apply relative font-normal font-roboto z-1 bg-gray-50 text-sm; /* Set global text-sm (14px) */
+    color: #1f2937; /* Gray-800 for better readability */
   }
 }
 

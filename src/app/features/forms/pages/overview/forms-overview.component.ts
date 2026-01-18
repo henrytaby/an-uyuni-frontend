@@ -1,35 +1,75 @@
 
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
-import { DefaultInputsComponent } from '../../../../shared/components/form/form-elements/default-inputs/default-inputs.component';
-import { SelectInputsComponent } from '../../../../shared/components/form/form-elements/select-inputs/select-inputs.component';
-import { TextAreaInputComponent } from '../../../../shared/components/form/form-elements/text-area-input/text-area-input.component';
-import { InputStatesComponent } from '../../../../shared/components/form/form-elements/input-states/input-states.component';
-import { InputGroupComponent } from '../../../../shared/components/form/form-elements/input-group/input-group.component';
-import { FileInputExampleComponent } from '../../../../shared/components/form/form-elements/file-input-example/file-input-example.component';
-import { CheckboxComponentsComponent } from '../../../../shared/components/form/form-elements/checkbox-components/checkbox-components.component';
-import { RadioButtonsComponent } from '../../../../shared/components/form/form-elements/radio-buttons/radio-buttons.component';
-import { ToggleSwitchComponent } from '../../../../shared/components/form/form-elements/toggle-switch/toggle-switch.component';
-import { DropzoneComponent } from '../../../../shared/components/form/form-elements/dropzone/dropzone.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { TextareaModule } from 'primeng/textarea';
+import { SelectModule } from 'primeng/select';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { FileUploadModule } from 'primeng/fileupload';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { DatePickerModule } from 'primeng/datepicker';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { FluidModule } from 'primeng/fluid';
 
 @Component({
   selector: 'app-forms-overview',
   imports: [
     PageBreadcrumbComponent,
-    DefaultInputsComponent,
-    SelectInputsComponent,
-    TextAreaInputComponent,
-    InputStatesComponent,
-    InputGroupComponent,
-    FileInputExampleComponent,
-    CheckboxComponentsComponent,
-    RadioButtonsComponent,
-    ToggleSwitchComponent,
-    DropzoneComponent
-],
+    FormsModule,
+    InputTextModule,
+    TextareaModule,
+    SelectModule,
+    CheckboxModule,
+    RadioButtonModule,
+    ToggleSwitchModule,
+    FileUploadModule,
+    FloatLabelModule,
+    IconFieldModule,
+    InputIconModule,
+    DatePickerModule,
+    InputGroupModule,
+    InputGroupAddonModule,
+    FluidModule
+  ],
   templateUrl: './forms-overview.component.html',
   styles: ``
 })
 export class FormsOverviewComponent {
+  // Inputs
+  textValue = '';
+  numberValue: number | null = null;
+  dateValue: Date | null = null;
+  textareaValue = '';
+  
+  // Selects
+  selectedCity: string | null = null;
+  cities = [
+      { name: 'New York', code: 'NY' },
+      { name: 'Rome', code: 'RM' },
+      { name: 'London', code: 'LDN' },
+      { name: 'Istanbul', code: 'IST' },
+      { name: 'Paris', code: 'PRS' }
+  ];
 
+  // Checkboxes
+  checked = false;
+  selectedCategories: string[] = [];
+  
+  // Radio
+  selectedOption = '';
+  
+  // Toggle
+  toggleValue = false;
+  
+  // File Upload
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onUpload(event: any) {
+     console.log(event);
+  }
 }

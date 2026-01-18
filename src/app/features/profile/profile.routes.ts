@@ -4,6 +4,6 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/overview/profile.component').then(m => m.ProfileComponent),
-    title: 'Profile | Enterprise Admin'
+    title: 'Perfil | Enterprise Admin'
   }
 ];

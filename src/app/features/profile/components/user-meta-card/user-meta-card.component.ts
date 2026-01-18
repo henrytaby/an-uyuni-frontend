@@ -1,23 +1,23 @@
-import { Component, inject } from '@angular/core';
-import { InputFieldComponent } from './../../../../shared/components/form/input/input-field.component';
-import { ModalService } from '../../../../shared/services/modal.service';
-
-import { ModalComponent } from '../../../../shared/components/ui/modal/modal.component';
-import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
 
 @Component({
   selector: 'app-user-meta-card',
   imports: [
-    ModalComponent,
-    InputFieldComponent,
-    ButtonComponent
-],
+    FormsModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    FloatLabelModule
+  ],
   templateUrl: './user-meta-card.component.html',
   styles: ``
 })
 export class UserMetaCardComponent {
-  public modal = inject(ModalService);
-
   isOpen = false;
   openModal() { this.isOpen = true; }
   closeModal() { this.isOpen = false; }
@@ -43,6 +43,6 @@ export class UserMetaCardComponent {
   handleSave() {
     // Handle save logic here
     console.log('Saving changes...');
-    this.modal.closeModal();
+    this.closeModal();
   }
 }

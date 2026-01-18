@@ -1,26 +1,21 @@
-import { Component, inject } from '@angular/core';
-import { ModalService } from '../../../../shared/services/modal.service';
-
-import { InputFieldComponent } from '../../../../shared/components/form/input/input-field.component';
-import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
-import { LabelComponent } from '../../../../shared/components/form/label/label.component';
-import { ModalComponent } from '../../../../shared/components/ui/modal/modal.component';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-user-address-card',
   imports: [
-    InputFieldComponent,
-    ButtonComponent,
-    LabelComponent,
-    ModalComponent,
-    FormsModule
-],
+    FormsModule,
+    DialogModule,
+    ButtonModule,
+    InputTextModule
+  ],
   templateUrl: './user-address-card.component.html',
   styles: ``
 })
 export class UserAddressCardComponent {
-  public modal = inject(ModalService);
 
   isOpen = false;
   openModal() { this.isOpen = true; }
@@ -36,6 +31,6 @@ export class UserAddressCardComponent {
   handleSave() {
     // Handle save logic here
     console.log('Saving changes...');
-    this.modal.closeModal();
+    this.closeModal();
   }
 }

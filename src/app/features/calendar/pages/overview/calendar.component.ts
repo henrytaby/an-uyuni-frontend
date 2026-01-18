@@ -1,13 +1,20 @@
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
-
-import { Component, ViewChild, OnInit } from '@angular/core';
 import { EventInput, CalendarOptions, DateSelectArg, EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { ModalComponent } from '../../../../shared/components/ui/modal/modal.component';
+import esLocale from '@fullcalendar/core/locales/es';
+
+// PrimeNG Imports
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { DatePickerModule } from 'primeng/datepicker';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FluidModule } from 'primeng/fluid';
 
 interface CalendarEvent extends EventInput {
   extendedProps: {
@@ -17,11 +24,17 @@ interface CalendarEvent extends EventInput {
 
 @Component({
   selector: 'app-calendar',
+  standalone: true,
   imports: [
     FormsModule,
     KeyValuePipe,
     FullCalendarModule,
-    ModalComponent
+    DialogModule,
+    ButtonModule,
+    InputTextModule,
+    DatePickerModule,
+    RadioButtonModule,
+    FluidModule
   ],
   templateUrl: './calendar.component.html',
   styles: ``
@@ -73,6 +86,7 @@ export class CalendarComponent implements OnInit {
     this.calendarOptions = {
       plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
+      locale: esLocale,
       headerToolbar: {
         left: 'prev,next addEventButton',
         center: 'title',
@@ -84,7 +98,7 @@ export class CalendarComponent implements OnInit {
       eventClick: (info) => this.handleEventClick(info),
       customButtons: {
         addEventButton: {
-          text: 'Add Event +',
+          text: 'Agregar Evento +',
           click: () => this.openModal()
         }
       },

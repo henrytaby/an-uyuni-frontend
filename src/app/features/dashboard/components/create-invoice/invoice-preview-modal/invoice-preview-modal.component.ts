@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
-import { ModalComponent } from '../../../../../shared/components/ui/modal/modal.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-invoice-preview-modal',
   imports: [
-    ButtonComponent,
-    ModalComponent,
+    DialogModule,
+    ButtonModule
   ],
   templateUrl: './invoice-preview-modal.component.html',
   styles: ``

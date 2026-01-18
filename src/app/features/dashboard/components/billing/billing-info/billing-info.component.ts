@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { ModalComponent } from '../../../../../shared/components/ui/modal/modal.component';
-import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-billing-info',
   imports: [
-    ModalComponent,
-    ButtonComponent,
+    DialogModule,
+    ButtonModule,
   ],
   templateUrl: './billing-info.component.html',
   host: {

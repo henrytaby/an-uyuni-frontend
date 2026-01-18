@@ -340,6 +340,37 @@
   @apply text-xs leading-tight;
 }
 
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-200 rounded-full transition-colors;
+
+    @variant dark {
+      @apply bg-gray-800;
+    }
+
+    &:hover {
+      @apply bg-gray-300;
+      @variant dark {
+        @apply bg-gray-700;
+      }
+    }
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @utility menu-item-icon-inactive {
   @apply text-gray-500 group-hover:text-gray-700;
 

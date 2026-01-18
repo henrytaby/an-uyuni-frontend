@@ -1,14 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { GridShapeComponent } from '../../../../shared/components/common/grid-shape/grid-shape.component';
 import { RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'app-not-found',
   standalone: true,
   imports: [
-    GridShapeComponent,
     RouterModule,
+    ButtonModule,
+    RippleModule
   ],
   templateUrl: './not-found.component.html',
   styles: ``

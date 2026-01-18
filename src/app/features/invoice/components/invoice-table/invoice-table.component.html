@@ -29,19 +29,19 @@
       <thead class="bg-gray-50 dark:bg-gray-900">
         <tr class="border-b border-gray-100 dark:border-gray-800">
           <th class="px-5 py-3 text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            S.No.#
+            Nº
           </th>
           <th class="px-5 py-3 text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-            Products
+            Producto
           </th>
           <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Quantity
+            Cantidad
           </th>
           <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Unit Cost
+            Costo Unitario
           </th>
           <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Discount
+            Descuento
           </th>
           <th class="px-5 py-3 text-right text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
             Total
@@ -50,26 +50,26 @@
       </thead>
       <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
         @for (row of rows; track $index) {
-          <tr>
-            <td class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400">
-              {{ row.sno }}
-            </td>
-            <td class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90">
-              {{ row.product }}
-            </td>
-            <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-              {{ row.qty }}
-            </td>
-            <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-              {{ row.unitCost }}
-            </td>
-            <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-              {{ row.discount }}
-            </td>
-            <td class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400">
-              {{ row.total }}
-            </td>
-          </tr>
+        <tr>
+          <td class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400">
+            {{ row.sno }}
+          </td>
+          <td class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90">
+            {{ row.product }}
+          </td>
+          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
+            {{ row.qty }}
+          </td>
+          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
+            {{ row.unitCost }}
+          </td>
+          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
+            {{ row.discount }}
+          </td>
+          <td class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400">
+            {{ row.total }}
+          </td>
+        </tr>
         }
       </tbody>
     </table>

@@ -1,5 +1,5 @@
 <div>
-  <app-page-breadcrumb pageTitle="Form Elements" />
+  <app-page-breadcrumb pageTitle="Elementos de Formulario" />
 
   <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
 
@@ -7,26 +7,26 @@
     <div class="space-y-6">
       <!-- Input Text -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Input Fields</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Campos de Entrada</h4>
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2">
-            <label for="default-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">Default
-              Input</label>
-            <input pInputText id="default-input" type="text" [(ngModel)]="textValue" placeholder="Typed Input"
+            <label for="default-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">Entrada
+              Predeterminada</label>
+            <input pInputText id="default-input" type="text" [(ngModel)]="textValue" placeholder="Escribe aquí..."
               fluid="true" />
           </div>
 
           <div class="flex flex-col gap-2">
-            <label for="disabled-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">Disabled
-              Input</label>
-            <input pInputText id="disabled-input" type="text" disabled placeholder="Disabled input" fluid="true" />
+            <label for="disabled-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">Entrada
+              Deshabilitada</label>
+            <input pInputText id="disabled-input" type="text" disabled placeholder="Deshabilitado" fluid="true" />
           </div>
 
           <div class="flex flex-col gap-2">
-            <label for="icon-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">With Icon</label>
+            <label for="icon-input" class="text-sm font-medium text-gray-700 dark:text-gray-400">Con Ícono</label>
             <p-iconfield>
               <p-inputicon styleClass="pi pi-search" />
-              <input id="icon-input" type="text" pInputText placeholder="Search" fluid="true" />
+              <input id="icon-input" type="text" pInputText placeholder="Buscar..." fluid="true" />
             </p-iconfield>
           </div>
         </div>
@@ -34,46 +34,46 @@
 
       <!-- Text Area -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Text Area</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Área de Texto</h4>
         <div class="flex flex-col gap-2">
-          <label for="description" class="text-sm font-medium text-gray-700 dark:text-gray-400">Description</label>
+          <label for="description" class="text-sm font-medium text-gray-700 dark:text-gray-400">Descripción</label>
           <textarea id="description" rows="5" pTextarea [(ngModel)]="textareaValue" [autoResize]="true"
-            placeholder="Enter your message..." fluid="true"></textarea>
+            placeholder="Escribe tu mensaje..." fluid="true"></textarea>
         </div>
       </div>
 
       <!-- Selects -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Select Inputs</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Selectores</h4>
         <div class="flex flex-col gap-4">
           <div class="flex flex-col gap-2">
-            <label for="city-select" class="text-sm font-medium text-gray-700 dark:text-gray-400">Single
-              Selection</label>
+            <label for="city-select" class="text-sm font-medium text-gray-700 dark:text-gray-400">Selección
+              Única</label>
             <p-select inputId="city-select" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"
-              placeholder="Select a City" styleClass="w-full" />
+              placeholder="Selecciona una Ciudad" styleClass="w-full" />
           </div>
           <div class="flex flex-col gap-2">
-            <label for="disabled-select" class="text-sm font-medium text-gray-700 dark:text-gray-400">Disabled
-              Select</label>
-            <p-select inputId="disabled-select" [disabled]="true" placeholder="Disabled Selection"
+            <label for="disabled-select" class="text-sm font-medium text-gray-700 dark:text-gray-400">Selector
+              Deshabilitado</label>
+            <p-select inputId="disabled-select" [disabled]="true" placeholder="Selección Deshabilitada"
               styleClass="w-full" />
           </div>
         </div>
       </div>
       <!-- Input Groups -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Input Groups</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Grupos de Entrada</h4>
         <div class="flex flex-col gap-4">
           <p-inputgroup>
             <p-inputgroup-addon>
               <i class="pi pi-user"></i>
             </p-inputgroup-addon>
-            <input pInputText placeholder="Username" aria-label="Username" />
+            <input pInputText placeholder="Nombre de usuario" aria-label="Nombre de usuario" />
           </p-inputgroup>
 
           <p-inputgroup>
             <p-inputgroup-addon>$</p-inputgroup-addon>
-            <input pInputText placeholder="Price" aria-label="Price" />
+            <input pInputText placeholder="Precio" aria-label="Precio" />
             <p-inputgroup-addon>.00</p-inputgroup-addon>
           </p-inputgroup>
         </div>
@@ -85,23 +85,23 @@
 
       <!-- Date Picker -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Date Picker</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Selector de Fecha</h4>
         <div class="flex flex-col gap-2">
-          <label for="date-picker" class="text-sm font-medium text-gray-700 dark:text-gray-400">Pick a Date</label>
-          <p-datepicker inputId="date-picker" [(ngModel)]="dateValue" [showIcon]="true" placeholder="yyyy-mm-dd"
+          <label for="date-picker" class="text-sm font-medium text-gray-700 dark:text-gray-400">Elige una Fecha</label>
+          <p-datepicker inputId="date-picker" [(ngModel)]="dateValue" [showIcon]="true" placeholder="dd/mm/aaaa"
             styleClass="w-full" appendTo="body" />
         </div>
       </div>
 
       <!-- File Upload -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">File Upload</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Subida de Archivos</h4>
         <p-fileupload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" [multiple]="true" accept="image/*"
-          maxFileSize="1000000" mode="advanced">
+          maxFileSize="1000000" mode="advanced" chooseLabel="Elegir" uploadLabel="Subir" cancelLabel="Cancelar">
           <ng-template pTemplate="empty">
             <div class="flex flex-col items-center justify-center gap-2 p-2">
               <i class="pi pi-cloud-upload text-4xl text-gray-400"></i>
-              <p class="text-gray-500">Drag and drop files here to upload.</p>
+              <p class="text-gray-500">Arrastra y suelta archivos aquí para subir.</p>
             </div>
           </ng-template>
         </p-fileupload>
@@ -109,45 +109,45 @@
 
       <!-- Checkboxes & Radios -->
       <div class="p-6 bg-white border border-gray-100 rounded-2xl dark:bg-gray-900 dark:border-gray-800">
-        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Checkboxes & Radios</h4>
+        <h4 class="mb-5 text-lg font-semibold text-gray-800 dark:text-white/90">Casillas y Radios</h4>
 
         <div class="flex flex-col gap-6">
           <!-- Checkboxes -->
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Checkbox</span>
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Casilla de Verificación</span>
             <div class="flex gap-4">
               <div class="flex items-center gap-2">
                 <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary" />
-                <label for="binary" class="cursor-pointer text-gray-600 dark:text-gray-400">Accept Terms</label>
+                <label for="binary" class="cursor-pointer text-gray-600 dark:text-gray-400">Aceptar Términos</label>
               </div>
               <div class="flex items-center gap-2">
                 <p-checkbox [disabled]="true" [binary]="true" inputId="disabled-check" />
-                <label for="disabled-check" class="text-gray-400">Disabled</label>
+                <label for="disabled-check" class="text-gray-400">Deshabilitado</label>
               </div>
             </div>
           </div>
 
           <!-- Radios -->
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Radio Button</span>
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Botón de Radio</span>
             <div class="flex gap-4">
               <div class="flex items-center gap-2">
                 <p-radiobutton name="group1" value="Option 1" [(ngModel)]="selectedOption" inputId="opt1" />
-                <label for="opt1" class="cursor-pointer text-gray-600 dark:text-gray-400">Option 1</label>
+                <label for="opt1" class="cursor-pointer text-gray-600 dark:text-gray-400">Opción 1</label>
               </div>
               <div class="flex items-center gap-2">
                 <p-radiobutton name="group1" value="Option 2" [(ngModel)]="selectedOption" inputId="opt2" />
-                <label for="opt2" class="cursor-pointer text-gray-600 dark:text-gray-400">Option 2</label>
+                <label for="opt2" class="cursor-pointer text-gray-600 dark:text-gray-400">Opción 2</label>
               </div>
             </div>
           </div>
 
           <!-- Toggle Switch -->
           <div class="flex flex-col gap-2">
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Toggle Switch</span>
+            <span class="text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">Interruptor</span>
             <div class="flex gap-4">
-              <p-toggleswitch [(ngModel)]="toggleValue" inputId="toggle1" aria-label="Toggle Switch" />
-              <p-toggleswitch [disabled]="true" inputId="toggle2" aria-label="Disabled Toggle" />
+              <p-toggleswitch [(ngModel)]="toggleValue" inputId="toggle1" aria-label="Interruptor" />
+              <p-toggleswitch [disabled]="true" inputId="toggle2" aria-label="Interruptor Deshabilitado" />
             </div>
           </div>
         </div>

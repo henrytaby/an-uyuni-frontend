@@ -50,11 +50,11 @@ export class FormsOverviewComponent {
   // Selects
   selectedCity: string | null = null;
   cities = [
-      { name: 'New York', code: 'NY' },
-      { name: 'Rome', code: 'RM' },
-      { name: 'London', code: 'LDN' },
-      { name: 'Istanbul', code: 'IST' },
-      { name: 'Paris', code: 'PRS' }
+      { name: 'Nueva York', code: 'NY' },
+      { name: 'Roma', code: 'RM' },
+      { name: 'Londres', code: 'LDN' },
+      { name: 'Estambul', code: 'IST' },
+      { name: 'París', code: 'PRS' }
   ];
 
   // Checkboxes

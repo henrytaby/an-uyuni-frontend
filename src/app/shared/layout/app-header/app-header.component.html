@@ -5,9 +5,9 @@
       <button
         class="items-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-40 dark:border-gray-800 flex dark:text-gray-400 lg:h-10 lg:w-10 xl:border"
         [ngClass]="{
-          'bg-gray-100 dark:bg-white/[0.03]': isMobileOpen$ | async
+          'bg-gray-100 dark:bg-white/[0.03]': isMobileOpen()
         }" (click)="handleToggle()" aria-label="Toggle Sidebar">
-        @if (isMobileOpen$ | async) {
+        @if (isMobileOpen()) {
         <i class="pi pi-times text-xl"></i>
         } @else {
         <i class="pi pi-bars text-xl"></i>

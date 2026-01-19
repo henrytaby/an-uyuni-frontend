@@ -4,9 +4,9 @@
     <app-backdrop></app-backdrop>
   </div>
   <div class="flex-1 transition-all duration-300 ease-in-out" [ngClass]="{
-        'xl:ml-(--sidebar-width)': (isExpanded$ | async) || (isHovered$ | async),
-        'xl:ml-(--sidebar-collapsed-width)': (isExpanded$ | async) === false && (isHovered$ | async) === false,
-        'ml-0': (isMobileOpen$ | async)
+        'xl:ml-(--sidebar-width)': isExpanded() || isHovered(),
+        'xl:ml-(--sidebar-collapsed-width)': !isExpanded() && !isHovered(),
+        'ml-0': isMobileOpen()
       }">
     <!-- app header start -->
     <app-header />

@@ -21,7 +21,7 @@ import { AppHeaderComponent } from '../app-header/app-header.component';
 export class AppLayoutComponent {
   private sidebarService = inject(SidebarService);
 
-  readonly isExpanded$ = this.sidebarService.isExpanded$;
-  readonly isHovered$ = this.sidebarService.isHovered$;
-  readonly isMobileOpen$ = this.sidebarService.isMobileOpen$;
+  readonly isExpanded = this.sidebarService.isExpanded;
+  readonly isHovered = this.sidebarService.isHovered;
+  readonly isMobileOpen = this.sidebarService.isMobileOpen;
 }

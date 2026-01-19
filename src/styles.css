@@ -87,6 +87,19 @@
   --color-gray-950: #0c111d;
   --color-gray-dark: #1a2231;
 
+  --animate-dropdown-in: dropdown-in 0.2s ease-out;
+
+  @keyframes dropdown-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   --color-orange-25: #fffaf5;
   --color-orange-50: #fff6ed;
   --color-orange-100: #ffead5;

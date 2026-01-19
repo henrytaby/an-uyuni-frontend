@@ -31,7 +31,7 @@ export class AppHeaderComponent {
   roleSearchQuery = signal('');
 
   public sidebarService = inject(SidebarService);
-  readonly isMobileOpen$ = this.sidebarService.isMobileOpen$;
+  readonly isMobileOpen = this.sidebarService.isMobileOpen;
 
   roles = signal<UserRole[]>([
     { label: 'Administrador', value: 'admin', icon: 'pi pi-shield', description: 'Acceso total al sistema' },

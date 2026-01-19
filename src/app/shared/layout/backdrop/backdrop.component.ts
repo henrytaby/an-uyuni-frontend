@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 export class BackdropComponent {
   private sidebarService = inject(SidebarService);
-  readonly isMobileOpen$ = this.sidebarService.isMobileOpen$;
+  readonly isMobileOpen = this.sidebarService.isMobileOpen;
 
   closeSidebar() {
     this.sidebarService.setMobileOpen(false);

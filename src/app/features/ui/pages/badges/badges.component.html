@@ -1,88 +1,81 @@
 <div>
-  <app-page-breadcrumb pageTitle="Badges" />
+  <app-page-breadcrumb pageTitle="Etiquetas" />
   <div class="space-y-5 sm:space-y-6">
     <div>
-      <app-component-card title="With Light Background">
+      <app-component-card title="Con Fondo Claro (Estilo Por Defecto)">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <!-- Light Variant -->
-          <div><app-badge variant="light" color="primary"> Primary </app-badge></div>
-          <div><app-badge variant="light" color="success"> Success </app-badge></div>
-          <div><app-badge variant="light" color="error"> Error </app-badge></div>
-          <div><app-badge variant="light" color="warning"> Warning </app-badge></div>
-          <div><app-badge variant="light" color="info"> Info </app-badge></div>
-          <div><app-badge variant="light" color="light"> Light </app-badge></div>
-          <div><app-badge variant="light" color="dark"> Dark </app-badge></div>
+          <!-- Utilizing severity for colors. 'light' implies subtle usually, but p-tag is solid by default in many themes. -->
+          <!-- We will use severity mapping. -->
+          <p-tag severity="info" value="Primario" />
+          <p-tag severity="success" value="Éxito" />
+          <p-tag severity="danger" value="Error" />
+          <p-tag severity="warn" value="Advertencia" />
+          <p-tag severity="info" value="Info" />
+          <p-tag severity="secondary" value="Claro" />
+          <p-tag severity="contrast" value="Oscuro" />
         </div>
       </app-component-card>
     </div>
 
     <div>
-      <app-component-card title="With Solid Background">
+      <app-component-card title="Redondeado">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <!-- Light Variant -->
-          <div><app-badge variant="solid" color="primary"> Primary </app-badge></div>
-          <div><app-badge variant="solid" color="success"> Success </app-badge></div>
-          <div><app-badge variant="solid" color="error"> Error </app-badge></div>
-          <div><app-badge variant="solid" color="warning"> Warning </app-badge></div>
-          <div><app-badge variant="solid" color="info"> Info </app-badge></div>
-          <div><app-badge variant="solid" color="light"> Light </app-badge></div>
-          <div><app-badge variant="solid" color="dark"> Dark </app-badge></div>
+          <p-tag severity="info" value="Primario" [rounded]="true" />
+          <p-tag severity="success" value="Éxito" [rounded]="true" />
+          <p-tag severity="danger" value="Error" [rounded]="true" />
+          <p-tag severity="warn" value="Advertencia" [rounded]="true" />
+          <p-tag severity="info" value="Info" [rounded]="true" />
+          <p-tag severity="secondary" value="Claro" [rounded]="true" />
+          <p-tag severity="contrast" value="Oscuro" [rounded]="true" />
         </div>
       </app-component-card>
     </div>
 
     <div>
-      <app-component-card title="Light Background with Left Icon">
+      <app-component-card title="Con Icono a la Izquierda">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <div><app-badge variant="light" color="primary" [startIcon]="plusIcon">Primary</app-badge></div>
-          <div><app-badge variant="light" color="success" [startIcon]="plusIcon">Success</app-badge></div>
-          <div><app-badge variant="light" color="error" [startIcon]="plusIcon">Error</app-badge></div>
-          <div><app-badge variant="light" color="warning" [startIcon]="plusIcon">Warning</app-badge></div>
-          <div><app-badge variant="light" color="info" [startIcon]="plusIcon">Info</app-badge></div>
-          <div><app-badge variant="light" color="light" [startIcon]="plusIcon">Light</app-badge></div>
-          <div><app-badge variant="light" color="dark" [startIcon]="plusIcon">Dark</app-badge></div>
+          <p-tag severity="info" value="Primario" icon="pi pi-plus" />
+          <p-tag severity="success" value="Éxito" icon="pi pi-plus" />
+          <p-tag severity="danger" value="Error" icon="pi pi-plus" />
+          <p-tag severity="warn" value="Advertencia" icon="pi pi-plus" />
+          <p-tag severity="info" value="Info" icon="pi pi-plus" />
+          <p-tag severity="secondary" value="Claro" icon="pi pi-plus" />
+          <p-tag severity="contrast" value="Oscuro" icon="pi pi-plus" />
         </div>
       </app-component-card>
     </div>
 
     <div>
-      <app-component-card title="Solid Background with Left Icon">
+      <app-component-card title="Con Icono a la Derecha">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <div><app-badge variant="solid" color="primary" [startIcon]="plusIcon">Primary</app-badge></div>
-          <div><app-badge variant="solid" color="success" [startIcon]="plusIcon">Success</app-badge></div>
-          <div><app-badge variant="solid" color="error" [startIcon]="plusIcon">Error</app-badge></div>
-          <div><app-badge variant="solid" color="warning" [startIcon]="plusIcon">Warning</app-badge></div>
-          <div><app-badge variant="solid" color="info" [startIcon]="plusIcon">Info</app-badge></div>
-          <div><app-badge variant="solid" color="light" [startIcon]="plusIcon">Light</app-badge></div>
-          <div><app-badge variant="solid" color="dark" [startIcon]="plusIcon">Dark</app-badge></div>
-        </div>
-      </app-component-card>
-    </div>
-
-    <div>
-      <app-component-card title="Light Background with Right Icon">
-        <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <div><app-badge variant="light" color="primary" [endIcon]="plusIcon">Primary</app-badge></div>
-          <div><app-badge variant="light" color="success" [endIcon]="plusIcon">Success</app-badge></div>
-          <div><app-badge variant="light" color="error" [endIcon]="plusIcon">Error</app-badge></div>
-          <div><app-badge variant="light" color="warning" [endIcon]="plusIcon">Warning</app-badge></div>
-          <div><app-badge variant="light" color="info" [endIcon]="plusIcon">Info</app-badge></div>
-          <div><app-badge variant="light" color="light" [endIcon]="plusIcon">Light</app-badge></div>
-          <div><app-badge variant="light" color="dark" [endIcon]="plusIcon">Dark</app-badge></div>
-        </div>
-      </app-component-card>
-    </div>
-
-    <div>
-      <app-component-card title="Solid Background with Right Icon">
-        <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
-          <div><app-badge variant="solid" color="primary" [endIcon]="plusIcon">Primary</app-badge></div>
-          <div><app-badge variant="solid" color="success" [endIcon]="plusIcon">Success</app-badge></div>
-          <div><app-badge variant="solid" color="error" [endIcon]="plusIcon">Error</app-badge></div>
-          <div><app-badge variant="solid" color="warning" [endIcon]="plusIcon">Warning</app-badge></div>
-          <div><app-badge variant="solid" color="info" [endIcon]="plusIcon">Info</app-badge></div>
-          <div><app-badge variant="solid" color="light" [endIcon]="plusIcon">Light</app-badge></div>
-          <div><app-badge variant="solid" color="dark" [endIcon]="plusIcon">Dark</app-badge></div>
+          <p-tag severity="info">
+            <span class="text-base">Primario</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="success">
+            <span class="text-base">Éxito</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="danger">
+            <span class="text-base">Error</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="warn">
+            <span class="text-base">Advertencia</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="info">
+            <span class="text-base">Info</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="secondary">
+            <span class="text-base">Claro</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
+          <p-tag severity="contrast">
+            <span class="text-base">Oscuro</span>
+            <i class="pi pi-plus ml-2 text-xs"></i>
+          </p-tag>
         </div>
       </app-component-card>
     </div>

@@ -1,12 +1,11 @@
-
 import { Component } from '@angular/core';
-import { BadgeComponent } from '../../../../shared/components/ui/badge/badge.component';
+import { TagModule } from 'primeng/tag';
 import { TableDropdownComponent } from '../../../../shared/components/common/table-dropdown/table-dropdown.component';
 
 @Component({
   selector: 'app-basic-table-four',
   imports: [
-    BadgeComponent,
+    TagModule,
     TableDropdownComponent
 ],
   templateUrl: './basic-table-four.component.html',
@@ -103,5 +102,11 @@ export class BasicTableFourComponent {
   handleDelete() {
     console.log('Delete clicked');
     // Add your delete logic here
+  }
+
+  getBadgeColor(status: string): 'success' | 'warn' | 'danger' {
+    if (status === 'Success') return 'success';
+    if (status === 'Pending') return 'warn';
+    return 'danger';
   }
 }

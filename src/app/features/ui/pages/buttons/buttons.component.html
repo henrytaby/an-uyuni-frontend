@@ -1,74 +1,59 @@
 <div>
-  <app-page-breadcrumb pageTitle="Buttons" />
+  <app-page-breadcrumb pageTitle="Botones" />
   <div class="space-y-5 sm:space-y-6">
     <!-- Primary Button  -->
     <div>
-      <app-component-card title="Primary Button">
+      <app-component-card title="Botón Primario">
         <div class="flex items-center gap-5">
-          <app-button size="sm" variant="primary"> Button Text </app-button>
-          <app-button size="md" variant="primary"> Button Text </app-button>
+          <p-button label="Texto de Botón" size="small" />
+          <p-button label="Texto de Botón" />
         </div>
       </app-component-card>
     </div>
     <!-- Primary Button with Start Icon -->
     <div>
-      <app-component-card title="Primary Button with Left Icon">
+      <app-component-card title="Botón Primario con Icono Izquierdo">
         <div class="flex items-center gap-5">
-          <app-button size="sm" variant="primary" [startIcon]="boxIcon">
-            Button Text
-          </app-button>
-          <app-button size="md" variant="primary" [startIcon]="boxIcon">
-            Button Text
-          </app-button>
+          <p-button label="Texto de Botón" icon="pi pi-box" size="small" />
+          <p-button label="Texto de Botón" icon="pi pi-box" />
         </div>
       </app-component-card>
     </div>
     <!-- Primary Button with Start Icon -->
     <div>
-      <app-component-card title="Primary Button with Right Icon">
+      <app-component-card title="Botón Primario con Icono Derecho">
         <div class="flex items-center gap-5">
-          <app-button size="sm" variant="primary" [endIcon]="boxIcon">
-            Button Text
-          </app-button>
-          <app-button size="md" variant="primary" [endIcon]="boxIcon">
-            Button Text
-          </app-button>
+          <p-button label="Texto de Botón" icon="pi pi-box" iconPos="right" size="small" />
+          <p-button label="Texto de Botón" icon="pi pi-box" iconPos="right" />
         </div>
       </app-component-card>
     </div>
     <!-- Outline Button -->
     <div>
-      <app-component-card title="Secondary Button">
+      <app-component-card title="Botón Secundario (Outline)">
         <div class="flex items-center gap-5">
           <!-- Outline Button -->
-          <app-button size="sm" variant="outline"> Button Text </app-button>
-          <app-button size="md" variant="outline"> Button Text </app-button>
+          <p-button label="Texto de Botón" variant="outlined" severity="secondary" size="small" />
+          <p-button label="Texto de Botón" variant="outlined" severity="secondary" />
         </div>
       </app-component-card>
     </div>
     <!-- Outline Button with Start Icon -->
     <div>
-      <app-component-card title="Outline Button with Left Icon">
+      <app-component-card title="Botón Secundario con Icono Izquierdo">
         <div class="flex items-center gap-5">
-          <app-button size="sm" variant="outline" [startIcon]="boxIcon">
-            Button Text
-          </app-button>
-          <app-button size="md" variant="outline" [startIcon]="boxIcon">
-            Button Text
-          </app-button>
+          <p-button label="Texto de Botón" icon="pi pi-box" variant="outlined" severity="secondary" size="small" />
+          <p-button label="Texto de Botón" icon="pi pi-box" variant="outlined" severity="secondary" />
         </div>
       </app-component-card>
     </div>
     <!-- Outline Button with Start Icon -->
     <div>
-      <app-component-card title="Outline Button with Right Icon">
+      <app-component-card title="Botón Secundario con Icono Derecho">
         <div class="flex items-center gap-5">
-          <app-button size="sm" variant="outline" [endIcon]="boxIcon">
-            Button Text
-          </app-button>
-          <app-button size="md" variant="outline" [endIcon]="boxIcon">
-            Button Text
-          </app-button>
+          <p-button label="Texto de Botón" icon="pi pi-box" iconPos="right" variant="outlined" severity="secondary"
+            size="small" />
+          <p-button label="Texto de Botón" icon="pi pi-box" iconPos="right" variant="outlined" severity="secondary" />
         </div>
       </app-component-card>
     </div>

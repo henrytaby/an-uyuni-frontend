@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { AvatarComponent } from '../../../../shared/components/ui/avatar/avatar.component';
+import { AvatarModule } from 'primeng/avatar';
 import { ComponentCardComponent } from '../../../../shared/components/common/component-card/component-card.component';
 import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
+import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-avatar-element',
   imports: [
-    AvatarComponent,
+    AvatarModule,
     ComponentCardComponent,
-    PageBreadcrumbComponent
+    PageBreadcrumbComponent,
+    BadgeModule
   ],
   templateUrl: './avatar-element.component.html',
   styles: ``

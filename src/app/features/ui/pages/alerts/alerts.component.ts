@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { AlertComponent } from '../../components/alert/alert.component';
 import { ComponentCardComponent } from '../../../../shared/components/common/component-card/component-card.component';
 import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-alerts',
   imports: [
-    AlertComponent,
     ComponentCardComponent,
     PageBreadcrumbComponent,
+    CommonModule
   ],
   templateUrl: './alerts.component.html',
   styles: ``

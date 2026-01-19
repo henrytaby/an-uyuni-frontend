@@ -15,27 +15,27 @@ export const routes: Routes = [
   {
     path: 'alerts',
     component: AlertsComponent,
-    data: { title: 'Alerts' }
+    data: { title: 'Alertas' }
   },
   {
     path: 'avatars',
     component: AvatarElementComponent,
-    data: { title: 'Avatars' }
+    data: { title: 'Avatares' }
   },
   {
     path: 'badge',
     component: BadgesComponent,
-    data: { title: 'Badges' }
+    data: { title: 'Etiquetas' }
   },
   {
     path: 'buttons',
     component: ButtonsComponent,
-    data: { title: 'Buttons' }
+    data: { title: 'Botones' }
   },
   {
     path: 'images',
     component: ImagesComponent,
-    data: { title: 'Images' }
+    data: { title: 'Imágenes' }
   },
   {
     path: 'videos',

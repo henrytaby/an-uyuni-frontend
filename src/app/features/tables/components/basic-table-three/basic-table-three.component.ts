@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
+import { ButtonModule } from 'primeng/button';
 import { TableDropdownComponent } from '../../../../shared/components/common/table-dropdown/table-dropdown.component';
-import { BadgeComponent } from '../../../../shared/components/ui/badge/badge.component';
+import { TagModule } from 'primeng/tag';
 
 interface Transaction {
   image: string;
@@ -17,9 +17,9 @@ interface Transaction {
   selector: 'app-basic-table-three',
   imports: [
     CommonModule,
-    ButtonComponent,
+    ButtonModule,
     TableDropdownComponent,
-    BadgeComponent,
+    TagModule,
   ],
   templateUrl: './basic-table-three.component.html',
   styles: ``
@@ -180,9 +180,9 @@ export class BasicTableThreeComponent {
     console.log('Delete:', item);
   }
 
-  getBadgeColor(status: string): 'success' | 'warning' | 'error' {
+  getBadgeColor(status: string): 'success' | 'warn' | 'danger' {
     if (status === 'Success') return 'success';
-    if (status === 'Pending') return 'warning';
-    return 'error';
+    if (status === 'Pending') return 'warn';
+    return 'danger';
   }
 }

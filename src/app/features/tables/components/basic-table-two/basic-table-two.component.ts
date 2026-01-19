@@ -1,13 +1,13 @@
 
 import { Component } from '@angular/core';
-import { BadgeComponent } from '../../../../shared/components/ui/badge/badge.component';
+import { TagModule } from 'primeng/tag';
 import { AvatarTextComponent } from '../../../../shared/components/ui/avatar/avatar-text.component';
 import { CheckboxComponent } from '../../../../shared/components/form/input/checkbox.component';
 
 @Component({
   selector: 'app-basic-table-two',
   imports: [
-    BadgeComponent,
+    TagModule,
     AvatarTextComponent,
     CheckboxComponent
 ],
@@ -79,9 +79,9 @@ export class BasicTableTwoComponent {
     }
   }
 
-  getBadgeColor(type: string): 'success' | 'warning' | 'error' {
+  getBadgeColor(type: string): 'success' | 'warn' | 'danger' {
     if (type === 'Complete') return 'success';
-    if (type === 'Pending') return 'warning';
-    return 'error';
+    if (type === 'Pending') return 'warn';
+    return 'danger';
   }
 }

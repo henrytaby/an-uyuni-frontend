@@ -1,11 +1,10 @@
-
 import { Component } from '@angular/core';
-import { BadgeComponent } from '../../../../shared/components/ui/badge/badge.component';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-basic-table-one',
   imports: [
-    BadgeComponent
+    TagModule
 ],
   templateUrl: './basic-table-one.component.html',
   styles: ``
@@ -97,9 +96,9 @@ export class BasicTableOneComponent {
     },
   ];
 
-  getBadgeColor(status: string): 'success' | 'warning' | 'error' {
+  getBadgeColor(status: string): 'success' | 'warn' | 'danger' {
     if (status === 'Active') return 'success';
-    if (status === 'Pending') return 'warning';
-    return 'error';
+    if (status === 'Pending') return 'warn';
+    return 'danger';
   }
 }

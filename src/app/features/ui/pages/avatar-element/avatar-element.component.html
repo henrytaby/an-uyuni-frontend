@@ -1,117 +1,41 @@
-<app-page-breadcrumb pageTitle="Avatars" />
+<app-page-breadcrumb pageTitle="Avatares" />
 <div class="space-y-5 sm:space-y-6">
   <div>
-    <app-component-card title="Default Avatar">
-      <div class="flex flex-col items-center justify-center gap-5 sm:flex-row">
-        <app-avatar src="/images/user/user-01.jpg" size="xsmall" />
-        <app-avatar src="/images/user/user-01.jpg" size="small" />
-        <app-avatar src="/images/user/user-01.jpg" size="medium" />
-        <app-avatar src="/images/user/user-01.jpg" size="large" />
-        <app-avatar src="/images/user/user-01.jpg" size="xlarge" />
-        <app-avatar src="/images/user/user-01.jpg" size="xxlarge" />
+    <app-component-card title="Avatares Predeterminados">
+      <div class="flex flex-wrap items-end gap-5">
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" styleClass="w-6 h-6" />
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" styleClass="w-8 h-8" />
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" size="normal" />
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" size="large" />
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" size="xlarge" />
+        <p-avatar image="/images/user/user-01.jpg" shape="circle" styleClass="w-24 h-24" />
       </div>
     </app-component-card>
   </div>
 
   <div>
-    <app-component-card title="Avatar with online indicator">
-      <div class="flex flex-col items-center justify-center gap-5 sm:flex-row">
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xsmall"
-          status="online"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="small"
-          status="online"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="medium"
-          status="online"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="large"
-          status="online"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xlarge"
-          status="online"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xxlarge"
-          status="online"
-        />
-      </div>
-    </app-component-card>
-  </div>
+    <app-component-card title="Avatares con Indicadores">
+      <div class="flex flex-wrap items-end gap-5">
+        <!-- Online -->
+        <div class="relative">
+          <p-avatar image="/images/user/user-01.jpg" shape="circle" size="large" />
+          <span
+            class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full"></span>
+        </div>
 
-  <div>
-    <app-component-card title="Avatar with Offline indicator">
-      <div class="flex flex-col items-center justify-center gap-5 sm:flex-row">
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xsmall"
-          status="offline"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="small"
-          status="offline"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="medium"
-          status="offline"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="large"
-          status="offline"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xlarge"
-          status="offline"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xxlarge"
-          status="offline"
-        />
-      </div>
-    </app-component-card>
-  </div>
+        <!-- Offline -->
+        <div class="relative">
+          <p-avatar image="/images/user/user-01.jpg" shape="circle" size="large" />
+          <span
+            class="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+        </div>
 
-  <div>
-    <app-component-card title="Avatar with busy indicator">
-      <div class="flex flex-col items-center justify-center gap-5 sm:flex-row">
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xsmall"
-          status="busy"
-        />
-        <app-avatar src="/images/user/user-01.jpg" size="small" status="busy" />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="medium"
-          status="busy"
-        />
-        <app-avatar src="/images/user/user-01.jpg" size="large" status="busy" />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xlarge"
-          status="busy"
-        />
-        <app-avatar
-          src="/images/user/user-01.jpg"
-          size="xxlarge"
-          status="busy"
-        />
+        <!-- Busy -->
+        <div class="relative">
+          <p-avatar image="/images/user/user-01.jpg" shape="circle" size="large" />
+          <span
+            class="absolute bottom-0 right-0 w-3 h-3 bg-red-500 border-2 border-white dark:border-gray-800 rounded-full"></span>
+        </div>
       </div>
     </app-component-card>
   </div>

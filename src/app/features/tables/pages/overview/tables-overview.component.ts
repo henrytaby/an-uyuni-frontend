@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentCardComponent } from '../../../../shared/components/common/component-card/component-card.component';
+import { CardModule } from 'primeng/card';
 import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
 import { BasicTableOneComponent } from '../../components/basic-table-one/basic-table-one.component';
 import { BasicTableTwoComponent } from '../../components/basic-table-two/basic-table-two.component';
@@ -10,7 +10,7 @@ import { BasicTableFiveComponent } from '../../components/basic-table-five/basic
 @Component({
   selector: 'app-tables-overview',
   imports: [
-    ComponentCardComponent,
+    CardModule,
     PageBreadcrumbComponent,
     BasicTableOneComponent,
     BasicTableTwoComponent,

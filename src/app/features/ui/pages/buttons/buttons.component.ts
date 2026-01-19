@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { ComponentCardComponent } from '../../../../shared/components/common/component-card/component-card.component';
+import { CardModule } from 'primeng/card';
 import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-buttons',
   imports: [
-    ComponentCardComponent,
+    CardModule,
     PageBreadcrumbComponent,
     ButtonModule,
   ],

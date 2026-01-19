@@ -2,7 +2,7 @@
   <app-page-breadcrumb pageTitle="Etiquetas" />
   <div class="space-y-5 sm:space-y-6">
     <div>
-      <app-component-card title="Con Fondo Claro (Estilo Por Defecto)">
+      <p-card header="Con Fondo Claro (Estilo Por Defecto)">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
           <!-- Utilizing severity for colors. 'light' implies subtle usually, but p-tag is solid by default in many themes. -->
           <!-- We will use severity mapping. -->
@@ -14,11 +14,11 @@
           <p-tag severity="secondary" value="Claro" />
           <p-tag severity="contrast" value="Oscuro" />
         </div>
-      </app-component-card>
+      </p-card>
     </div>
 
     <div>
-      <app-component-card title="Redondeado">
+      <p-card header="Redondeado">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
           <p-tag severity="info" value="Primario" [rounded]="true" />
           <p-tag severity="success" value="Éxito" [rounded]="true" />
@@ -28,11 +28,11 @@
           <p-tag severity="secondary" value="Claro" [rounded]="true" />
           <p-tag severity="contrast" value="Oscuro" [rounded]="true" />
         </div>
-      </app-component-card>
+      </p-card>
     </div>
 
     <div>
-      <app-component-card title="Con Icono a la Izquierda">
+      <p-card header="Con Icono a la Izquierda">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
           <p-tag severity="info" value="Primario" icon="pi pi-plus" />
           <p-tag severity="success" value="Éxito" icon="pi pi-plus" />
@@ -42,11 +42,11 @@
           <p-tag severity="secondary" value="Claro" icon="pi pi-plus" />
           <p-tag severity="contrast" value="Oscuro" icon="pi pi-plus" />
         </div>
-      </app-component-card>
+      </p-card>
     </div>
 
     <div>
-      <app-component-card title="Con Icono a la Derecha">
+      <p-card header="Con Icono a la Derecha">
         <div class="flex flex-wrap gap-4 sm:items-center sm:justify-center">
           <p-tag severity="info">
             <span class="text-base">Primario</span>
@@ -77,7 +77,7 @@
             <i class="pi pi-plus ml-2 text-xs"></i>
           </p-tag>
         </div>
-      </app-component-card>
+      </p-card>
     </div>
   </div>
 </div>

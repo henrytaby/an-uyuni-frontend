@@ -1,14 +1,14 @@
 
 import { Component } from '@angular/core';
 import { TagModule } from 'primeng/tag';
-import { AvatarTextComponent } from '../../../../shared/components/ui/avatar/avatar-text.component';
+import { AvatarModule } from 'primeng/avatar';
 import { CheckboxComponent } from '../../../../shared/components/form/input/checkbox.component';
 
 @Component({
   selector: 'app-basic-table-two',
   imports: [
     TagModule,
-    AvatarTextComponent,
+    AvatarModule,
     CheckboxComponent
 ],
   templateUrl: './basic-table-two.component.html',
@@ -83,5 +83,49 @@ export class BasicTableTwoComponent {
     if (type === 'Complete') return 'success';
     if (type === 'Pending') return 'warn';
     return 'danger';
+  }
+
+  getInitials(name: string): string {
+    if (!name) return '';
+    return name
+      .split(' ')
+      .map((word) => word[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  }
+
+  getAvatarColor(name: string): string {
+    const colors = [
+      '#e0e7ff', // brand-100 (approx)
+      '#fce7f3', // pink-100
+      '#cffafe', // cyan-100
+      '#ffedd5', // orange-100
+      '#dcfce7', // green-100
+      '#f3e8ff', // purple-100
+      '#fef9c3', // yellow-100
+      '#fee2e2', // error-100
+    ];
+    const index = name
+      .split('')
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return colors[index % colors.length];
+  }
+
+  getAvatarTextColor(name: string): string {
+    const colors = [
+      '#4338ca', // brand-600 (approx)
+      '#db2777', // pink-600
+      '#0891b2', // cyan-600
+      '#ea580c', // orange-600
+      '#16a34a', // green-600
+      '#9333ea', // purple-600
+      '#ca8a04', // yellow-600
+      '#dc2626', // error-600
+    ];
+    const index = name
+      .split('')
+      .reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    return colors[index % colors.length];
   }
 }

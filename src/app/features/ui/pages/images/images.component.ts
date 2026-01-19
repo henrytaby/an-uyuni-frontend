@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { PageBreadcrumbComponent } from './../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
-import { ComponentCardComponent } from '../../../../shared/components/common/component-card/component-card.component';
+import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
 
 @Component({
   selector: 'app-images',
   imports: [
     PageBreadcrumbComponent,
-    ComponentCardComponent,
+    CardModule,
     ImageModule,
   ],
   templateUrl: './images.component.html',

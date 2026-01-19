@@ -78,7 +78,8 @@
           </td>
           <td class="px-4 sm:px-6 py-3.5">
             <div class="flex items-center gap-3">
-              <app-avatar-text [name]="row.user.name" class="w-10 h-10" />
+              <p-avatar [label]="getInitials(row.user.name)" shape="circle" styleClass="w-10 h-10"
+                [style]="{'background-color': getAvatarColor(row.user.name), 'color': getAvatarTextColor(row.user.name)}" />
               <div>
                 <span class="mb-0.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-400">
                   {{ row.user.name }}

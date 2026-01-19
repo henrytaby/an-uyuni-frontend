@@ -1,14 +1,14 @@
 
 import { Component } from '@angular/core';
 import { InvoiceTableComponent } from '../invoice-table/invoice-table.component';
-import { ButtonComponent } from '../../../../shared/components/ui/button/button.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-invoice-main',
   imports: [
     InvoiceTableComponent,
-    ButtonComponent
-],
+    ButtonModule
+  ],
   templateUrl: './invoice-main.component.html',
   styles: ``
 })

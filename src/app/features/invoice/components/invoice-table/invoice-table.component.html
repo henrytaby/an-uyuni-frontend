@@ -1,77 +1,36 @@
-<!-- <div class="overflow-hidden rounded-2xl border border-gray-100 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
-  <div class="max-w-full overflow-x-auto">
-    <table class="w-full">
-      <thead class="border-b border-gray-100 dark:border-white/[0.05]">
-        <tr>
-          <th class="px-5 py-3 text-sm font-medium text-left text-gray-700 dark:text-gray-400">#</th>
-          <th class="px-5 py-3 text-sm font-medium text-left text-gray-700 dark:text-gray-400">Product</th>
-          <th class="px-5 py-3 text-sm font-medium text-left text-gray-700 dark:text-gray-400">Quantity</th>
-          <th class="px-5 py-3 text-sm font-medium text-left text-gray-700 dark:text-gray-400">Unit Cost</th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-white/[0.05]">
-        @for (item of items; track $index; let i = $index) {
-        <tr>
-          <td class="px-5 py-3.5 text-left text-gray-500 text-sm dark:text-gray-400">{{ i + 1 }}</td>
-          <td class="px-5 py-3.5 text-left text-gray-500 text-sm dark:text-gray-400">{{ item.product }}</td>
-          <td class="px-5 py-3.5 text-left text-gray-500 text-sm dark:text-gray-400">{{ item.quantity }}</td>
-          <td class="px-5 py-3.5 text-left text-gray-500 text-sm dark:text-gray-400">{{ item.unitCost }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
-</div> -->
-
-<div>
-  <div class="overflow-x-auto rounded-xl border border-gray-100 dark:border-gray-800">
-    <table class="min-w-full text-left text-gray-700 dark:text-gray-400">
-      <thead class="bg-gray-50 dark:bg-gray-900">
-        <tr class="border-b border-gray-100 dark:border-gray-800">
-          <th class="px-5 py-3 text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Nº
-          </th>
-          <th class="px-5 py-3 text-xs font-medium whitespace-nowrap text-gray-500 dark:text-gray-400">
-            Producto
-          </th>
-          <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Cantidad
-          </th>
-          <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Costo Unitario
-          </th>
-          <th class="px-5 py-3 text-center text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Descuento
-          </th>
-          <th class="px-5 py-3 text-right text-sm font-medium whitespace-nowrap text-gray-700 dark:text-gray-400">
-            Total
-          </th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-        @for (row of rows; track $index) {
-        <tr>
-          <td class="px-5 py-3 text-sm text-gray-500 dark:text-gray-400">
-            {{ row.sno }}
-          </td>
-          <td class="px-5 py-3 text-sm font-medium text-gray-800 dark:text-white/90">
-            {{ row.product }}
-          </td>
-          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-            {{ row.qty }}
-          </td>
-          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-            {{ row.unitCost }}
-          </td>
-          <td class="px-5 py-3 text-center text-sm text-gray-500 dark:text-gray-400">
-            {{ row.discount }}
-          </td>
-          <td class="px-5 py-3 text-right text-sm text-gray-500 dark:text-gray-400">
-            {{ row.total }}
-          </td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  </div>
+<div class="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800">
+  <p-table [value]="rows()" styleClass="p-datatable-sm" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+      <tr>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+          Nº</th>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+          Producto</th>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 text-center">
+          Cantidad</th>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 text-center">
+          Costo Unit.</th>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 text-center">
+          Descuento</th>
+        <th
+          class="text-sm font-medium text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 text-right">
+          Total</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+      <tr class="border-b border-gray-100 dark:border-gray-800">
+        <td class="text-sm text-gray-500 dark:text-gray-400">{{ item.sno }}</td>
+        <td class="text-sm font-medium text-gray-800 dark:text-white/90">{{ item.product }}</td>
+        <td class="text-sm text-gray-500 dark:text-gray-400 text-center">{{ item.qty }}</td>
+        <td class="text-sm text-gray-500 dark:text-gray-400 text-center">{{ item.unitCost }}</td>
+        <td class="text-sm text-gray-500 dark:text-gray-400 text-center">{{ item.discount }}</td>
+        <td class="text-sm text-gray-500 dark:text-gray-400 text-right">{{ item.total }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

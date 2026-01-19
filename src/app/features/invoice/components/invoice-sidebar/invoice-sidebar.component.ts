@@ -1,17 +1,24 @@
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
+import { InvoiceUser } from '../../models/invoice.model';
 
 @Component({
   selector: 'app-invoice-sidebar',
   imports: [
     CommonModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule
   ],
   templateUrl: './invoice-sidebar.component.html',
   styles: ``
 })
 export class InvoiceSidebarComponent {
 
-  users = [
+  users = signal<InvoiceUser[]>([
     {
       name: 'Zain Geidt',
       id: '#348',
@@ -33,6 +40,6 @@ export class InvoiceSidebarComponent {
       id: '#522',
       image: './images/user/user-34.jpg',
     },
-  ];
+  ]);
 
 }

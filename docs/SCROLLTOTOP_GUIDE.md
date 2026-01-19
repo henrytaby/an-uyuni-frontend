@@ -90,7 +90,7 @@ graph TD
     B --> C[Router resuelve ruta y datos]
     C --> D{Router emite NavigationEnd}
     D --> E[AppLayout detecta evento]
-    E --> F[ViewportScroller.scrollToPosition(0,0)]
+    E --> F["ViewportScroller.scrollToPosition(0,0)"]
     F --> G{Es navegación del historial?}
     G -- Sí --> H[scrollPositionRestoration: 'top' actúa]
     G -- No --> I[Solo scrollToPosition actúa]

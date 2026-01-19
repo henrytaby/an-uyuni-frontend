@@ -6,6 +6,7 @@ import { DropdownItemComponent } from '../../ui/dropdown/dropdown-item/dropdown-
 
 @Component({
   selector: 'app-user-dropdown',
+  standalone: true,
   templateUrl: './user-dropdown.component.html',
   imports:[CommonModule,RouterModule,DropdownComponent,DropdownItemComponent]
 })

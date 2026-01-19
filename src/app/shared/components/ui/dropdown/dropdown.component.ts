@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter, ElementRef, ViewChild, AfterVie
 
 @Component({
   selector: 'app-dropdown',
+  standalone: true,
   templateUrl: './dropdown.component.html',
   imports:[CommonModule]
 })

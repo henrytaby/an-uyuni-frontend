@@ -1,9 +1,5 @@
-@if (to) {
-<a [routerLink]="to" [ngClass]="combinedClasses" (click)="handleClick($event)">
+<div [class]="combinedClasses" (click)="handleClick()" (keydown)="handleKeydown($event)"
+  style="display: flex !important; width: 100%; cursor: pointer;" [attr.role]="to ? 'link' : 'button'"
+  [attr.tabindex]="0">
   <ng-content></ng-content>
-</a>
-} @else {
-<button type="button" [ngClass]="combinedClasses" (click)="handleClick($event)">
-  <ng-content></ng-content>
-</button>
-}
+</div>

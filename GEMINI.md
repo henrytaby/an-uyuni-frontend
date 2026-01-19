@@ -45,6 +45,7 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 13. **Cleanup**: Deleted orphaned `CheckboxComponent`, `CountryMapComponent`, `ChartTabComponent`, and `TableDropdownComponent` to keep the codebase lean.
 14. **Scroll & Loader**: Implemented "Scroll to Top" and a robust **Global Hybrid Loading System** with 300ms debounce (Grace Period), URL-based tracking (preventing race conditions), and auto-reset on navigation.
 15. **Font Self-Hosting**: Migrated Roboto font to local hosting for offline support and reliability.
+16. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`), replacing white flashes with structural placeholders managed by `AppLayout` and `LoadingService`.
 
 
 ## 🧠 AI Persona & Technical Directives

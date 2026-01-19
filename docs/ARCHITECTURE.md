@@ -83,8 +83,10 @@ Contiene componentes, directivas y pipes reutilizables que **no tienen lógica d
 
 -   **`components/ui/`**: Base de UI basada en **PrimeNG** (Button, Dialog, Table, etc).
 -   **`components/form/`**: Inputs personalizados o wrappers de PrimeNG si es necesario.
--   **`components/layout/`**: Estructuras base: `AppSidebar`, `AppHeader` (aunque son layout, son visuales).
+-   **`components/layout/`**: Estructuras base: `AppSidebar`, `AppHeader`, `SkeletonPage`.
 -   **`pipe/`**: Pipes puros (ej. `SafeHtml`).
+
+> ℹ️ **Nota**: Para detalles sobre el sistema de carga, ver **[LOADING_SKELETON_SYSTEM.md](LOADING_SKELETON_SYSTEM.md)**.
 
 ### 📂 `src/app/features` (El Negocio 💼)
 Aquí reside la funcionalidad real de la aplicación, dividida por **Dominios**. Cada carpeta aquí representa una "Feature" completa y aislada.

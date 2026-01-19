@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { SidebarWidgetComponent } from './app-sidebar-widget.component';
+
 import { filter, Subscription } from 'rxjs';
 
 interface NavItem {
@@ -17,8 +17,7 @@ interface NavItem {
   selector: 'app-sidebar',
   imports: [
     CommonModule,
-    RouterModule,
-    SidebarWidgetComponent
+    RouterModule
   ],
   templateUrl: './app-sidebar.component.html',
 })

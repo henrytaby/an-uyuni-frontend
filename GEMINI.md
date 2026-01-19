@@ -37,6 +37,8 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 5. **404 Redesign**: Created a new minimalist and corporate error page in `features/system`.
 6. **Version Configuration**: Updated to Tailwind v4 and ensured compatibility with Angular 21.
 7. **PrimeNG Integration**: Integrated PrimeNG v21 with Aura theme and Tailwind v4 plugin (`tailwindcss-primeui`).
+8. **UI Modernization**: Refactored all UI features (`Alerts`, `Buttons`, `Tables`, `Charts`) to use PrimeNG components exclusively.
+9. **Component Cleanup**: Deleted all legacy custom components (`app-badge`, `app-button`, `app-modal`, etc.) to enforce a single source of truth (PrimeNG).
 
 ## 🧠 AI Persona & Technical Directives
 - **Expert Persona**: Act strictly as an **Expert in UI/UX and Angular Architecture**. Every suggestion must prioritize scalability, performance, and "Enterprise-grade" aesthetics.

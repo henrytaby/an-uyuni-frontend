@@ -4,16 +4,11 @@
       <img src="/images/user/owner.png" alt="User" />
     </span>
     <span class="block mr-1 font-medium text-theme-sm">Henry Taby</span>
-    <svg [ngClass]="{
-        'stroke-gray-500 dark:stroke-gray-400 transition-transform duration-200': true,
-        'rotate-180': isOpen
-      }" width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.3125 8.65625L9 13.3437L13.6875 8.65625" stroke="currentColor" stroke-width="1.5"
-        stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
+    <i class="pi transition-transform duration-200" [class.pi-chevron-down]="!isOpen()" [class.pi-chevron-up]="isOpen()"
+      [class.rotate-180]="isOpen()"></i>
   </button>
 
-  <app-dropdown [isOpen]="isOpen" (closeDropdown)="closeDropdown()"
+  <app-dropdown [isOpen]="isOpen()" (closeDropdown)="closeDropdown()"
     className="absolute right-0 mt-[17px] flex w-[260px] flex-col rounded-2xl border border-gray-200/50 bg-white/90 backdrop-blur-3xl p-3 shadow-theme-lg dark:border-gray-800/50 dark:bg-gray-900/90">
     <div>
       <span class="block font-medium text-gray-700 text-theme-sm dark:text-gray-400">

@@ -9,12 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 
-interface UserRole {
-  label: string;
-  value: string;
-  icon: string;
-  description?: string;
-}
+import { UserRole } from '../../models/user-role.model';
 
 @Component({
   selector: 'app-header',
@@ -31,7 +26,7 @@ interface UserRole {
   templateUrl: './app-header.component.html',
 })
 export class AppHeaderComponent {
-  isApplicationMenuOpen = false;
+  isApplicationMenuOpen = signal(false);
   isRoleModalVisible = signal(false);
   roleSearchQuery = signal('');
 
@@ -69,7 +64,7 @@ export class AppHeaderComponent {
   }
 
   toggleApplicationMenu() {
-    this.isApplicationMenuOpen = !this.isApplicationMenuOpen;
+    this.isApplicationMenuOpen.update(prev => !prev);
   }
 
   showRoleModal() {

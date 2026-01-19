@@ -23,7 +23,7 @@ graph TD
     end
 
     subgraph "Shared (🛠️ Global Utilities)"
-        UIComponents["UI Components (Dumb)"]
+        UIComponents["PrimeNG Components (UI)"]
         Directives[Directivas/Pipes]
         Layouts[Layout Base]
     end
@@ -81,8 +81,8 @@ sequenceDiagram
 ### 📂 `src/app/shared` (La Caja de Herramientas 🛠️)
 Contiene componentes, directivas y pipes reutilizables que **no tienen lógica de negocio específica**. Son "tontos" (Dumb Components) y se pueden usar en cualquier parte.
 
--   **`components/ui/`**: Átomos de interfaz: `Button`, `Badge`, `Modal`, `Alert`, `Dropdown`.
--   **`components/form/`**: Inputs controlados: `TextInput`, `Select`, `DatePicker`.
+-   **`components/ui/`**: Base de UI basada en **PrimeNG** (Button, Dialog, Table, etc).
+-   **`components/form/`**: Inputs personalizados o wrappers de PrimeNG si es necesario.
 -   **`components/layout/`**: Estructuras base: `AppSidebar`, `AppHeader` (aunque son layout, son visuales).
 -   **`pipe/`**: Pipes puros (ej. `SafeHtml`).
 

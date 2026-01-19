@@ -39,6 +39,9 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 7. **PrimeNG Integration**: Integrated PrimeNG v21 with Aura theme and Tailwind v4 plugin (`tailwindcss-primeui`).
 8. **UI Modernization**: Refactored all UI features (`Alerts`, `Buttons`, `Tables`, `Charts`) to use PrimeNG components exclusively.
 9. **Component Cleanup**: Deleted all legacy custom components (`app-badge`, `app-button`, `app-modal`, etc.) to enforce a single source of truth (PrimeNG).
+10. **Layout Refactor (Signals)**: Migrated the entire layout system (`SidebarService`, `AppSidebar`, `AppHeader`, `AppLayout`, `Backdrop`) to Angular Signals, eliminating RxJS dependencies and manual change detection.
+11. **Performance Optimization**: Optimized `UserDropdown` for Firefox by reducing backdrop blur and implementing a GPU-accelerated micro-animation (`animate-dropdown-in`).
+12. **Sidebar Modernization**: Replaced all legacy inline SVGs in the sidebar with standardized PrimeIcons.
 
 ## 🧠 AI Persona & Technical Directives
 - **Expert Persona**: Act strictly as an **Expert in UI/UX and Angular Architecture**. Every suggestion must prioritize scalability, performance, and "Enterprise-grade" aesthetics.

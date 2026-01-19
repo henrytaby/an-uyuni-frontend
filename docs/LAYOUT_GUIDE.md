@@ -47,8 +47,8 @@ sequenceDiagram
     
     Browser->>Router: "Navega a /dashboard"
     Router->>Shell: "Carga AppLayoutComponent"
-    Shell->>Service: "Suscribe a isExpanded$ / isMobileOpen$"
-    Service-->>Shell: "Retorna estado actual"
+    Shell->>Service: "Consume isExpanded() / isMobileOpen() (Signals)"
+    Service-->>Shell: "Retorna valor actual"
     Shell->>Shell: "Ajusta márgenes CSS dinámicamente"
     Shell->>Router: "Renderiza Feature en <router-outlet>"
 ```
@@ -73,8 +73,9 @@ Contiene la lista de enlaces y categorías.
 Maneja las acciones globales.
 - **Funciones**: Búsqueda global, notificaciones, cambio de tema (Dark/Light) y cierre de sesión.
 
-### 4. `auth-page-layout/` (Layout de Autenticación)
-Un layout simplificado usado para las páginas de `signin` y `signup`.
+### 4. `auth/` (Layout de Autenticación - Interno)
+El layout de autenticación ahora reside dentro de la feature `auth` (`src/app/features/auth/layout/`).
+- **Uso**: Exclusivo para las páginas de `signin` y `signup`.
 - **Diferencia**: No tiene Sidebar ni Header. Es una pantalla dividida con un panel visual a la derecha.
 
 ---
@@ -83,7 +84,7 @@ Un layout simplificado usado para las páginas de `signin` y `signup`.
 
 Este es el archivo más importante para el funcionamiento del layout.
 - **Ubicación**: `src/app/shared/services/sidebar.service.ts`
-- **Función**: Utiliza **Signals** u **Observables** para que cuando el usuario haga clic en el botón de "hamburguesa" en el `Header`, el `Sidebar` se abra y el `AppLayout` ajuste los márgenes al mismo tiempo.
+- **Función**: Utiliza **Angular Signals** (`signal()`, `computed()`) para que cuando el usuario haga clic en el botón de "hamburguesa" en el `Header`, el `Sidebar` se abra y el `AppLayout` ajuste los márgenes al mismo tiempo sin necesidad de suscripciones manuales.
 
 ---
 

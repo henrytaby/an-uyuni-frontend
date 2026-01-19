@@ -2,6 +2,7 @@
 
 ![Angular Version](https://img.shields.io/badge/Angular-v21+-dd0031.svg)
 ![TailwindCSS Version](https://img.shields.io/badge/TailwindCSS-v4--beta-38bdf8.svg)
+![PrimeNG Version](https://img.shields.io/badge/PrimeNG-v21-06b6d4.svg)
 ![Architecture](https://img.shields.io/badge/Architecture-DDD%20Lite-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -14,6 +15,7 @@ Bienvenido a **Uyuni Frontend**, una aplicación empresarial moderna construida 
 -   **Arquitectura Enterprise**: Estructura sólida dividida en `Core`, `Shared` y `Features`.
 -   **Lazy Loading**: Carga perezosa implementada en todos los módulos de funcionalidad.
 -   **Angular Signals**: Gestión de estado reactivo moderna y performante.
+-   **PrimeNG v21**: Biblioteca de componentes premium para aplicaciones empresariales.
 -   **TailwindCSS v4**: Estilizado utilitario de próxima generación para un desarrollo UI ultra rápido.
 -   **Standalone Components**: Adopción total del paradigma moderno de Angular (sin `NgModules` innecesarios).
 -   **Rendimiento**: Optimizado para Core Web Vitals.

@@ -3,18 +3,28 @@ import { ChartModule } from 'primeng/chart';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FormsModule } from '@angular/forms';
 import { ChartData, ChartOptions } from 'chart.js';
-import { ChartTabComponent } from '../../../../shared/components/common/chart-tab/chart-tab.component';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
 
 @Component({
   selector: 'app-statics-chart',
   standalone: true,
-  imports: [ChartModule, ChartTabComponent, DatePickerModule, FormsModule],
+  imports: [ChartModule, SelectButtonModule, DatePickerModule, FormsModule],
   templateUrl: './statics-chart.component.html',
 })
 export class StatisticsChartComponent implements OnInit {
   dateValue: Date[] | undefined;
   data: ChartData | undefined;
   options: ChartOptions | undefined;
+
+  periodOptions: { label: string; value: string }[] = [
+    { label: 'Mensual', value: 'monthly' },
+    { label: 'Trimestral', value: 'quarterly' },
+    { label: 'Anual', value: 'annually' }
+  ];
+
+  selectedPeriod = 'monthly';
+
 
   ngOnInit() {
       const documentStyle = getComputedStyle(document.documentElement);

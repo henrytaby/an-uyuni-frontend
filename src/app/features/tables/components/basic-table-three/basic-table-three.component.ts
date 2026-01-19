@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { TableDropdownComponent } from '../../../../shared/components/common/table-dropdown/table-dropdown.component';
+import { MenuModule } from 'primeng/menu';
+import { MenuItem } from 'primeng/api';
 import { TagModule } from 'primeng/tag';
 
 interface Transaction {
@@ -18,7 +19,7 @@ interface Transaction {
   imports: [
     CommonModule,
     ButtonModule,
-    TableDropdownComponent,
+    MenuModule,
     TagModule,
   ],
   templateUrl: './basic-table-three.component.html',
@@ -27,8 +28,24 @@ interface Transaction {
 export class BasicTableThreeComponent {
 
   // Type definition for the transaction data
-
-
+  selectedTransaction: Transaction | null = null;
+  
+  tableActions: MenuItem[] = [
+    { 
+      label: 'Ver más', 
+      icon: 'pi pi-eye', 
+      command: () => {
+        if (this.selectedTransaction) this.handleViewMore(this.selectedTransaction);
+      }
+    },
+    { 
+      label: 'Eliminar', 
+      icon: 'pi pi-trash', 
+      command: () => {
+        if (this.selectedTransaction) this.handleDelete(this.selectedTransaction);
+      }
+    }
+  ];
   transactionData: Transaction[] = [
     {
       image: "/images/brand/brand-08.svg", // Path or URL for the image

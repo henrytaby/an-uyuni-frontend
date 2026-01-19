@@ -2,7 +2,7 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ThemeToggleButtonComponent } from '../../components/common/theme-toggle/theme-toggle-button.component';
+import { ThemeToggleButtonComponent } from '../../components/header/theme-toggle/theme-toggle-button.component';
 import { UserDropdownComponent } from '../../components/header/user-dropdown/user-dropdown.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';

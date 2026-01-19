@@ -25,7 +25,7 @@ graph TD
     ContentArea --> PageOutlet["Router Outlet (Vistas de Features)"]
     end
 
-    Header --> Search["Buscador"]
+    Header --> RoleSelector["Selector de Rol"]
     Header --> Notifications["Notificaciones"]
     Header --> UserMenu["Menú de Usuario"]
 ```
@@ -71,7 +71,7 @@ Contiene la lista de enlaces y categorías.
 
 ### 3. `app-header/` (Barra Superior)
 Maneja las acciones globales.
-- **Funciones**: Búsqueda global, notificaciones, cambio de tema (Dark/Light) y cierre de sesión.
+- **Funciones**: Selección de rol activo, cambio de tema (Dark/Light) y cierre de sesión.
 
 ### 4. `auth/` (Layout de Autenticación - Interno)
 El layout de autenticación ahora reside dentro de la feature `auth` (`src/app/features/auth/layout/`).

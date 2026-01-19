@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { TagModule } from 'primeng/tag';
-import { TableDropdownComponent } from '../../../../shared/components/common/table-dropdown/table-dropdown.component';
+import { MenuModule } from 'primeng/menu';
+import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-basic-table-four',
   imports: [
     TagModule,
-    TableDropdownComponent
+    MenuModule,
+    ButtonModule
 ],
   templateUrl: './basic-table-four.component.html',
   styles: ``
@@ -92,6 +95,19 @@ export class BasicTableFourComponent {
       },
       status: 'Success',
     },
+  ];
+
+  tableActions: MenuItem[] = [
+    { 
+      label: 'Ver más', 
+      icon: 'pi pi-eye', 
+      command: () => this.handleViewMore()
+    },
+    { 
+      label: 'Eliminar', 
+      icon: 'pi pi-trash', 
+      command: () => this.handleDelete()
+    }
   ];
 
   handleViewMore() {

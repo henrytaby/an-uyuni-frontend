@@ -3,7 +3,6 @@ import { EcommerceMetricsComponent } from '../../components/ecommerce-metrics/ec
 import { MonthlySalesChartComponent } from '../../components/monthly-sales-chart/monthly-sales-chart.component';
 import { MonthlyTargetComponent } from '../../components/monthly-target/monthly-target.component';
 import { StatisticsChartComponent } from '../../components/statics-chart/statics-chart.component';
-import { DemographicCardComponent } from '../../components/demographic-card/demographic-card.component';
 import { RecentOrdersComponent } from '../../components/recent-orders/recent-orders.component';
 
 @Component({
@@ -13,7 +12,6 @@ import { RecentOrdersComponent } from '../../components/recent-orders/recent-ord
     MonthlySalesChartComponent,
     MonthlyTargetComponent,
     StatisticsChartComponent,
-    DemographicCardComponent,
     RecentOrdersComponent,
   ],
   templateUrl: './ecommerce.component.html',

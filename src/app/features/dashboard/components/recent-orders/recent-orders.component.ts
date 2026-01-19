@@ -14,12 +14,9 @@
 
 
 import { Component } from '@angular/core';
-// import { TableComponent } from '../../../../shared/components/ui/table/table.component';
-// import { TableBodyComponent } from '../../../../shared/components/ui/table/table-body.component';
-// import { TableCellComponent } from '../../../../shared/components/ui/table/table-cell.component';
-// import { TableHeaderComponent } from '../../../../shared/components/ui/table/table-header.component';
-// import { TableRowComponent } from '../../../../shared/components/ui/table/table-row.component';
-import { BadgeComponent } from '../../../../shared/components/ui/badge/badge.component';
+import { CommonModule } from '@angular/common';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 
 interface Product {
   id: number;
@@ -34,8 +31,10 @@ interface Product {
 @Component({
   selector: 'app-recent-orders',
   imports: [
-    BadgeComponent
-],
+    TableModule,
+    TagModule,
+    CommonModule
+  ],
   templateUrl: './recent-orders.component.html'
 })
 export class RecentOrdersComponent {
@@ -87,9 +86,9 @@ export class RecentOrdersComponent {
     },
   ];
 
-  getBadgeColor(status: string): 'success' | 'warning' | 'error' {
+  getBadgeColor(status: string): 'success' | 'warn' | 'danger' | undefined {
     if (status === 'Delivered') return 'success';
-    if (status === 'Pending') return 'warning';
-    return 'error';
+    if (status === 'Pending') return 'warn';
+    return 'danger';
   }
 }

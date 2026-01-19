@@ -7,7 +7,7 @@ import am5geodata_worldLow from "@amcharts/amcharts5-geodata/worldLow";
 
 @Component({
   selector: 'app-country-map',
-  template: `<div #chartdiv style="width: 100%; height: 300px; border-radius: 1rem;"></div>`,
+  template: `<div #chartdiv style="width: 100%; height: 300px; border-radius: 1rem; background: transparent;"></div>`,
 })
 export class CountryMapComponent implements OnInit, OnDestroy {
   @ViewChild('chartdiv', { static: true }) chartdiv!: ElementRef;

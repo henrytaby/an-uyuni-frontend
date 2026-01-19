@@ -1,138 +1,86 @@
-
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import flatpickr from 'flatpickr';
-import { Instance } from 'flatpickr/dist/types/instance';
-import { NgApexchartsModule } from 'ng-apexcharts';
-
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexFill,
-  ApexGrid,
-  ApexLegend,
-  ApexMarkers,
-  ApexStroke,
-  ApexTooltip,
-  ApexXAxis,
-  ApexYAxis,
-} from 'ng-apexcharts';
+import { Component, OnInit } from '@angular/core';
+import { ChartModule } from 'primeng/chart';
+import { DatePickerModule } from 'primeng/datepicker';
+import { FormsModule } from '@angular/forms';
+import { ChartData, ChartOptions } from 'chart.js';
 import { ChartTabComponent } from '../../../../shared/components/common/chart-tab/chart-tab.component';
 
 @Component({
   selector: 'app-statics-chart',
-  imports: [NgApexchartsModule, ChartTabComponent],
+  standalone: true,
+  imports: [ChartModule, ChartTabComponent, DatePickerModule, FormsModule],
   templateUrl: './statics-chart.component.html',
 })
-export class StatisticsChartComponent implements AfterViewInit {
-  @ViewChild('datepicker') datepicker!: ElementRef<HTMLInputElement>;
+export class StatisticsChartComponent implements OnInit {
+  dateValue: Date[] | undefined;
+  data: ChartData | undefined;
+  options: ChartOptions | undefined;
 
-  ngAfterViewInit() {
-    flatpickr(this.datepicker.nativeElement, {
-      mode: 'range',
-      static: true,
-      monthSelectorType: 'static',
-      dateFormat: 'M j',
-      defaultDate: [new Date(Date.now() - 6 * 24 * 60 * 60 * 1000), new Date()],
-      onReady: (selectedDates: Date[], dateStr: string, instance: Instance) => {
-        (instance.element as HTMLInputElement).value = dateStr.replace('to', '-');
-        const customClass = instance.element.getAttribute('data-class');
-        instance.calendarContainer?.classList.add(customClass!);
-      },
-      onChange: (selectedDates: Date[], dateStr: string, instance: Instance) => {
-        (instance.element as HTMLInputElement).value = dateStr.replace('to', '-');
-      },
-    });
+  ngOnInit() {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = documentStyle.getPropertyValue('--text-color') || '#1f2937';
+      const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary') || '#6b7280';
+      const surfaceBorder = documentStyle.getPropertyValue('--surface-border') || '#e5e7eb';
+
+      this.data = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [
+              {
+                  label: 'Sales',
+                  data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
+                  fill: true,
+                  borderColor: documentStyle.getPropertyValue('--p-primary-500') || '#734c19',
+                  tension: 0.4,
+                  backgroundColor: 'rgba(115, 76, 25, 0.2)'
+              },
+              {
+                  label: 'Revenue',
+                  data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
+                  fill: true,
+                  borderColor: '#9CB9FF',
+                  tension: 0.4,
+                  backgroundColor: 'rgba(156, 185, 255, 0.2)'
+              }
+          ]
+      };
+
+      this.options = {
+          responsive: true,
+          maintainAspectRatio: false,
+          aspectRatio: 0.6,
+          plugins: {
+              legend: {
+                  labels: {
+                      color: textColor,
+                      usePointStyle: true,
+                      padding: 15
+                  }
+              }
+          },
+          scales: {
+              x: {
+                  ticks: {
+                      color: textColorSecondary
+                  },
+                  grid: {
+                      color: surfaceBorder,
+                  },
+                  border: {
+                      display: false
+                  }
+              },
+              y: {
+                  ticks: {
+                      color: textColorSecondary
+                  },
+                  grid: {
+                      color: surfaceBorder,
+                  },
+                  border: {
+                      display: false
+                  }
+              }
+          }
+      };
   }
-  public series: ApexAxisChartSeries = [
-    {
-      name: 'Sales',
-      data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
-    },
-    {
-      name: 'Revenue',
-      data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
-    },
-  ];
-
-  public chart: ApexChart = {
-    fontFamily: 'Inter, sans-serif',
-    height: 310,
-    type: 'area',
-    toolbar: { show: false },
-  };
-
-  public colors: string[] = ['#465FFF', '#9CB9FF'];
-
-  public stroke: ApexStroke = {
-    curve: 'straight',
-    width: [2, 2],
-  };
-
-  public fill: ApexFill = {
-    type: 'gradient',
-    gradient: {
-      opacityFrom: 0.55,
-      opacityTo: 0,
-    },
-  };
-
-  public markers: ApexMarkers = {
-    size: 0,
-    strokeColors: '#fff',
-    strokeWidth: 2,
-    hover: { size: 6 },
-  };
-
-  public grid: ApexGrid = {
-    xaxis: { lines: { show: false } },
-    yaxis: { lines: { show: true } },
-  };
-
-  public dataLabels: ApexDataLabels = { enabled: false };
-
-  public tooltip: ApexTooltip = {
-    enabled: true,
-    x: { format: 'dd MMM yyyy' },
-  };
-
-  public xaxis: ApexXAxis = {
-    type: 'category',
-    categories: [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ],
-    axisBorder: { show: false },
-    axisTicks: { show: false },
-    tooltip: { enabled: false },
-  };
-
-  public yaxis: ApexYAxis = {
-    labels: {
-      style: {
-        fontSize: '12px',
-        colors: ['#6B7280'],
-      },
-    },
-    title: {
-      text: '',
-      style: { fontSize: '0px' },
-    },
-  };
-
-  public legend: ApexLegend = {
-    show: false,
-    position: 'top',
-    horizontalAlign: 'left',
-  };
 }

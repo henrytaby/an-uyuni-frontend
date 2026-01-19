@@ -1,70 +1,78 @@
-
-import { Component } from '@angular/core';
-import { NgApexchartsModule, ApexAxisChartSeries, ApexChart, ApexXAxis, ApexPlotOptions, ApexDataLabels, ApexStroke, ApexLegend, ApexYAxis, ApexGrid, ApexFill, ApexTooltip } from 'ng-apexcharts';
-import { DropdownComponent } from '../../../../shared/components/ui/dropdown/dropdown.component';
-import { DropdownItemComponent } from '../../../../shared/components/ui/dropdown/dropdown-item/dropdown-item.component';
+import { Component, OnInit } from '@angular/core';
+import { ChartModule } from 'primeng/chart';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-monthly-sales-chart',
   standalone: true,
   imports: [
-    NgApexchartsModule,
-    DropdownComponent,
-    DropdownItemComponent
-],
-  templateUrl: './monthly-sales-chart.component.html'
+    ChartModule,
+  ],
+  templateUrl: './monthly-sales-chart.component.html',
 })
-export class MonthlySalesChartComponent {
-  public series: ApexAxisChartSeries = [
-    {
-      name: 'Sales',
-      data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
-    },
-  ];
-  public chart: ApexChart = {
-    fontFamily: 'Inter, sans-serif',
-    type: 'bar',
-    height: 180,
-    toolbar: { show: false },
-  };
-  public xaxis: ApexXAxis = {
-    categories: [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ],
-    axisBorder: { show: false },
-    axisTicks: { show: false },
-  };
-  public plotOptions: ApexPlotOptions = {
-    bar: {
-      horizontal: false,
-      columnWidth: '39%',
-      borderRadius: 5,
-      borderRadiusApplication: 'end',
-    },
-  };
-  public dataLabels: ApexDataLabels = { enabled: false };
-  public stroke: ApexStroke = {
-    show: true,
-    width: 4,
-    colors: ['transparent'],
-  };
-  public legend: ApexLegend = {
-    show: true,
-    position: 'top',
-    horizontalAlign: 'left',
-    fontFamily: 'Inter',
-  };
-  public yaxis: ApexYAxis = { title: { text: undefined } };
-  public grid: ApexGrid = { yaxis: { lines: { show: true } } };
-  public fill: ApexFill = { opacity: 1 };
-  public tooltip: ApexTooltip = {
-    x: { show: false },
-    y: { formatter: (val: number) => `${val}` },
-  };
-  public colors: string[] = ['#465fff'];
-
+export class MonthlySalesChartComponent implements OnInit {
+  data: ChartData | undefined;
+  options: ChartOptions | undefined;
   isOpen = false;
+
+  ngOnInit() {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = documentStyle.getPropertyValue('--text-color') || '#1f2937';
+      const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary') || '#6b7280';
+      const surfaceBorder = documentStyle.getPropertyValue('--surface-border') || '#e5e7eb';
+
+      this.data = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [
+              {
+                  label: 'Sales',
+                  data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
+                  backgroundColor: documentStyle.getPropertyValue('--p-primary-500') || '#734c19',
+                  borderColor: documentStyle.getPropertyValue('--p-primary-500') || '#734c19',
+                  borderWidth: 1
+              }
+          ]
+      };
+
+      this.options = {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+              legend: {
+                  labels: {
+                      color: textColor,
+                      usePointStyle: true,
+                      padding: 15
+                  }
+              }
+          },
+          scales: {
+              y: {
+                  beginAtZero: true,
+                  ticks: {
+                      color: textColorSecondary
+                  },
+                  grid: {
+                      color: surfaceBorder,
+                  },
+                  border: {
+                      display: false
+                  }
+              },
+              x: {
+                  ticks: {
+                      color: textColorSecondary
+                  },
+                  grid: {
+                      color: surfaceBorder,
+                  },
+                  border: {
+                      display: false
+                  }
+              }
+          }
+      };
+  }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;

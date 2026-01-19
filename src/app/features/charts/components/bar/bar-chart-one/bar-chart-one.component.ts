@@ -1,112 +1,88 @@
-import { Component } from '@angular/core';
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexDataLabels,
-  ApexPlotOptions,
-  ApexStroke,
-  ApexXAxis,
-  ApexYAxis,
-  ApexLegend,
-  ApexGrid,
-  ApexFill,
-  ApexTooltip
-} from 'ng-apexcharts';
-import { NgApexchartsModule } from 'ng-apexcharts';
-
-
+import { Component, OnInit } from '@angular/core';
+import { ChartModule } from 'primeng/chart';
+import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-bar-chart-one',
   imports: [
-    NgApexchartsModule
-],
+    ChartModule
+  ],
   templateUrl: './bar-chart-one.component.html',
   styles: ``
 })
-export class BarChartOneComponent {
+export class BarChartOneComponent implements OnInit {
 
-  public series: ApexAxisChartSeries = [
-    {
-      name: 'Sales',
-      data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
-    },
-  ];
+  data: ChartData<'bar'> | undefined;
+  options: ChartOptions<'bar'> | undefined;
 
-  public chart: ApexChart = {
-    fontFamily: 'Inter, sans-serif',
-    type: 'bar',
-    height: 180,
-    toolbar: {
-      show: false,
-    },
-  };
+  ngOnInit() {
+    this.data = {
+      labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+      datasets: [
+        {
+          label: 'Ventas',
+          backgroundColor: '#465fff',
+          borderRadius: 5,
+          data: [168, 385, 201, 298, 187, 195, 291, 110, 215, 390, 280, 112],
+          barThickness: 20
+        }
+      ]
+    };
 
-  public colors: string[] = ['#465fff'];
-
-  public plotOptions: ApexPlotOptions = {
-    bar: {
-      horizontal: false,
-      columnWidth: '39%',
-      borderRadius: 5,
-      borderRadiusApplication: 'end',
-    },
-  };
-
-  public dataLabels: ApexDataLabels = {
-    enabled: false,
-  };
-
-  public stroke: ApexStroke = {
-    show: true,
-    width: 4,
-    colors: ['transparent'],
-  };
-
-  public xaxis: ApexXAxis = {
-    categories: [
-      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ],
-    axisBorder: {
-      show: false,
-    },
-    axisTicks: {
-      show: false,
-    },
-  };
-
-  public yaxis: ApexYAxis = {
-    title: {
-      text: undefined,
-    },
-  };
-
-  public legend: ApexLegend = {
-    show: true,
-    position: 'top',
-    horizontalAlign: 'left',
-    fontFamily: 'Inter',
-  };
-
-  public grid: ApexGrid = {
-    yaxis: {
-      lines: {
-        show: true,
+    this.options = {
+      maintainAspectRatio: false,
+      aspectRatio: 0.8,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'start',
+          labels: {
+            usePointStyle: true,
+            boxWidth: 8,
+            boxHeight: 8,
+            color: '#6B7280',
+            font: {
+              family: 'Inter',
+              size: 12
+            }
+          }
+        },
+        tooltip: {
+          enabled: true,
+          mode: 'index',
+          intersect: false
+        }
       },
-    },
-  };
-
-  public fill: ApexFill = {
-    opacity: 1,
-  };
-
-  public tooltip: ApexTooltip = {
-    x: {
-      show: false,
-    },
-    y: {
-      formatter: (val: number) => `${val}`,
-    },
-  };
+      scales: {
+        x: {
+          grid: {
+            display: false,
+            drawOnChartArea: false
+          },
+          ticks: {
+            color: '#6B7280',
+            font: {
+              family: 'Inter',
+              size: 12
+            }
+          }
+        },
+        y: {
+          grid: {
+            display: true,
+            color: 'rgba(107, 114, 128, 0.1)',
+            drawOnChartArea: true
+          },
+          ticks: {
+            color: '#6B7280',
+            font: {
+              family: 'Inter',
+              size: 12
+            }
+          }
+        }
+      }
+    };
+  }
 }

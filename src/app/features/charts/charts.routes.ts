@@ -7,14 +7,14 @@ export const routes: Routes = [
     path: 'line-chart',
     component: LineChartComponent,
     data: {
-      title: 'Line Chart'
+      title: 'Gráfico de Líneas'
     }
   },
   {
     path: 'bar-chart',
     component: BarChartComponent,
     data: {
-      title: 'Bar Chart'
+      title: 'Gráfico de Barras'
     }
   }
 ];

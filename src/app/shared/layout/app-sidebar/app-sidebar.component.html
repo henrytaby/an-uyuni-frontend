@@ -35,7 +35,7 @@
               'justify-start': (isExpanded$ | async) || (isHovered$ | async)
             }">
             @if ((isExpanded$ | async) || (isHovered$ | async) || (isMobileOpen$ | async))
-            { Menu }
+            { Menú }
             @else {
             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="size-6">
@@ -74,7 +74,7 @@
                       'menu-dropdown-badge-active': openSubmenu === 'main-' + i,
                       'menu-dropdown-badge-inactive': openSubmenu !== 'main-' + i
                     }">
-                  new
+                  nuevo
                 </span>
                 }
                 @if ((isExpanded$ | async) || (isHovered$ | async) ||
@@ -117,7 +117,7 @@
                                 subItem.path
                               )
                             }">
-                          new
+                          nuevo
                         </span>
                         }
                         @if (subItem.pro) {
@@ -175,7 +175,7 @@
             (isHovered$ | async) ||
             (isMobileOpen$ | async)
             ) {
-            Others
+            Otros
             } @else {
             <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="size-6">

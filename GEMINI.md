@@ -42,7 +42,9 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 10. **Layout Refactor (Signals)**: Migrated the entire layout system (`SidebarService`, `AppSidebar`, `AppHeader`, `AppLayout`, `Backdrop`) to Angular Signals, eliminating RxJS dependencies and manual change detection.
 11. **Performance Optimization**: Optimized `UserDropdown` for Firefox by reducing backdrop blur and implementing a GPU-accelerated micro-animation (`animate-dropdown-in`).
 12. **Sidebar Modernization**: Replaced all legacy inline SVGs in the sidebar with standardized PrimeIcons.
-13. **Cleanup**: Deleted orphaned `CheckboxComponent` to keep the codebase lean.
+13. **Cleanup**: Deleted orphaned `CheckboxComponent`, `CountryMapComponent`, `ChartTabComponent`, and `TableDropdownComponent` to keep the codebase lean.
+14. **Scroll & Loader**: Implemented "Scroll to Top" and a robust **Global Hybrid Loading System** with 300ms debounce (Grace Period), URL-based tracking (preventing race conditions), and auto-reset on navigation.
+15. **Font Self-Hosting**: Migrated Roboto font to local hosting for offline support and reliability.
 
 
 ## 🧠 AI Persona & Technical Directives

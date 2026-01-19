@@ -1,4 +1,18 @@
 <div class="min-h-screen xl:flex">
+  <!-- Top Progress Bar (Navigation) -->
+  @if (isNavigating()) {
+  <p-progressBar mode="indeterminate"
+    [style]="{ height: '3px', position: 'fixed', top: '0', left: '0', 'z-index': '999999', width: '100%' }" />
+  }
+
+  <!-- Global HTTP Loader (Blocking) -->
+  @if (isLoading()) {
+  <p-blockUI [blocked]="true">
+    <div class="fixed inset-0 flex flex-col items-center justify-center z-[999991]">
+      <p-progressSpinner styleClass="w-16 h-16" strokeWidth="4" fill="transparent" animationDuration=".5s" />
+    </div>
+  </p-blockUI>
+  }
   <div>
     <app-sidebar></app-sidebar>
     <app-backdrop></app-backdrop>
@@ -12,7 +26,13 @@
     <app-header />
     <!-- app header end -->
     <div class="p-(--main-padding) mx-auto max-w-(--breakpoint-3xl)">
-      <router-outlet></router-outlet>
+      @if (isNavigating()) {
+      <app-ui-skeleton-page class="block animate-in fade-in duration-300" />
+      }
+
+      <div [class.hidden]="isNavigating()">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

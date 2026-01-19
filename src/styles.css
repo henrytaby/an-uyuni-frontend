@@ -277,6 +277,12 @@
   /* High Density overrides for PrimeNG components */
   /* These need to be robust enough to override default Aura but flexible for Tailwind utilities */
   
+  /* Global Loader Visibility Enhancement */
+  .p-blockui-mask {
+    background-color: rgba(0, 0, 0, 0.6) !important; /* Darker mask for clear blocking indication */
+    z-index: 999990 !important; /* Ensure it covers everything but spinner */
+  }
+
   /* Global Component Density */
   .p-component, .p-component * {
     font-size: 14px; /* Enterprise Standard */

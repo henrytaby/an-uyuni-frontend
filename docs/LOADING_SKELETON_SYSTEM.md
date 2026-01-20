@@ -56,6 +56,25 @@ Coordina la visualización basándose en el estado del Router y del Servicio.
     *   Desactiva `isNavigating = false` (Muestra `router-outlet`).
     *   Hace scroll al top (`viewportScroller`).
 
+### 📂 Estructura de Archivos
+
+Este es el árbol de dependencias que hacen posible el sistema híbrido de carga y navegación.
+
+```text
+src/app/
+├── core/
+│   ├── interceptors/
+│   │   └── loading.interceptor.ts      # 👮‍♂️ Interceptor HTTP (Filtra assets)
+│   └── services/
+│       └── loading.service.ts          # 🧠 Estado Global (Signals + Debounce)
+└── shared/
+    └── layout/
+        ├── skeleton-page/              # 💀 Plantilla "Fantasma" del Dashboard
+        └── app-layout/
+            ├── app-layout.component.ts # 🎻 Orquestador (NavigationStart/End)
+            └── app-layout.component.html # ☢️ "Opción Nuclear" (@if isLoading)
+```
+
 ---
 
 ## 💻 Diagrama de Flujo (Mermaid)

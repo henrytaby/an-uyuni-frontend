@@ -31,6 +31,25 @@ Implementamos lo que se conoce en la industria como un **"Recoverable Error Barr
     *   **Función**: Muestra un modal bloqueante (no cerrable) que informa al usuario.
     *   **Acción**: El botón "Recargar Página" ejecuta un `window.location.reload()` físico, que es la única forma segura de reintentar la descarga de assets frescos.
 
+### Estructura de Archivos
+
+Estos son los archivos específicos que componen la funcionalidad. **Cualquier modificación en estos rutas podría romper el escudo.**
+
+```text
+src/app/
+├── app.config.ts                       # ⚠️ Registro del proveedor { ErrorHandler }
+├── core/
+│   ├── handlers/
+│   │   └── global-error-handler.ts     # 🧠 Lógica de detección (Regex)
+│   └── services/
+│       └── network-error.service.ts    # 📡 Puente de comunicación (Signal)
+└── shared/
+    └── layout/
+        └── app-layout/
+            ├── app-layout.component.ts # 🔧 Lógica de recarga (reloadPage)
+            └── app-layout.component.html # 🎨 UI del Dialog Modal
+```
+
 ---
 
 ## 💻 Diagrama de Flujo (Mermaid)

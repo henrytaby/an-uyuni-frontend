@@ -72,6 +72,19 @@ export class AppLayoutComponent {
 - **Título anterior:**`Angular Ecommerce Dashboard | UyuniAdmin`
 - **Título nuevo:**`UyuniAdmin`
 
+### 📂 Estructura de Archivos
+
+Archivos clave donde reside la lógica de scroll.
+
+```text
+src/app/
+├── app.config.ts                       # 💾 Configuración (InMemoryScrolling)
+└── shared/
+    └── layout/
+        └── app-layout/
+            └── app-layout.component.ts # 🔧 Lógica Imperativa (ViewportScroller)
+```
+
 ---
 
 ## 🏗️ Arquitectura: Patrón Defense in Depth

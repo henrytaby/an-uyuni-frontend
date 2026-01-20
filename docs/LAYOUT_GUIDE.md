@@ -59,6 +59,24 @@ sequenceDiagram
 
 Toda la lógica del layout reside en `src/app/shared/layout/`.
 
+```text
+src/app/shared/
+├── services/
+│   └── sidebar.service.ts          # 🧠 Estado reactivo del Sidebar (Signals)
+└── layout/
+    ├── app-layout/                 # 🐚 Shell Principal
+    │   ├── app-layout.component.ts
+    │   └── app-layout.component.html
+    ├── app-sidebar/                # 🍔 Menú Lateral Desplegable
+    │   └── app-sidebar.component.ts
+    ├── app-header/                 # 🔝 Barra Superior (User, Theme, Notifications)
+    │   └── app-header.component.ts
+    ├── backdrop/                   # 🌑 Capa oscura para móvil
+    │   └── backdrop.component.ts
+    └── skeleton-page/              # 💀 Carga inicial (Ver docs Loading)
+        └── ui-skeleton-page.component.ts
+```
+
 ### 1. `app-layout/` (El Contenedor Maestro)
 Es el orquestador. Define la estructura de alto nivel y los márgenes que dejan espacio al Sidebar.
 - **[app-layout.component.html](file:///opt/uyuni/an-uyuni-frontend/src/app/shared/layout/app-layout/app-layout.component.html)**: Define el grid principal y las animaciones de transición.

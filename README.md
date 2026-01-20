@@ -102,6 +102,7 @@ src/app/
 ## 📚 Documentación Adicional
 
 -   **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: Guía completa para desarrolladores.
+-   **[NETWORK_RESILIENCE.md](docs/NETWORK_RESILIENCE.md)**: Documentación del Escudo de Resiliencia (Manejo de errores de conexión).
 -   **[LOADING_SKELETON_SYSTEM.md](docs/LOADING_SKELETON_SYSTEM.md)**: Documentación del Sistema Híbrido de Carga y Skeletons (Gold Standard).
 -   **[LAYOUT_GUIDE.md](docs/LAYOUT_GUIDE.md)**: Detalle del sistema de plantillas y layouts.
 -   **[Tailwind CSS v4 Docs](https://tailwindcss.com/docs/v4-beta)**: Documentación oficial de la versión instalada.

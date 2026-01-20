@@ -38,7 +38,25 @@ graph TD
     FeatureA --> UIComponents
     FeatureB --> ConfigService
     FeatureB --> UIComponents
+    FeatureB --> UIComponents
 ```
+
+### 🧠 Pragmatic DDD vs. Clean Architecture
+
+Es posible que encuentres estructuras "Clean Architecture" puristas (con carpetas `domain/ports`, `data/repositories`, `use-cases/`).
+En **UyuniAdmin** hemos adoptado una estrategia de **"Pragmatic DDD"** para optimizar la velocidad de desarrollo sin sacrificar calidad.
+
+| Capa Clean Arc | Capa UyuniAdmin | Razón de la decisión |
+| :--- | :--- | :--- |
+| `domain/models` | `models/` | **Igual**. Es vital tener contratos claros. |
+| `domain/use-cases` | `services/` | En Angular, los Servicios suelen actuar como Use Cases. Separarlos añade burocracia innecesaria si la lógica no es compleja. |
+| `data/repositories` | `services/` | Consumimos la API directamente. No necesitamos repositorios intermedios salvo casos extremos. |
+| `presentation` | `pages/` | Eliminamos nido de carpetas. `pages` = Smart Components. |
+
+> [!TIP]
+> Si un módulo crece exponencialmente en complejidad, se puede refactorizar **solo ese módulo** a una estructura hexagonal completa, sin afectar al resto de la app.
+
+---
 
 ---
 

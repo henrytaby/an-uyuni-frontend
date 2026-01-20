@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection, provideAppInitializer, inject } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, provideAppInitializer, inject, ErrorHandler } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 //import { provideAnimations } from '@angular/platform-browser/animations';
@@ -9,6 +9,7 @@ import { routes } from './app.routes';
 import { ConfigService } from './core/config/config.service';
 import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { GlobalErrorHandler } from './core/handlers/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,6 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(() => {
         const configService = inject(ConfigService);
         return configService.loadConfig();
-    })
+    }),
+    { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ]
 };

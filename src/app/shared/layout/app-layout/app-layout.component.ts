@@ -6,9 +6,12 @@ import { BackdropComponent } from '../backdrop/backdrop.component';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterModule } from '@angular/router';
 import { AppHeaderComponent } from '../app-header/app-header.component';
 import { LoadingService } from '../../../core/services/loading.service';
+import { NetworkErrorService } from '../../../core/services/network-error.service';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 import { UiSkeletonPageComponent } from '../skeleton-page/ui-skeleton-page.component';
 
@@ -23,6 +26,8 @@ import { UiSkeletonPageComponent } from '../skeleton-page/ui-skeleton-page.compo
     ProgressBarModule,
     BlockUIModule,
     ProgressSpinnerModule,
+    DialogModule,
+    ButtonModule,
     UiSkeletonPageComponent
   ],
   templateUrl: './app-layout.component.html',
@@ -33,6 +38,7 @@ export class AppLayoutComponent {
   private router = inject(Router);
   private viewportScroller = inject(ViewportScroller);
   private loadingService = inject(LoadingService);
+  private networkErrorService = inject(NetworkErrorService);
 
   readonly isExpanded = this.sidebarService.isExpanded;
   readonly isHovered = this.sidebarService.isHovered;
@@ -40,6 +46,7 @@ export class AppLayoutComponent {
 
   readonly isNavigating = this.loadingService.isNavigating;
   readonly isLoading = this.loadingService.isLoading;
+  readonly showConnectionError = this.networkErrorService.showConnectionError;
 
   constructor() {
     this.router.events.subscribe(event => {
@@ -58,5 +65,9 @@ export class AppLayoutComponent {
         }
       }
     });
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }

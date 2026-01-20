@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { AppSidebarComponent } from '../app-sidebar/app-sidebar.component';
@@ -47,6 +47,7 @@ export class AppLayoutComponent {
   readonly isNavigating = this.loadingService.isNavigating;
   readonly isLoading = this.loadingService.isLoading;
   readonly showConnectionError = this.networkErrorService.showConnectionError;
+  readonly isCheckingConnection = signal(false);
 
   constructor() {
     this.router.events.subscribe(event => {
@@ -65,9 +66,26 @@ export class AppLayoutComponent {
         }
       }
     });
+
+    // Reset checking state if dialog is closed/reset
+    effect(() => {
+        if (!this.showConnectionError()) {
+            this.isCheckingConnection.set(false);
+        }
+    });
   }
 
   reloadPage() {
-    window.location.reload();
+    this.isCheckingConnection.set(true);
+    
+    this.networkErrorService.checkConnection().subscribe((isOnline) => {
+        if (isOnline) {
+            window.location.reload();
+        } else {
+            // Still offline, just stop spinner. Dialog remains open.
+            // Maybe show a localized feedback if needed, but the spinner stopping implies "try again"
+            this.isCheckingConnection.set(false);
+        }
+    });
   }
 }

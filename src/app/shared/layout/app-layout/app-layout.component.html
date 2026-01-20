@@ -45,8 +45,9 @@
           </p>
         </div>
         <ng-template pTemplate="footer">
-          <p-button label="Recargar Página" icon="pi pi-refresh" (onClick)="reloadPage()" severity="primary"
-            class="w-full" styleClass="w-full" />
+          <p-button [label]="isCheckingConnection() ? 'Verificando...' : 'Recargar Página'"
+            [icon]="isCheckingConnection() ? 'pi pi-spin pi-spinner' : 'pi pi-refresh'" (onClick)="reloadPage()"
+            severity="primary" class="w-full" styleClass="w-full" [disabled]="isCheckingConnection()" />
         </ng-template>
       </p-dialog>
     </div>

@@ -28,8 +28,9 @@ Implementamos lo que se conoce en la industria como un **"Recoverable Error Barr
 
 3.  **UI de Recuperación (`AppLayoutComponent` + `p-dialog`)**:
     *   **Ubicación**: `src/app/shared/layout/app-layout/app-layout.component.html`
-    *   **Función**: Muestra un modal bloqueante (no cerrable) que informa al usuario.
-    *   **Acción**: El botón "Recargar Página" ejecuta un `window.location.reload()` físico, que es la única forma segura de reintentar la descarga de assets frescos.
+    *   **Acción (Smart Reload)**: El botón "Recargar Página" primero **verificará la conexión** (ping).
+        *   Si hay internet: Ejecuta `window.location.reload()`.
+        *   Si no hay internet: Mantiene el Dialog y muestra estado de carga.
 
 ### Estructura de Archivos
 
@@ -42,11 +43,11 @@ src/app/
 │   ├── handlers/
 │   │   └── global-error-handler.ts     # 🧠 Lógica de detección (Regex)
 │   └── services/
-│       └── network-error.service.ts    # 📡 Puente de comunicación (Signal)
+│       └── network-error.service.ts    # 📡 Estado + Lógica de Ping (HttpClient)
 └── shared/
     └── layout/
         └── app-layout/
-            ├── app-layout.component.ts # 🔧 Lógica de recarga (reloadPage)
+            ├── app-layout.component.ts # 🔧 Lógica Smart Reload (checkConnection)
             └── app-layout.component.html # 🎨 UI del Dialog Modal
 ```
 
@@ -79,8 +80,17 @@ sequenceDiagram
     end
     
     User->>Layout: Click "Recargar Página"
-    Layout->>Browser: window.location.reload()
-    Note right of Browser: La app se reinicia y\nreintenta descargar recursos
+    Layout->>Layout: Botón "Verificando..." (Spinner)
+    Layout->>Service: checkConnection() (Ping /favicon.ico)
+    
+    alt Conexión Recuperada
+        Service-->>Layout: true
+        Layout->>Browser: window.location.reload()
+    else Aún Offline
+        Service-->>Layout: false
+        Layout->>Layout: Detiene Spinner, mantiene Dialog
+        Note right of Layout: Usuario debe reintentar
+    end
 ```
 
 ---

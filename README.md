@@ -142,7 +142,18 @@ TypeScript está configurado en **Modo Estricto** para prevenir errores comunes 
 
 ---
 
-## 🤝 Contribuyendo
+---
+
+## 🚀 Despliegue en Producción (VPS)
+
+Para guías detalladas sobre cómo desplegar en un servidor Ubuntu con Nginx:
+
+👉 **[Ver Guía de Despliegue (DEPLOYMENT_GUIDE.md)](docs/DEPLOYMENT_GUIDE.md)**
+*(Incluye configuración de Nginx con Gzip y Compresión)*
+
+---
+
+## 🤝 Contribución
 
 1.  Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`).
 2.  Desarrolla siguiendo la estructura `src/app/features/<nombre>`.

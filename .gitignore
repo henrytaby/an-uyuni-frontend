@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# App Config (Runtime)
+/public/assets/config/config.json

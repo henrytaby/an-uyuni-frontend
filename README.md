@@ -32,6 +32,16 @@ Asegúrate de tener instalado:
 
 ---
 
+### 🔧 Configuración (Runtime)
+El proyecto utiliza una configuración externa (`config.json`) que **no se sube al repositorio**.
+Para iniciar en local, debes crearla a partir del ejemplo:
+
+```bash
+cp public/assets/config/config.example.json public/assets/config/config.json
+```
+
+---
+
 ## 📦 Instalación y Uso
 
 1.  **Clonar el repositorio**:

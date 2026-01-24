@@ -11,6 +11,7 @@ El sistema utiliza un esquema **OAuth2 Password Grant** modificado, basado en **
 - **Almacenamiento**: `localStorage` (Persistencia entre pestañas).
 - **Estado**: Gestionado por **Angular Signals** (Reactividad granular).
 - **Intercepción**: Manejo automático de adjunción de tokens y renovación transparente (Silent Refresh).
+- **Contexto**: Inyección automática del header `X-Active-Role` para filtrado de datos en backend.
 - **Seguridad**: Bloqueo de cuenta (403), Auto-Logout, y limpieza de estado.
 
 ---
@@ -102,6 +103,17 @@ flowchart TD
         CallRefresh -- Éxito --> Update[Actualizar Token Local] --> Retry[Reintentar Petición Original]
         CallRefresh -- Fallo --> Logout[Cerrar Sesión Global]
     end
+
+### 3.3. Contexto de Rol (Multi-Tenancy Lógico)
+
+Para que el backend sepa "quién eres y bajo qué sombrero estás operando", el `AuthInterceptor` inyecta contexto adicional:
+
+| Header | Valor | Descripción |
+| :--- | :--- | :--- |
+| `Authorization` | `Bearer <token>` | Identidad del usuario (Quién eres). |
+| `X-Active-Role` | `<role_slug>` | Rol activo seleccionado (Qué permisos usas ahora). |
+
+> **Nota**: El backend debe leer `X-Active-Role` para filtrar listados (ej. "Mis Ventas" vs "Todas las Ventas") sin necesidad de enviar el rol como parámetro en cada URL.
 ```
 
 ---

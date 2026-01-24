@@ -18,6 +18,7 @@ Bienvenido a **Uyuni Frontend**, una aplicación empresarial moderna construida 
 -   **PrimeNG v21**: Biblioteca de componentes premium para aplicaciones empresariales.
 -   **TailwindCSS v4**: Estilizado utilitario de próxima generación para un desarrollo UI ultra rápido.
 -   **Standalone Components**: Adopción total del paradigma moderno de Angular (sin `NgModules` innecesarios).
+-   **Path Aliases**: Configuración limpia (`@core`, `@features`) eliminando imports relativos.
 -   **Rendimiento**: Optimizado para Core Web Vitals.
 
 ---

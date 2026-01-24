@@ -1,8 +1,8 @@
 import { Injectable, signal, computed, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap, catchError, throwError, Observable, of } from 'rxjs';
-import { ConfigService } from '../config/config.service';
-import { TokenResponse, User, UserRole } from '../../features/auth/models/auth.models';
+import { ConfigService } from '@core/config/config.service';
+import { TokenResponse, User, UserRole } from '@features/auth/models/auth.models';
 import { Router } from '@angular/router';
 
 @Injectable({

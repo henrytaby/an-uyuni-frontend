@@ -1,9 +1,9 @@
 import { Component, inject, signal, computed } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '@shared/services/sidebar.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ThemeToggleButtonComponent } from '../../components/header/theme-toggle/theme-toggle-button.component';
-import { UserDropdownComponent } from '../../components/header/user-dropdown/user-dropdown.component';
+import { ThemeToggleButtonComponent } from '@shared/components/header/theme-toggle/theme-toggle-button.component';
+import { UserDropdownComponent } from '@shared/components/header/user-dropdown/user-dropdown.component';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -11,8 +11,8 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
 
-import { UserRole } from '../../../features/auth/models/auth.models';
-import { AuthService } from '../../../core/auth/auth.service';
+import { UserRole } from '@features/auth/models/auth.models';
+import { AuthService } from '@core/auth/auth.service';
 
 @Component({
   selector: 'app-header',

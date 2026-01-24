@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthPageLayoutComponent } from '../../components/layout/auth-page-layout/auth-page-layout.component';
-import { SignupFormComponent } from '../../components/signup-form/signup-form.component';
+import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
+import { SignupFormComponent } from '@features/auth/components/signup-form/signup-form.component';
 
 @Component({
   selector: 'app-sign-up',

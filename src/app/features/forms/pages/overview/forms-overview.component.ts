@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PageBreadcrumbComponent } from '../../../../shared/components/common/page-breadcrumb/page-breadcrumb.component';
+import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { SelectModule } from 'primeng/select';

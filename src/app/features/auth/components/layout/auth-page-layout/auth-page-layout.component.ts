@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GridShapeComponent } from '../../grid-shape/grid-shape.component';
+import { GridShapeComponent } from '@features/auth/components/grid-shape/grid-shape.component';
 import { RouterModule } from '@angular/router';
-import { ThemeToggleTwoComponent } from '../../theme-toggle-two/theme-toggle-two.component';
+import { ThemeToggleTwoComponent } from '@features/auth/components/theme-toggle-two/theme-toggle-two.component';
 
 @Component({
   selector: 'app-auth-page-layout',

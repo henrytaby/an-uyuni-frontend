@@ -1,9 +1,9 @@
 import { Component, signal, inject } from '@angular/core';
-import { DropdownComponent } from '../../ui/dropdown/dropdown.component';
+import { DropdownComponent } from '@shared/components/ui/dropdown/dropdown.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DropdownItemComponent } from '../../ui/dropdown/dropdown-item/dropdown-item.component';
-import { AuthService } from '../../../../core/auth/auth.service';
+import { DropdownItemComponent } from '@shared/components/ui/dropdown/dropdown-item/dropdown-item.component';
+import { AuthService } from '@core/auth/auth.service';
 
 @Component({
   selector: 'app-user-dropdown',

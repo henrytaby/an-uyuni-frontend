@@ -1,8 +1,8 @@
 import { HttpInterceptorFn, HttpErrorResponse, HttpEvent, HttpRequest, HttpHandlerFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '@core/auth/auth.service';
 import { catchError, switchMap, throwError, BehaviorSubject, filter, take, Observable } from 'rxjs';
-import { TokenResponse } from '../../features/auth/models/auth.models';
+import { TokenResponse } from '@features/auth/models/auth.models';
 
 let isRefreshing = false;
 const refreshTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
@@ -11,12 +11,22 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.getToken();
 
+  const activeRole = authService.activeRole();
+
   let authReq = req;
+  const headers: Record<string, string> = {};
+
   if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
+  if (activeRole) {
+    headers['X-Active-Role'] = activeRole.slug;
+  }
+
+  if (Object.keys(headers).length > 0) {
     authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`
-      }
+      setHeaders: headers
     });
   }
 

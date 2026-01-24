@@ -1,9 +1,9 @@
 import { Component, signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthPageLayoutComponent } from '../../components/layout/auth-page-layout/auth-page-layout.component';
-import { SigninFormComponent } from '../../components/signin-form/signin-form.component';
-import { AuthService } from '../../../../core/auth/auth.service';
+import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
+import { SigninFormComponent } from '@features/auth/components/signin-form/signin-form.component';
+import { AuthService } from '@core/auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',

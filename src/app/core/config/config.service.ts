@@ -1,5 +1,5 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpBackend } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { AppConfig } from './config.model';
 
@@ -7,7 +7,11 @@ import { AppConfig } from './config.model';
   providedIn: 'root'
 })
 export class ConfigService {
-  private http = inject(HttpClient);
+  private http: HttpClient;
+
+  constructor(private handler: HttpBackend) {
+    this.http = new HttpClient(handler);
+  }
   private configSignal = signal<AppConfig | null>(null);
   
   readonly config = this.configSignal.asReadonly();

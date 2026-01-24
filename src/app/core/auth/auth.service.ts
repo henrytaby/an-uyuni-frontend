@@ -13,14 +13,17 @@ export class AuthService {
   private configService = inject(ConfigService);
   private router = inject(Router);
 
+  // State Signals
   private userSignal = signal<User | null>(null);
   private rolesSignal = signal<UserRole[]>([]);
   private tokenSignal = signal<string | null>(localStorage.getItem('access_token'));
+  private activeRoleSignal = signal<UserRole | null>(null);
   
   // Computed signals
   readonly currentUser = this.userSignal.asReadonly();
   readonly currentRoles = this.rolesSignal.asReadonly();
   readonly isAuthenticated = computed(() => !!this.tokenSignal());
+  readonly activeRole = this.activeRoleSignal.asReadonly();
 
   constructor() {
     // Attempt to restore session if token exists.
@@ -96,6 +99,35 @@ export class AuthService {
     );
   }
 
+  fetchRoles() {
+    this.http.get<UserRole[]>(`${this.configService.apiUrl}/auth/me/roles`).subscribe({
+      next: (roles) => {
+        this.rolesSignal.set(roles);
+        
+        // Handle Active Role Persistence
+        if (roles.length > 0) {
+          const storedSlug = localStorage.getItem('active_role_slug');
+          const matchedRole = roles.find(r => r.slug === storedSlug);
+
+          if (matchedRole) {
+            this.activeRoleSignal.set(matchedRole);
+          } else {
+            // Default to first role if no stored slug or mismatch
+            this.setActiveRole(roles[0]);
+          }
+        } else {
+          this.activeRoleSignal.set(null);
+        }
+      },
+      error: (err) => console.error('Error fetching roles:', err)
+    });
+  }
+
+  setActiveRole(role: UserRole) {
+    this.activeRoleSignal.set(role);
+    localStorage.setItem('active_role_slug', role.slug);
+  }
+
   private refreshProfile() {
     this.http.get<User>(`${this.configService.apiUrl}/auth/me`).subscribe({
       next: (user) => this.userSignal.set(user),
@@ -107,9 +139,7 @@ export class AuthService {
       }
     });
 
-    this.http.get<UserRole[]>(`${this.configService.apiUrl}/auth/me/roles`).subscribe({
-      next: (roles) => this.rolesSignal.set(roles)
-    });
+    this.fetchRoles();
   }
 
   private setSession(accessToken: string, refreshToken: string) {
@@ -121,9 +151,11 @@ export class AuthService {
   private clearSession() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+    localStorage.removeItem('active_role_slug');
     this.tokenSignal.set(null);
     this.userSignal.set(null);
     this.rolesSignal.set([]);
+    this.activeRoleSignal.set(null);
     this.router.navigate(['/signin']);
   }
 

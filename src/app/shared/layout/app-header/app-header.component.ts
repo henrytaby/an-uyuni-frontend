@@ -7,9 +7,12 @@ import { UserDropdownComponent } from '../../components/header/user-dropdown/use
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
 
-import { UserRole } from '../../models/user-role.model';
+import { UserRole } from '../../../features/auth/models/auth.models';
+import { AuthService } from '../../../core/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +24,8 @@ import { UserRole } from '../../models/user-role.model';
     DialogModule,
     ButtonModule,
     InputTextModule,
+    IconFieldModule,
+    InputIconModule,
     FormsModule
   ],
   templateUrl: './app-header.component.html',
@@ -31,24 +36,20 @@ export class AppHeaderComponent {
   roleSearchQuery = signal('');
 
   public sidebarService = inject(SidebarService);
+  private authService = inject(AuthService);
+  
   readonly isMobileOpen = this.sidebarService.isMobileOpen;
 
-  roles = signal<UserRole[]>([
-    { label: 'Administrador', value: 'admin', icon: 'pi pi-shield', description: 'Acceso total al sistema' },
-    { label: 'Ventas', value: 'sales', icon: 'pi pi-shopping-cart', description: 'Gestión de facturación y pedidos' },
-    { label: 'Gestor de información', value: 'manager', icon: 'pi pi-database', description: 'Administración de catálogos' },
-    { label: 'Analista de Datos', value: 'analyst', icon: 'pi pi-chart-bar', description: 'Visualización de reportes' },
-    { label: 'Soporte Técnico', value: 'support', icon: 'pi pi-cog', description: 'Resolución de incidencias' },
-    { label: 'Auditor Externo', value: 'auditor', icon: 'pi pi-search', description: 'Revisión de logs y auditoría' },
-    { label: 'Recursos Humanos', value: 'hr', icon: 'pi pi-users', description: 'Gestión de personal' },
-  ]);
+  // Use roles from AuthService
+  roles = this.authService.currentRoles;
 
-  selectedRole = signal<UserRole>(this.roles()[0]);
+  // Active Role is managed globally by AuthService
+  selectedRole = this.authService.activeRole;
 
   filteredRoles = computed(() => {
     const query = this.roleSearchQuery().toLowerCase();
     return this.roles().filter(role => 
-      role.label.toLowerCase().includes(query) || 
+      role.name.toLowerCase().includes(query) || 
       role.description?.toLowerCase().includes(query)
     );
   });
@@ -68,12 +69,13 @@ export class AppHeaderComponent {
   }
 
   showRoleModal() {
+    this.authService.fetchRoles();
     this.roleSearchQuery.set('');
     this.isRoleModalVisible.set(true);
   }
 
   selectRole(role: UserRole) {
-    this.selectedRole.set(role);
+    this.authService.setActiveRole(role);
     this.isRoleModalVisible.set(false);
   }
 }

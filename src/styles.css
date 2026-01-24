@@ -290,7 +290,7 @@
 
   /* Compact Input Fields */
   .p-inputtext {
-    @apply !py-1.5 !px-3 !text-sm; /* Compact padding */
+    @apply !py-1.5 px-3 !text-sm; /* Compact padding */
   }
 
   /* Compact Buttons */
@@ -386,7 +386,7 @@
 }
 
 @utility role-item-active {
-  @apply bg-brand-50 border-brand-100 dark:bg-brand-500/10 dark:border-brand-500/20 shadow-sm;
+  @apply bg-brand-50 border-brand-100 dark:bg-brand-500/25 dark:border-brand-500/40 shadow-sm;
 }
 
 @utility role-icon-container {
@@ -394,6 +394,10 @@
   
   &.active {
     @apply bg-brand-500 text-white shadow-md;
+
+    @variant dark {
+      @apply bg-brand-400 text-white;
+    }
   }
 }
 

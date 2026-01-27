@@ -7,11 +7,9 @@ import { AppConfig } from './config.model';
   providedIn: 'root'
 })
 export class ConfigService {
-  private http: HttpClient;
+  private handler = inject(HttpBackend);
+  private http = new HttpClient(this.handler);
 
-  constructor(private handler: HttpBackend) {
-    this.http = new HttpClient(handler);
-  }
   private configSignal = signal<AppConfig | null>(null);
   
   readonly config = this.configSignal.asReadonly();

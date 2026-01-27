@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
+import { SkeletonModule } from 'primeng/skeleton';
 
 import { UserRole } from '@features/auth/models/auth.models';
 import { AuthService } from '@core/auth/auth.service';
@@ -26,7 +27,8 @@ import { AuthService } from '@core/auth/auth.service';
     InputTextModule,
     IconFieldModule,
     InputIconModule,
-    FormsModule
+    FormsModule,
+    SkeletonModule
   ],
   templateUrl: './app-header.component.html',
 })
@@ -42,6 +44,7 @@ export class AppHeaderComponent {
 
   // Use roles from AuthService
   roles = this.authService.currentRoles;
+  isLoadingRoles = this.authService.isLoadingRoles;
 
   // Active Role is managed globally by AuthService
   selectedRole = this.authService.activeRole;

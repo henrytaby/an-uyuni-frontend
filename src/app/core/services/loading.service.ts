@@ -1,9 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingService {
+  private router = inject(Router);
+
   readonly isNavigating = signal(false);
   readonly isLoading = signal(false);
 
@@ -11,6 +15,15 @@ export class LoadingService {
   
   private timeoutId: ReturnType<typeof setTimeout> | null = null;
   private debounceId: ReturnType<typeof setTimeout> | null = null;
+
+  constructor() {
+    // Force reset loader on any navigation start to prevent stuck states
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationStart)
+    ).subscribe(() => {
+      this.resetLoader();
+    });
+  }
 
   setNavigating(value: boolean) {
     this.isNavigating.set(value);

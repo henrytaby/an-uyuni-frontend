@@ -87,28 +87,43 @@
 
     <!-- Role List -->
     <div class="flex flex-col gap-2 max-h-[350px] overflow-y-auto custom-scrollbar pr-1">
-      @for (role of filteredRoles(); track role.id) {
-      <div (click)="selectRole(role)" (keydown.enter)="selectRole(role)" tabindex="0"
-        [class.role-item-active]="selectedRole()?.slug === role.slug"
-        class="role-item group focus:ring-2 focus:ring-brand-500/50 outline-none">
-        <div class="flex items-center gap-3">
-          <div class="role-icon-container" [class.active]="selectedRole()?.slug === role.slug">
-            <i [class]="role.icon"></i>
+      @if (isLoadingRoles()) {
+        <!-- Skeleton List -->
+        @for (i of [1, 2, 3]; track i) {
+          <div class="role-item pointer-events-none opacity-60">
+            <div class="flex items-center gap-3 w-full">
+              <p-skeleton shape="circle" size="2.5rem" />
+              <div class="flex flex-col gap-2 grow">
+                <p-skeleton width="60%" height="1rem" />
+                <p-skeleton width="80%" height="0.75rem" />
+              </div>
+            </div>
           </div>
-          <div class="flex flex-col">
-            <span class="role-label">{{ role.name }}</span>
-            <span class="role-description text-gray-500 dark:text-gray-400">{{ role.description }}</span>
-          </div>
-        </div>
-        @if (selectedRole()?.slug === role.slug) {
-        <i class="pi pi-check-circle text-brand-600 dark:text-brand-400 ml-auto"></i>
         }
-      </div>
-      } @empty {
-      <div class="flex flex-col items-center justify-center py-8 text-gray-400">
-        <i class="pi pi-search text-3xl mb-2 opacity-20"></i>
-        <p>No se encontraron roles que coincidan</p>
-      </div>
+      } @else {
+        @for (role of filteredRoles(); track role.id) {
+        <div (click)="selectRole(role)" (keydown.enter)="selectRole(role)" tabindex="0"
+          [class.role-item-active]="selectedRole()?.slug === role.slug"
+          class="role-item group focus:ring-2 focus:ring-brand-500/50 outline-none">
+          <div class="flex items-center gap-3">
+            <div class="role-icon-container" [class.active]="selectedRole()?.slug === role.slug">
+              <i [class]="role.icon"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="role-label">{{ role.name }}</span>
+              <span class="role-description text-gray-500 dark:text-gray-400">{{ role.description }}</span>
+            </div>
+          </div>
+          @if (selectedRole()?.slug === role.slug) {
+          <i class="pi pi-check-circle text-brand-600 dark:text-brand-400 ml-auto"></i>
+          }
+        </div>
+        } @empty {
+        <div class="flex flex-col items-center justify-center py-8 text-gray-400">
+          <i class="pi pi-search text-3xl mb-2 opacity-20"></i>
+          <p>No se encontraron roles que coincidan</p>
+        </div>
+        }
       }
     </div>
   </div>

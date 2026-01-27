@@ -29,6 +29,9 @@ export class AuthService {
   private menuSignal = signal<MenuGroup[]>([]);
   readonly currentMenu = this.menuSignal.asReadonly();
 
+  private loadingRolesSignal = signal<boolean>(false);
+  readonly isLoadingRoles = this.loadingRolesSignal.asReadonly();
+
   constructor() {
     // Attempt to restore session if token exists.
     // ConfigService is guaranteed to be ready because it uses HttpBackend and is loaded via APP_INITIALIZER
@@ -106,6 +109,7 @@ export class AuthService {
   }
 
   fetchRoles() {
+    this.loadingRolesSignal.set(true);
     this.http.get<UserRole[]>(`${this.configService.apiUrl}/auth/me/roles`).subscribe({
       next: (roles) => {
         this.rolesSignal.set(roles);
@@ -124,12 +128,16 @@ export class AuthService {
         } else {
           this.activeRoleSignal.set(null);
         }
+        this.loadingRolesSignal.set(false);
       },
-      error: (err) => console.error('Error fetching roles:', err)
+      error: (err) => {
+        console.error('Error fetching roles:', err);
+        this.loadingRolesSignal.set(false);
+      }
     });
   }
 
-  setActiveRole(role: UserRole, navigate: boolean = true) {
+  setActiveRole(role: UserRole, navigate = true) {
     this.activeRoleSignal.set(role);
     localStorage.setItem('active_role_slug', role.slug);
     this.fetchMenu(role.slug);

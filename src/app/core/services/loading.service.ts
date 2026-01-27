@@ -1,71 +1,99 @@
-import { Injectable, signal, inject } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
-import { filter } from 'rxjs';
+import { Injectable, signal, inject, OnDestroy } from '@angular/core';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { filter, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoadingService {
+export class LoadingService implements OnDestroy {
   private router = inject(Router);
-
+  
+  // Signals para el estado global
   readonly isNavigating = signal(false);
   readonly isLoading = signal(false);
 
-  private activeUrls = new Set<string>();
+  // Contador de peticiones activas (más robusto que Set para condiciones de carrera)
+  private activeRequestCount = 0;
   
   private timeoutId: ReturnType<typeof setTimeout> | null = null;
   private debounceId: ReturnType<typeof setTimeout> | null = null;
+  private routerSubscription: Subscription;
 
   constructor() {
-    // Force reset loader on any navigation start to prevent stuck states
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationStart)
+    // Forzamos el reset en cualquier evento importante de navegación
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => 
+        event instanceof NavigationStart || 
+        event instanceof NavigationEnd || 
+        event instanceof NavigationCancel || 
+        event instanceof NavigationError
+      )
     ).subscribe(() => {
-      this.resetLoader();
+      this.forceReset();
     });
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription?.unsubscribe();
   }
 
   setNavigating(value: boolean) {
     this.isNavigating.set(value);
   }
 
-  showLoader(url?: string) {
-    const requestKey = url || `req-${Math.random()}`; 
-    this.activeUrls.add(requestKey);
+  showLoader() {
+    this.activeRequestCount++;
     
-    if (this.activeUrls.size === 1) {
-      if (this.debounceId) clearTimeout(this.debounceId);
+    // Si es la primera petición, iniciamos el debounce
+    if (this.activeRequestCount === 1) {
+      this.clearDebounce();
       
       this.debounceId = setTimeout(() => {
-        if (this.activeUrls.size > 0) {
+        if (this.activeRequestCount > 0) {
           this.isLoading.set(true);
           this.startFailSafeTimer();
         }
-      }, 300);
+      }, 300); // 300ms de gracia para peticiones rápidas
     }
   }
 
-  hideLoader(url?: string) {
-    if (url) {
-      this.activeUrls.delete(url);
-    } else {
-       console.warn('[Loader] hideLoader called without URL.');
-    }
+  hideLoader() {
+    this.activeRequestCount = Math.max(0, this.activeRequestCount - 1);
 
-    if (this.activeUrls.size <= 0) {
-      this.resetLoader();
+    if (this.activeRequestCount === 0) {
+      this.stopLoadingState();
     }
   }
 
-  resetLoader() {
-    this.activeUrls.clear();
+  /**
+   * Limpia el estado de carga pero mantiene el contador si fuera necesario.
+   * Usado internamente al terminar peticiones normales.
+   */
+  private stopLoadingState() {
     this.isLoading.set(false);
-    
+    this.clearDebounce();
+    this.clearFailSafe();
+  }
+
+  /**
+   * LIMPIEZA TOTAL: Resetea contadores y estados.
+   * Invocado en navegaciones o errores críticos.
+   */
+  forceReset() {
+    this.activeRequestCount = 0;
+    this.isLoading.set(false);
+    this.clearDebounce();
+    this.clearFailSafe();
+  }
+
+  private clearDebounce() {
     if (this.debounceId) {
       clearTimeout(this.debounceId);
       this.debounceId = null;
     }
+  }
 
+  private clearFailSafe() {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
@@ -73,13 +101,13 @@ export class LoadingService {
   }
 
   private startFailSafeTimer() {
-    if (this.timeoutId) clearTimeout(this.timeoutId);
-    // Fail-safe: Si el loader se queda pegado más de 10 segundos, lo reseteamos
+    this.clearFailSafe();
+    // Fail-safe: Si el loader se queda pegado más de 6 segundos (reducido para mejor UX), lo reseteamos
     this.timeoutId = setTimeout(() => {
       if (this.isLoading()) {
-        console.warn('Loading fail-safe triggered. Stuck requests:', Array.from(this.activeUrls));
-        this.resetLoader();
+        console.warn('[LoadingService] Fail-safe triggered. Forcing reset.');
+        this.forceReset();
       }
-    }, 10000);
+    }, 6000);
   }
 }

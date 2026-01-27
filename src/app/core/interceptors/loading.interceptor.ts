@@ -14,9 +14,9 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req);
   }
 
-  loadingService.showLoader(req.url);
+  loadingService.showLoader();
 
   return next(req).pipe(
-    finalize(() => loadingService.hideLoader(req.url))
+    finalize(() => loadingService.hideLoader())
   );
 };

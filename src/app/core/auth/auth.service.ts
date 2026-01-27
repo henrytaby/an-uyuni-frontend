@@ -5,6 +5,7 @@ import { ConfigService } from '@core/config/config.service';
 import { TokenResponse, User, UserRole } from '@features/auth/models/auth.models';
 import { MenuGroup } from '@core/models/menu.models';
 import { Router } from '@angular/router';
+import { LoadingService } from '@core/services/loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private configService = inject(ConfigService);
   private router = inject(Router);
+  private loadingService = inject(LoadingService);
 
   // State Signals
   private userSignal = signal<User | null>(null);
@@ -79,6 +81,7 @@ export class AuthService {
     const url = `${this.configService.apiUrl}/auth/logout`;
 
     if (refreshToken) {
+      this.loadingService.forceReset();
       this.http.post(url, { refresh_token: refreshToken }).subscribe({
         next: () => this.clearSession(),
         error: () => this.clearSession() // Clear session anyway
@@ -167,6 +170,7 @@ export class AuthService {
   }
 
   private clearSession() {
+    this.loadingService.forceReset();
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('active_role_slug');

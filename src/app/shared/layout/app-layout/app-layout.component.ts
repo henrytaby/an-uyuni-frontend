@@ -1,19 +1,20 @@
-import { Component, inject, signal, effect } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { Component, inject, signal, effect, computed } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { AppSidebarComponent } from '../app-sidebar/app-sidebar.component';
-import { BackdropComponent } from '../backdrop/backdrop.component';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterModule } from '@angular/router';
-import { AppHeaderComponent } from '../app-header/app-header.component';
-import { LoadingService } from '../../../core/services/loading.service';
-import { NetworkErrorService } from '../../../core/services/network-error.service';
+
+import { SidebarService } from '@shared/services/sidebar.service';
+import { AppSidebarComponent } from '@shared/layout/app-sidebar/app-sidebar.component';
+import { BackdropComponent } from '@shared/layout/backdrop/backdrop.component';
+import { AppHeaderComponent } from '@shared/layout/app-header/app-header.component';
+import { LoadingService } from '@core/services/loading.service';
+import { NetworkErrorService } from '@core/services/network-error.service';
+import { UiSkeletonPageComponent } from '@shared/layout/skeleton-page/ui-skeleton-page.component';
+
 import { ProgressBarModule } from 'primeng/progressbar';
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
-
-import { UiSkeletonPageComponent } from '../skeleton-page/ui-skeleton-page.component';
 
 @Component({
   selector: 'app-layout',
@@ -45,7 +46,10 @@ export class AppLayoutComponent {
   readonly isMobileOpen = this.sidebarService.isMobileOpen;
 
   readonly isNavigating = this.loadingService.isNavigating;
-  readonly isLoading = this.loadingService.isLoading;
+  
+  // HTTP loader only if not currently navigating between pages
+  readonly isLoading = computed(() => this.loadingService.isLoading() && !this.isNavigating());
+  
   readonly showConnectionError = this.networkErrorService.showConnectionError;
   readonly isCheckingConnection = signal(false);
 
@@ -54,7 +58,7 @@ export class AppLayoutComponent {
       if (event instanceof NavigationStart) {
         this.loadingService.setNavigating(true);
         // Safety: Reset HTTP loader on new navigation to prevent stuck previous requests
-        this.loadingService.resetLoader();
+        this.loadingService.forceReset();
       } else if (
         event instanceof NavigationEnd ||
         event instanceof NavigationCancel ||

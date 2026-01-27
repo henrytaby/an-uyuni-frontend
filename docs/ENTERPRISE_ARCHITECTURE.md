@@ -24,6 +24,8 @@ Este documento analiza cómo el proyecto **Uyuni Frontend** aborda estos pilares
 *   **Sistema de Diseño Estricto**: Integración de **PrimeNG v21 + Tailwind CSS v4**. No se escriben estilos CSS arbitrarios; se utilizan tokens y librerías probadas para garantizar consistencia y accesibilidad (A11y).
 *   **Lazy Loading Total**: Todas las rutas principales se cargan bajo demanda, una característica crítica para aplicaciones grandes.
 *   **Arquitectura de Importación Limpia (Path Aliases)**: Uso estricto de alias (`@core`, `@shared`, `@features`) para eliminar rutas relativas profundas, cumpliendo con estándares de legibilidad y robustez estructural.
+*   **Gestión Visual de Raíz (Truly Global)**: Los componentes de bloqueo de UI (Spinners) se alojan en el `AppComponent`. Esto previene estados huérfanos durante cierres de sesión o saltos entre layouts.
+*   **Aislamiento de Recursos (Asset Filtering)**: Uso de interceptores inteligentes con filtrado Regex para separar peticiones de datos de la carga de recursos estáticos, garantizando que la UI solo se bloquee por procesos de negocio.
 
 ### ⚠️ Áreas de Oportunidad (Gaps)
 

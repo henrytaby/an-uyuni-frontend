@@ -29,7 +29,7 @@ src/app/
 │   │   └── config.service.ts      # Infraestructura (Carga config.json con HttpBackend)
 │   ├── interceptors/
 │   │   ├── auth.interceptor.ts    # Middleware HTTP (Token Injection y Error Handling)
-│   │   └── loading.interceptor.ts # UI (Spinner global - Robusto por contador)
+│   │   └── loading.interceptor.ts # UI (Spinner global - Robusto por contador en Raíz)
 │   └── guards/
 │       └── auth.guard.ts          # Protección de rutas
 ├── features/
@@ -142,7 +142,14 @@ A continuación, detallamos qué sucede exactamente bajo el capó cuando un toke
 
 ## 5. Explicación Técnica Detallada de Arquitectura
 
-### 5.1. Configuración Robusta (`ConfigService`)
+### 5. Configuración y Carga Robusta
+
+Para evitar ciclos infinitos de inyección, el sistema utiliza **`HttpBackend`** en `ConfigService`, permitiendo cargar la configuración de la API antes de que los interceptores entren en juego. 
+
+Además, se ha implementado el **Truly Global Loader** en el `AppComponent`, asegurando que cualquier transición de autenticación (como un cierre de sesión forzado) tenga un feedback visual limpio y que el bloqueo de la interfaz nunca quede huérfano.
+
+#### 5.1 Filtrado de Assets en Interceptor
+El interceptor de carga utiliza expresiones regulares para ignorar recursos estáticos, evitando que el spinner se "pegue" mientras se descargan logos de la aduana o fotos de perfil.
 
 **¿Por qué es especial?**
 Usamos el patrón **`HttpBackend`** mediante `inject()` para evitar inyecciones circulares.

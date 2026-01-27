@@ -10,6 +10,7 @@ El proyecto sigue una arquitectura basada en **Domain-Driven Design (DDD) Lite**
 2.  **Lazy Loading por Defecto**: Todos los módulos de funcionalidades (`features`) se cargan bajo demanda para optimizar el rendimiento.
 3.  **Standalone Components**: No utilizamos `NgModules` (excepto para configuraciones muy específicas de librerías legacy).
 4.  **Smart vs. Dumb Components**: Separación entre componentes que manejan datos/lógica (Smart) y componentes puramente visuales (Dumb).
+5.  **UI Global en el Root (Truly Global)**: La interfaz de bloqueo (Loader) se gestiona en el `AppComponent`. Esto garantiza que el feedback sea persistente y no se interrumpa durante cambios de página o cierres de sesión.
 
 ### Visualización de Capas:
 

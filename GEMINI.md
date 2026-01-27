@@ -43,12 +43,14 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 11. **Performance Optimization**: Optimized `UserDropdown` for Firefox by reducing backdrop blur and implementing a GPU-accelerated micro-animation (`animate-dropdown-in`).
 12. **Sidebar Modernization**: Replaced all legacy inline SVGs in the sidebar with standardized PrimeIcons.
 13. **Cleanup**: Deleted orphaned `CheckboxComponent`, `CountryMapComponent`, `ChartTabComponent`, and `TableDropdownComponent` to keep the codebase lean.
-14. **Scroll & Loader**: Implemented "Scroll to Top" and a **Next-Gen Robust Global Loading System** using a request counter (eliminating race conditions), 300ms debounce, and forced auto-reset on *all* critical navigation events (`Start`, `End`, `Cancel`, `Error`).
-15. **Font Self-Hosting**: Migrated Roboto font to local hosting for offline support and reliability.
-16. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`), replacing white flashes with structural placeholders.
-17. **Role Selection UX**: Implemented a "Fetch-on-Open" strategy for the role switcher with a dedicated **Role Skeleton Loader**, ensuring fresh data and superior feedback.
-18. **Architectural Cleanup**: Removed all relative imports across modules (`../../../`) and enforced **Path Aliases** (`@core`, `@shared`, `@features`, `@env`) project-wide for a cleaner, professional architecture.
-19. **Service Refactoring**: Migrated `ConfigService` and `AuthService` to the pure `inject()` pattern, eliminating legacy constructors.
+14. **Truly Global Loader (Root Hook)**: Migrated the global blocking spinner (`p-blockUI`) from `AppLayout` to `AppComponent` (Root Level). This ensures the UI block is never orphaned or interrupted during layout transitions (e.g., Logout from `/profile` to `/signin`).
+15. **Robust Asset Filtering (Regex)**: Implemented an advanced Regex in `LoadingInterceptor` to ignore ALL static assets (images, fonts, vectors) even with query parameters/versioning. This prevents false loading states in Chrome with "Disable Cache".
+16. **Singleton Safety Resets**: Centralized all navigation-based loader resets in the `LoadingService` singleton, ensuring an unconditional reset on *every* `NavigationStart` across the entire application.
+17. **Scroll & Loader (Legacy Update)**: Finalized the global loading system eliminating race conditions and using 300ms debounce.
+18. **Font Self-Hosting**: Migrated Roboto font to local hosting for offline support.
+19. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`).
+20. **Role Selection UX**: Implemented a "Fetch-on-Open" strategy for the role switcher with a dedicated **Role Skeleton Loader**.
+21. **Architectural Cleanup**: Enforced **Path Aliases** (`@core`, `@shared`, `@features`, `@env`) and the **`inject()` pattern** project-wide.
 
 
 ## 🧠 AI Persona & Technical Directives

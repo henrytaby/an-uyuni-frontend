@@ -43,9 +43,12 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 11. **Performance Optimization**: Optimized `UserDropdown` for Firefox by reducing backdrop blur and implementing a GPU-accelerated micro-animation (`animate-dropdown-in`).
 12. **Sidebar Modernization**: Replaced all legacy inline SVGs in the sidebar with standardized PrimeIcons.
 13. **Cleanup**: Deleted orphaned `CheckboxComponent`, `CountryMapComponent`, `ChartTabComponent`, and `TableDropdownComponent` to keep the codebase lean.
-14. **Scroll & Loader**: Implemented "Scroll to Top" and a robust **Global Hybrid Loading System** with 300ms debounce (Grace Period), URL-based tracking (preventing race conditions), and auto-reset on navigation.
+14. **Scroll & Loader**: Implemented "Scroll to Top" and a **Next-Gen Robust Global Loading System** using a request counter (eliminating race conditions), 300ms debounce, and forced auto-reset on *all* critical navigation events (`Start`, `End`, `Cancel`, `Error`).
 15. **Font Self-Hosting**: Migrated Roboto font to local hosting for offline support and reliability.
-16. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`), replacing white flashes with structural placeholders managed by `AppLayout` and `LoadingService`.
+16. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`), replacing white flashes with structural placeholders.
+17. **Role Selection UX**: Implemented a "Fetch-on-Open" strategy for the role switcher with a dedicated **Role Skeleton Loader**, ensuring fresh data and superior feedback.
+18. **Architectural Cleanup**: Removed all relative imports across modules (`../../../`) and enforced **Path Aliases** (`@core`, `@shared`, `@features`, `@env`) project-wide for a cleaner, professional architecture.
+19. **Service Refactoring**: Migrated `ConfigService` and `AuthService` to the pure `inject()` pattern, eliminating legacy constructors.
 
 
 ## 🧠 AI Persona & Technical Directives
@@ -73,8 +76,8 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 - **Expert Mode**: Always apply the personality and standards defined above without explicit reminders.
 - **Local Configuration**: The `assets/config/config.json` file controls the `mockAuth` mode.
 - **Naming**: Selectors must follow the `app-` prefix.
-- **Imports**: Always verify relative import depth when moving files; Path aliases are preferred if configured in `tsconfig`.
+- **Imports**: **Strictly prohibit** deep relative imports across modules (e.g., `../../../../core`). Path aliases (`@core`, `@shared`, `@features`, `@env`) are the **OBLIGATORY** standard for professional architecture.
 - **Build**: If `ng serve` fails due to test types, ensure specs are excluded in `tsconfig.app.json`.
 
 ---
-*Last update: January 2026 by Antigravity.*
+*Last update: January 2026 (v1.1) by Antigravity.*

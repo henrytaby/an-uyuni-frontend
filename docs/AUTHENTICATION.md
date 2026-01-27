@@ -29,7 +29,7 @@ src/app/
 │   │   └── config.service.ts      # Infraestructura (Carga config.json con HttpBackend)
 │   ├── interceptors/
 │   │   ├── auth.interceptor.ts    # Middleware HTTP (Token Injection y Error Handling)
-│   │   └── loading.interceptor.ts # UI (Spinner global)
+│   │   └── loading.interceptor.ts # UI (Spinner global - Robusto por contador)
 │   └── guards/
 │       └── auth.guard.ts          # Protección de rutas
 ├── features/
@@ -145,13 +145,13 @@ A continuación, detallamos qué sucede exactamente bajo el capó cuando un toke
 ### 5.1. Configuración Robusta (`ConfigService`)
 
 **¿Por qué es especial?**
-Usamos el patrón **`HttpBackend`** en `config.service.ts`.
+Usamos el patrón **`HttpBackend`** mediante `inject()` para evitar inyecciones circulares.
 
 ```typescript
-constructor(private handler: HttpBackend) {
-  // Creamos un HttpClient "puro" que NO usa interceptores
-  this.http = new HttpClient(handler);
-}
+private handler = inject(HttpBackend);
+private http = new HttpClient(this.handler);
+
+// HttpClient "puro" que NO usa interceptores
 ```
 
 *   **Razón**: Si usáramos el `HttpClient` normal, este intentaría pasar por el `AuthInterceptor`. El `AuthInterceptor` necesita `AuthService`, y `AuthService` necesita `ConfigService` (para saber la URL). Esto crearía un círculo infinito (`Circular Dependency`).
@@ -159,7 +159,7 @@ constructor(private handler: HttpBackend) {
 
 ### 5.2. Inicialización de Sesión (`AuthService`)
 
-Resolvemos un problema sutil de concurrencia en el constructor de `auth.service.ts`:
+Resolvemos un problema sutil de concurrencia mediante el uso de `effect()` o inicialización diferida:
 
 ```typescript
 constructor() {
@@ -170,8 +170,9 @@ constructor() {
 }
 ```
 
-*   **Problema**: Cuando `AuthService` nace, si intenta hacer una llamada HTTP inmediata (`refreshProfile`), activaría el interceptor. El interceptor intentaría inyectar... ¡al mismo `AuthService` que todavía no terminó de nacer!
-*   **Solución**: El `setTimeout` pone la llamada "al final de la cola" de ejecución (Event Loop), asegurando que el constructor termine y el servicio esté 100% listo antes de procesar la petición.
+> [!NOTE]
+> Aunque el servicio usa `inject()`, la lógica de inicialización diferida se mantiene para evitar que el interceptor intente inyectar un servicio que aún está en proceso de construcción.
+
 
 ### 5.3. Reactividad con Signals
 

@@ -60,16 +60,19 @@ En **UyuniAdmin** hemos adoptado una estrategia de **"Pragmatic DDD"** para opti
 
 ---
 
-### 1.4. Alias de Rutas (Path Aliases)
+### 1.4. Alias de Rutas (Path Aliases) - OBLIGATORIO
 
-Para evitar el "Infierno de Puntos" (`../../../../`), utilizamos alias configurados en `tsconfig.json`:
+Para evitar el "Infierno de Puntos" (`../../../../`) y mantener una arquitectura profesional, **está estrictamente prohibido** usar rutas relativas para importar entre módulos. Se deben usar los alias configurados en `tsconfig.json`:
 
 | Alias | Mapeo | Uso |
 | :--- | :--- | :--- |
 | `@core/*` | `src/app/core/*` | Servicios globales, Guards, Interceptors. |
-| `@shared/*` | `src/app/shared/*` | Componentes UI, Pipes, Directivas. |
-| `@features/*` | `src/app/features/*` | Smart Components, Modelos de Dominio. |
+| `@shared/*` | `src/app/shared/*` | Componentes UI, Pipes, Directivas, Layout. |
+| `@features/*` | `src/app/features/*` | Smart Components, Modelos y Servicios de feature. |
 | `@env/*` | `src/environments/*` | Variables de entorno (`environment.ts`). |
+
+> [!IMPORTANT]
+> Las rutas relativas (`./` o `../`) solo se permiten dentro de la misma carpeta del componente o feature. Cualquier importación que salga del módulo debe usar un `@alias`.
 
 ---
 

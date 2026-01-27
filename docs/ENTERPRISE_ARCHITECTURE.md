@@ -23,6 +23,7 @@ Este documento analiza cómo el proyecto **Uyuni Frontend** aborda estos pilares
 *   **Gestión de Estado Reactivo (Signals)**: Uso de la primitiva `Signal` para el manejo de estado, ofreciendo un rendimiento superior a `Zone.js` tradicional y menor complejidad cognitiva que `Redux/NgRx` para estados locales.
 *   **Sistema de Diseño Estricto**: Integración de **PrimeNG v21 + Tailwind CSS v4**. No se escriben estilos CSS arbitrarios; se utilizan tokens y librerías probadas para garantizar consistencia y accesibilidad (A11y).
 *   **Lazy Loading Total**: Todas las rutas principales se cargan bajo demanda, una característica crítica para aplicaciones grandes.
+*   **Arquitectura de Importación Limpia (Path Aliases)**: Uso estricto de alias (`@core`, `@shared`, `@features`) para eliminar rutas relativas profundas, cumpliendo con estándares de legibilidad y robustez estructural.
 
 ### ⚠️ Áreas de Oportunidad (Gaps)
 
@@ -212,9 +213,10 @@ Verifica que no estás "engañando" al compilador.
 *   Activa el **Modo Oscuro** (Theme Toggle) y verifica que los textos sean legibles y los contrastes correctos.
 
 #### 4. Clean Import Check
-verifica que no estás importando desde rutas relativas profundas "infernales".
-*   ❌ `../../../../shared/components/button`
-*   ✅ Usa alias si están configurados o mantén la estructura plana.
+verifica que estás utilizando **Path Aliases** para cualquier importación que cruce fronteras de módulos.
+*   ❌ `import { ... } from '../../../../shared/components/button'`
+*   ✅ `import { ... } from '@shared/components/button'`
+*   **Regla**: Solo se permiten rutas relativas (`./` o `../`) para archivos dentro del mismo componente o subcarpeta de feature.
 
 ### Fase 4: Commit & Push
 

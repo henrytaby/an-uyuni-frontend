@@ -1,6 +1,7 @@
 import { Component, inject, signal, effect, computed } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
+import { filter } from 'rxjs';
 
 import { SidebarService } from '@shared/services/sidebar.service';
 import { AppSidebarComponent } from '@shared/layout/app-sidebar/app-sidebar.component';
@@ -54,21 +55,10 @@ export class AppLayoutComponent {
   readonly isCheckingConnection = signal(false);
 
   constructor() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        this.loadingService.setNavigating(true);
-        // Safety: Reset HTTP loader on new navigation to prevent stuck previous requests
-        this.loadingService.forceReset();
-      } else if (
-        event instanceof NavigationEnd ||
-        event instanceof NavigationCancel ||
-        event instanceof NavigationError
-      ) {
-        this.loadingService.setNavigating(false);
-        if (event instanceof NavigationEnd) {
-          this.viewportScroller.scrollToPosition([0, 0]);
-        }
-      }
+    this.router.events.pipe(
+      filter((event: Event) => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.viewportScroller.scrollToPosition([0, 0]);
     });
 
     // Reset checking state if dialog is closed/reset

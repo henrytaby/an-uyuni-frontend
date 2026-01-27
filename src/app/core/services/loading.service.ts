@@ -1,6 +1,6 @@
 import { Injectable, signal, inject, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
-import { filter, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +20,18 @@ export class LoadingService implements OnDestroy {
   private routerSubscription: Subscription;
 
   constructor() {
-    // Forzamos el reset en cualquier evento importante de navegación
-    this.routerSubscription = this.router.events.pipe(
-      filter(event => 
-        event instanceof NavigationStart || 
-        event instanceof NavigationEnd || 
-        event instanceof NavigationCancel || 
+    this.routerSubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.isNavigating.set(true);
+        // Safety: Reset HTTP loader on EVERY navigation start globally
+        this.forceReset();
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
         event instanceof NavigationError
-      )
-    ).subscribe(() => {
-      this.forceReset();
+      ) {
+        this.isNavigating.set(false);
+      }
     });
   }
 
@@ -37,9 +39,7 @@ export class LoadingService implements OnDestroy {
     this.routerSubscription?.unsubscribe();
   }
 
-  setNavigating(value: boolean) {
-    this.isNavigating.set(value);
-  }
+
 
   showLoader() {
     this.activeRequestCount++;

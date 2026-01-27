@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed } from '@angular/core';
 import { SidebarService } from '../../services/sidebar.service';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-
+import { AuthService } from '@core/auth/auth.service';
 import { filter, Subscription } from 'rxjs';
 
 interface NavItem {
@@ -10,7 +10,7 @@ interface NavItem {
   icon: string;
   path?: string;
   new?: boolean;
-  subItems?: { name: string; path: string; pro?: boolean; new?: boolean }[];
+  subItems?: { name: string; path: string; icon?: string; pro?: boolean; new?: boolean }[];
 }
 
 @Component({
@@ -23,88 +23,49 @@ interface NavItem {
 })
 export class AppSidebarComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  // Main nav items
-  navItems: NavItem[] = [
-    {
-      icon: 'pi pi-th-large',
-      name: "Dashboard",
-      subItems: [
-        { name: "Ecommerce", path: "/" },
-      ],
-    },
-    {
-      icon: 'pi pi-calendar',
-      name: "Calendario",
-      path: "/calendar",
-    },
-    {
-      icon: 'pi pi-user',
-      name: "Perfil de Usuario",
-      path: "/profile",
-    },
-    {
-      name: "Formularios",
-      icon: 'pi pi-list',
-      subItems: [
-        { name: "Elementos de Formulario", path: "/forms", pro: false }
-      ],
-    },
-    {
-      name: "Tablas",
-      icon: 'pi pi-table',
-      subItems: [
-        { name: "Vista General", path: "/tables/overview", pro: false },
-        { name: "Factura", path: "/invoice", pro: false },
-      ],
-    },
-    {
-      name: "Páginas",
-      icon: 'pi pi-file',
-      subItems: [
-        { name: "Página en Blanco", path: "/blank", pro: false },
-        { name: "Error 404", path: "/error-404", pro: false },
-      ],
-    },
-  ];
+  public sidebarService = inject(SidebarService);
+  private router = inject(Router);
+  private authService = inject(AuthService);
+  private cdr = inject(ChangeDetectorRef);
 
-  // Others nav items
-  othersItems: NavItem[] = [
-    {
-      icon: 'pi pi-chart-pie',
-      name: "Gráficos",
-      subItems: [
-        { name: "Gráfico de Líneas", path: "/charts/line-chart", pro: false },
-        { name: "Gráfico de Barras", path: "/charts/bar-chart", pro: false },
-      ],
-    },
-    {
-      icon: 'pi pi-box',
-      name: "Elementos UI",
-      subItems: [
-        { name: "Alertas", path: "/ui/alerts", pro: false },
-        { name: "Avatar", path: "/ui/avatars", pro: false },
-        { name: "Etiquetas", path: "/ui/badge", pro: false },
-        { name: "Botones", path: "/ui/buttons", pro: false },
-        { name: "Imágenes", path: "/ui/images", pro: false },
-        { name: "Videos", path: "/ui/videos", pro: false },
-      ],
-    },
-    {
-      icon: 'pi pi-lock',
-      name: "Autenticación",
-      subItems: [
-        { name: "Iniciar Sesión", path: "/signin", pro: false },
-        { name: "Registrarse", path: "/signup", pro: false },
-      ],
-    },
-  ];
+  currentMenu = this.authService.currentMenu;
+
+  // Compute navItems from the currentMenu signal
+  navItems = computed<NavItem[]>(() => {
+    const rawMenu = this.currentMenu();
+    
+    // Static Home Item
+    const homeItem: NavItem = {
+      name: 'Inicio',
+      icon: 'pi pi-th-large',
+      path: '/'
+    };
+
+    const dynamicItems = rawMenu.map(group => {
+      // Create a navigation item for the Group (Parent)
+      // This will be collapsible if it has subItems (modules)
+      const groupItem: NavItem = {
+        name: group.group_name,
+        icon: group.icon,
+        // Assuming groups don't have a direct route, if they act as collapse triggers
+        // path: `/${group.slug}`, 
+        subItems: group.modules.map(module => ({
+          name: module.name,
+          path: `/${module.route}`, // Assuming route is relative
+          icon: module.icon
+        }))
+      };
+      return groupItem;
+    });
+
+    return [homeItem, ...dynamicItems];
+  });
+
+  // For now, keep others empty or remove it.
+  othersItems: NavItem[] = [];
 
   openSubmenu = signal<string | null>(null);
   subMenuHeights = signal<Record<string, number>>({});
-
-  public sidebarService = inject(SidebarService);
-  private router = inject(Router);
-  private cdr = inject(ChangeDetectorRef);
 
   readonly isExpanded = this.sidebarService.isExpanded;
   readonly isMobileOpen = this.sidebarService.isMobileOpen;
@@ -165,17 +126,26 @@ export class AppSidebarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private setActiveMenuFromRoute(currentUrl: string) {
     const menuGroups = [
-      { items: this.navItems, prefix: 'main' },
+      { items: this.navItems(), prefix: 'main' },
       { items: this.othersItems, prefix: 'others' },
     ];
 
+    let foundMatch = false;
+
     menuGroups.forEach(group => {
       group.items.forEach((nav, i) => {
+        // Check if root item matches
+        if (nav.path && currentUrl === nav.path) {
+           this.openSubmenu.set(null); // Close any open submenu
+           foundMatch = true;
+        }
+
         if (nav.subItems) {
           nav.subItems.forEach(subItem => {
             if (currentUrl === subItem.path) {
               const key = `${group.prefix}-${i}`;
               this.openSubmenu.set(key);
+              foundMatch = true;
 
               setTimeout(() => {
                 if (typeof document !== 'undefined') {
@@ -190,6 +160,21 @@ export class AppSidebarComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       });
     });
+
+    // If no navigation item matches the current URL (e.g. /profile), 
+    // we should probably close opened submenus to avoid confusion, 
+    // unless we want to keep the last state. 
+    // Given the user report, clearing it seems appropriate if it's an unrelated page.
+    // However, sometimes we might want to keep it open if it's a child page not in menu?
+    // For now, let's only clear if we explicitly found a match on a root item (handled above),
+    // OR if we strictly want to ensure "Configuración" isn't active when at /profile.
+    
+    // If /profile is NOT in the menu, then 'foundMatch' is false.
+    // The previous state remains.
+    // To fix "Configuración" being active/expanded when at /profile:
+    if (!foundMatch) {
+       this.openSubmenu.set(null);
+    }
   }
 
   onSubmenuClick() {

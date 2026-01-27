@@ -347,7 +347,7 @@
   @apply bg-brand-50 text-brand-800 shadow-xs;
 
   @variant dark {
-    @apply bg-brand-500/[0.12] text-brand-400;
+    @apply bg-brand-500/[0.25] text-brand-200 font-medium shadow-none;
   }
 }
 
@@ -371,7 +371,7 @@
   @apply text-brand-500;
 
   @variant dark {
-    @apply text-brand-400;
+    @apply text-brand-200;
   }
 }
 
@@ -476,7 +476,7 @@
   @apply bg-brand-50 text-brand-500;
 
   @variant dark {
-    @apply bg-brand-500/[0.12] text-brand-400;
+    @apply bg-brand-500/[0.25] text-brand-200;
   }
 }
 

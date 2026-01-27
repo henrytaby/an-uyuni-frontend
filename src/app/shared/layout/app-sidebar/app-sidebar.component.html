@@ -40,7 +40,7 @@
             }
           </h2>
           <ul class="flex flex-col gap-1">
-            @for (nav of navItems; track $index;let i = $index) {
+            @for (nav of navItems(); track $index;let i = $index) {
             <li>
               @if (nav.subItems) {
               <button (click)="toggleSubmenu('main',i)" class="menu-item group cursor-pointer"
@@ -88,6 +88,9 @@
                               'menu-dropdown-item-inactive': !isActive(subItem.path),
                               'menu-dropdown-item-active': isActive(subItem.path),
                             }">
+                      @if (subItem.icon) {
+                      <i [class]="subItem.icon" class="mr-2 text-lg"></i>
+                      }
                       {{ subItem.name }}
                       <span class="flex items-center gap-1 ml-auto">
                         @if (subItem.new) {
@@ -114,7 +117,8 @@
               </div>
               } @else {
               @if (nav.path) {
-              <a [routerLink]="nav.path" routerLinkActive="menu-item-active" class="menu-item group"
+              <a [routerLink]="nav.path" routerLinkActive="menu-item-active"
+                [routerLinkActiveOptions]="{ exact: nav.path === '/' }" class="menu-item group"
                 [ngClass]="{ 'menu-item-inactive': !isActive(nav.path) }">
                 <span class="menu-item-icon-size" [ngClass]="{
                       'menu-item-icon-active': isActive(nav.path),

@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap, catchError, throwError, Observable, of } from 'rxjs';
 import { ConfigService } from '@core/config/config.service';
 import { TokenResponse, User, UserRole } from '@features/auth/models/auth.models';
+import { MenuGroup } from '@core/models/menu.models';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -24,6 +25,9 @@ export class AuthService {
   readonly currentRoles = this.rolesSignal.asReadonly();
   readonly isAuthenticated = computed(() => !!this.tokenSignal());
   readonly activeRole = this.activeRoleSignal.asReadonly();
+  
+  private menuSignal = signal<MenuGroup[]>([]);
+  readonly currentMenu = this.menuSignal.asReadonly();
 
   constructor() {
     // Attempt to restore session if token exists.
@@ -61,6 +65,8 @@ export class AuthService {
     }).pipe(
       tap(response => {
         this.setSession(response.access_token, response.refresh_token);
+        // Immediately fetch profile and roles to populate UI state signals
+        this.refreshProfile();
       })
     );
   }
@@ -110,10 +116,10 @@ export class AuthService {
           const matchedRole = roles.find(r => r.slug === storedSlug);
 
           if (matchedRole) {
-            this.activeRoleSignal.set(matchedRole);
+            this.setActiveRole(matchedRole, false);
           } else {
             // Default to first role if no stored slug or mismatch
-            this.setActiveRole(roles[0]);
+            this.setActiveRole(roles[0], false);
           }
         } else {
           this.activeRoleSignal.set(null);
@@ -123,9 +129,13 @@ export class AuthService {
     });
   }
 
-  setActiveRole(role: UserRole) {
+  setActiveRole(role: UserRole, navigate: boolean = true) {
     this.activeRoleSignal.set(role);
     localStorage.setItem('active_role_slug', role.slug);
+    this.fetchMenu(role.slug);
+    if (navigate) {
+      this.router.navigate(['/']);
+    }
   }
 
   private refreshProfile() {
@@ -156,7 +166,20 @@ export class AuthService {
     this.userSignal.set(null);
     this.rolesSignal.set([]);
     this.activeRoleSignal.set(null);
+    this.menuSignal.set([]);
     this.router.navigate(['/signin']);
+  }
+
+  fetchMenu(roleSlug: string) {
+    this.http.get<MenuGroup[]>(`${this.configService.apiUrl}/auth/me/menu/${roleSlug}`).subscribe({
+      next: (menu) => {
+        this.menuSignal.set(menu);
+      },
+      error: (err) => {
+        console.error('Error fetching menu:', err);
+        this.menuSignal.set([]);
+      }
+    });
   }
 
   getToken(): string | null {

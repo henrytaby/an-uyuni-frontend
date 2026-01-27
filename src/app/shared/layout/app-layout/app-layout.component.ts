@@ -1,4 +1,4 @@
-import { Component, inject, signal, effect, computed } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
 import { filter } from 'rxjs';
@@ -12,8 +12,6 @@ import { NetworkErrorService } from '@core/services/network-error.service';
 import { UiSkeletonPageComponent } from '@shared/layout/skeleton-page/ui-skeleton-page.component';
 
 import { ProgressBarModule } from 'primeng/progressbar';
-import { BlockUIModule } from 'primeng/blockui';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 
@@ -26,8 +24,6 @@ import { ButtonModule } from 'primeng/button';
     AppSidebarComponent,
     BackdropComponent,
     ProgressBarModule,
-    BlockUIModule,
-    ProgressSpinnerModule,
     DialogModule,
     ButtonModule,
     UiSkeletonPageComponent
@@ -48,8 +44,7 @@ export class AppLayoutComponent {
 
   readonly isNavigating = this.loadingService.isNavigating;
   
-  // HTTP loader only if not currently navigating between pages
-  readonly isLoading = computed(() => this.loadingService.isLoading() && !this.isNavigating());
+
   
   readonly showConnectionError = this.networkErrorService.showConnectionError;
   readonly isCheckingConnection = signal(false);

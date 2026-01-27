@@ -43,43 +43,39 @@ export class LoadingService implements OnDestroy {
 
   showLoader() {
     this.activeRequestCount++;
+    // console.debug(`[LoadingService] showLoader: count=${this.activeRequestCount}`);
     
-    // Si es la primera petición, iniciamos el debounce
     if (this.activeRequestCount === 1) {
       this.clearDebounce();
       
       this.debounceId = setTimeout(() => {
         if (this.activeRequestCount > 0) {
+          // console.debug('[LoadingService] Setting isLoading=true');
           this.isLoading.set(true);
           this.startFailSafeTimer();
         }
-      }, 300); // 300ms de gracia para peticiones rápidas
+      }, 300);
     }
   }
 
   hideLoader() {
     this.activeRequestCount = Math.max(0, this.activeRequestCount - 1);
+    // console.debug(`[LoadingService] hideLoader: count=${this.activeRequestCount}`);
 
     if (this.activeRequestCount === 0) {
       this.stopLoadingState();
     }
   }
 
-  /**
-   * Limpia el estado de carga pero mantiene el contador si fuera necesario.
-   * Usado internamente al terminar peticiones normales.
-   */
   private stopLoadingState() {
+    // console.debug('[LoadingService] Setting isLoading=false');
     this.isLoading.set(false);
     this.clearDebounce();
     this.clearFailSafe();
   }
 
-  /**
-   * LIMPIEZA TOTAL: Resetea contadores y estados.
-   * Invocado en navegaciones o errores críticos.
-   */
   forceReset() {
+    // console.debug('[LoadingService] forceReset called');
     this.activeRequestCount = 0;
     this.isLoading.set(false);
     this.clearDebounce();

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '@shared/services/sidebar.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

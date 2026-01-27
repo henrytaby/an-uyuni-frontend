@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ThemeService } from '../../../../shared/services/theme.service';
+import { ThemeService } from '@shared/services/theme.service';
 
 
 import { ButtonModule } from 'primeng/button';

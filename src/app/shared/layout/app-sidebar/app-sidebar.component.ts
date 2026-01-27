@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed } from '@angular/core';
-import { SidebarService } from '../../services/sidebar.service';
+import { SidebarService } from '@shared/services/sidebar.service';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '@core/auth/auth.service';
 import { filter, Subscription } from 'rxjs';

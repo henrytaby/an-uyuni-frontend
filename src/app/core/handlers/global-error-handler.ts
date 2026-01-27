@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable, Injector, inject } from '@angular/core';
-import { NetworkErrorService } from '../services/network-error.service';
+import { NetworkErrorService } from '@core/services/network-error.service';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

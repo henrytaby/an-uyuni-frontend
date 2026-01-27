@@ -6,10 +6,10 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 
 import { routes } from './app.routes';
-import { ConfigService } from './core/config/config.service';
-import { authInterceptor } from './core/interceptors/auth.interceptor';
-import { loadingInterceptor } from './core/interceptors/loading.interceptor';
-import { GlobalErrorHandler } from './core/handlers/global-error-handler';
+import { ConfigService } from '@core/config/config.service';
+import { authInterceptor } from '@core/interceptors/auth.interceptor';
+import { loadingInterceptor } from '@core/interceptors/loading.interceptor';
+import { GlobalErrorHandler } from '@core/handlers/global-error-handler';
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -30,8 +30,12 @@ src/app/
 │   ├── interceptors/
 │   │   ├── auth.interceptor.ts    # Middleware HTTP (Token Injection y Error Handling)
 │   │   └── loading.interceptor.ts # UI (Spinner global - Robusto por contador en Raíz)
-│   └── guards/
-│       └── auth.guard.ts          # Protección de rutas
+│   ├── guards/
+│   │   └── auth.guard.ts          # Protección de rutas
+│   └── services/
+│       ├── logger.service.ts           # Sistema de logging estructurado
+│       ├── token-refresh.service.ts    # Encapsula lógica de renovación de tokens
+│       └── auth-error-handler.service.ts # Manejo centralizado de errores de auth
 ├── features/
 │   └── auth/
 │       └── pages/
@@ -131,8 +135,8 @@ A continuación, detallamos qué sucede exactamente bajo el capó cuando un toke
 | **3** | `Backend (FastAPI)` | `verify_token` | El servidor recibe el token, verifica su firma y tiempo de expiración. Detecta que **ha expirado**. |
 | **4** | `Backend (FastAPI)` | `Response 401` | El servidor rechaza la petición con un error HTTP `401 Unauthorized`. |
 | **5** | `auth.interceptor.ts` | `catchError()` | **Captura del Error**. El interceptor atrapa el error 401 antes de que llegue al componente. Verifica: `¿Es la URL de login? NO`. Entonces inicia el protocolo de recuperación. |
-| **6** | `auth.interceptor.ts` | `handle401Error()` | **Semáforo**. Pone `isRefreshing = true`. Si llegan otras peticiones simultáneas, las pone en cola (`refreshTokenSubject`) para no bombardear al servidor. |
-| **7** | `auth.service.ts` | `refreshToken()` | **Llamada de Rescate**. Hace una petición especial POST a `/auth/refresh` enviando el `refresh_token` de larga duración. |
+| **6** | `auth.interceptor.ts` | `handle401Error()` | **Semáforo**. Usa `TokenRefreshService` para gestionar el estado de renovación. Si llegan otras peticiones simultáneas, las pone en cola para no bombardear al servidor. |
+| **7** | `token-refresh.service.ts` | `refreshToken()` | **Llamada de Rescate**. Encapsula la lógica de renovación de tokens, delegando a `AuthService` para la petición POST a `/auth/refresh`. |
 | **8** | `Backend (FastAPI)` | `refresh_token_endpoint` | Valida el `refresh_token`. Si es válido, genera un **nuevo** `access_token` y lo devuelve. |
 | **9** | `auth.service.ts` | `tap(setSession)` | Recibe el nuevo token y actualiza inmediatamente el `localStorage` y las Signals del estado global. |
 | **10** | `auth.interceptor.ts` | `switchMap()` | **Reintento**. Toma la petición original fallida (del Paso 1), le cambia el token viejo por el **nuevo token**, y la vuelve a lanzar al servidor. |
@@ -196,7 +200,28 @@ readonly currentUser = this.userSignal.asReadonly();
 
 ## 6. Manejo de Errores Específicos
 
-### Bloqueo de Cuenta (API Integration)
+### 6.1 Servicio Centralizado de Errores (`AuthErrorHandlerService`)
+
+Se ha implementado un servicio dedicado para el manejo centralizado de errores de autenticación, siguiendo el principio de **Single Responsibility**.
+
+**Características:**
+- **Códigos de error tipados** (`AuthErrorCode`): Proporciona constantes para todos los tipos de error de autenticación.
+- **Mensajes user-friendly**: Traduce errores técnicos a mensajes comprensibles para el usuario.
+- **Detección de tipo de error**: Método `getErrorType()` para clasificar errores HTTP.
+
+**Uso:**
+```typescript
+// En el componente de login
+this.authService.login(credentials).subscribe({
+  error: (error) => {
+    const errorType = this.authErrorHandler.getErrorType(error);
+    const message = this.authErrorHandler.getErrorMessage(error);
+    // Mostrar mensaje al usuario
+  }
+});
+```
+
+### 6.2 Bloqueo de Cuenta (API Integration)
 El backend devuelve información detallada cuando se bloquea una cuenta. El frontend la captura y formatea:
 
 - **Código**: `403 Forbidden`

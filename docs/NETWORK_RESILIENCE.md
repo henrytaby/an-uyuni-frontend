@@ -25,6 +25,7 @@ Implementamos lo que se conoce en la industria como un **"Recoverable Error Barr
     *   **Ubicación**: `src/app/core/services/network-error.service.ts`
     *   **Función**: Utiliza **Angular Signals** para comunicar el evento de error desde el contexto global (fuera de zona a veces) hacia la interfaz de usuario.
     *   **Zona**: Fuerza la ejecución dentro de `NgZone` para asegurar que la UI se actualice.
+    *   **Logging**: Utiliza `LoggerService` para registrar errores de red con niveles configurables.
 
 3.  **UI de Recuperación (`AppLayoutComponent` + `p-dialog`)**:
     *   **Ubicación**: `src/app/shared/layout/app-layout/app-layout.component.html`
@@ -41,9 +42,10 @@ src/app/
 ├── app.config.ts                       # ⚠️ Registro del proveedor { ErrorHandler }
 ├── core/
 │   ├── handlers/
-│   │   └── global-error-handler.ts     # 🧠 Lógica de detección (Regex)
+│   │   └── global-error-handler.ts     # 🧠 Lógica de detección (Regex) + LoggerService
 │   └── services/
-│       └── network-error.service.ts    # 📡 Estado + Lógica de Ping (HttpClient)
+│       ├── network-error.service.ts    # 📡 Estado + Lógica de Ping (HttpClient)
+│       └── logger.service.ts           # 📝 Logging estructurado de errores
 └── shared/
     └── layout/
         └── app-layout/

@@ -1,12 +1,32 @@
 import { Injectable, signal, inject, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LoggerService } from './logger.service';
 
+/**
+ * LoadingService manages global loading state for the application.
+ * 
+ * Features:
+ * - HTTP request tracking with counter (prevents race conditions)
+ * - Navigation state tracking
+ * - Debounced loading display (prevents flicker)
+ * - Fail-safe timeout (prevents stuck loaders)
+ * 
+ * @example
+ * ```typescript
+ * // In interceptor
+ * loadingService.showLoader();
+ * return next(req).pipe(
+ *   finalize(() => loadingService.hideLoader())
+ * );
+ * ```
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class LoadingService implements OnDestroy {
   private router = inject(Router);
+  private logger = inject(LoggerService);
   
   // Signals para el estado global
   readonly isNavigating = signal(false);
@@ -35,22 +55,26 @@ export class LoadingService implements OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.routerSubscription?.unsubscribe();
+    this.clearDebounce();
+    this.clearFailSafe();
   }
 
-
-
-  showLoader() {
+  /**
+   * Show the loader (increments request counter)
+   */
+  showLoader(): void {
     this.activeRequestCount++;
-    // console.debug(`[LoadingService] showLoader: count=${this.activeRequestCount}`);
+    this.logger.debug(`showLoader: count=${this.activeRequestCount}`, undefined, 'LoadingService');
     
     if (this.activeRequestCount === 1) {
       this.clearDebounce();
       
+      // Debounce to prevent flicker on fast requests
       this.debounceId = setTimeout(() => {
         if (this.activeRequestCount > 0) {
-          // console.debug('[LoadingService] Setting isLoading=true');
+          this.logger.debug('Setting isLoading=true', undefined, 'LoadingService');
           this.isLoading.set(true);
           this.startFailSafeTimer();
         }
@@ -58,50 +82,68 @@ export class LoadingService implements OnDestroy {
     }
   }
 
-  hideLoader() {
+  /**
+   * Hide the loader (decrements request counter)
+   */
+  hideLoader(): void {
     this.activeRequestCount = Math.max(0, this.activeRequestCount - 1);
-    // console.debug(`[LoadingService] hideLoader: count=${this.activeRequestCount}`);
+    this.logger.debug(`hideLoader: count=${this.activeRequestCount}`, undefined, 'LoadingService');
 
     if (this.activeRequestCount === 0) {
       this.stopLoadingState();
     }
   }
 
-  private stopLoadingState() {
-    // console.debug('[LoadingService] Setting isLoading=false');
-    this.isLoading.set(false);
-    this.clearDebounce();
-    this.clearFailSafe();
-  }
-
-  forceReset() {
-    // console.debug('[LoadingService] forceReset called');
+  /**
+   * Force reset the loader state
+   */
+  forceReset(): void {
+    this.logger.debug('forceReset called', undefined, 'LoadingService');
     this.activeRequestCount = 0;
     this.isLoading.set(false);
     this.clearDebounce();
     this.clearFailSafe();
   }
 
-  private clearDebounce() {
+  /**
+   * Stop the loading state and clear timers
+   */
+  private stopLoadingState(): void {
+    this.logger.debug('Setting isLoading=false', undefined, 'LoadingService');
+    this.isLoading.set(false);
+    this.clearDebounce();
+    this.clearFailSafe();
+  }
+
+  /**
+   * Clear the debounce timer
+   */
+  private clearDebounce(): void {
     if (this.debounceId) {
       clearTimeout(this.debounceId);
       this.debounceId = null;
     }
   }
 
-  private clearFailSafe() {
+  /**
+   * Clear the fail-safe timer
+   */
+  private clearFailSafe(): void {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
       this.timeoutId = null;
     }
   }
 
-  private startFailSafeTimer() {
+  /**
+   * Start the fail-safe timer
+   * If the loader gets stuck for more than 6 seconds, force reset
+   */
+  private startFailSafeTimer(): void {
     this.clearFailSafe();
-    // Fail-safe: Si el loader se queda pegado más de 6 segundos (reducido para mejor UX), lo reseteamos
     this.timeoutId = setTimeout(() => {
       if (this.isLoading()) {
-        console.warn('[LoadingService] Fail-safe triggered. Forcing reset.');
+        this.logger.warn('Fail-safe triggered. Forcing reset.', undefined, 'LoadingService');
         this.forceReset();
       }
     }, 6000);

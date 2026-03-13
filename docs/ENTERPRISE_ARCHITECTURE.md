@@ -48,7 +48,12 @@ La estructura física del código refleja la lógica de negocio, no la tecnolog�
 src/app/
 ├── core/           # CAPA DE INFRAESTRUCTURA (Singleton)
 │   ├── auth/       # Lógica de seguridad, Guards, Interceptores
-│   ├── services/   # Servicios globales (Config, Theme)
+│   ├── services/   # Servicios globales (Config, Theme, Logger, TokenRefresh)
+│   │   ├── logger.service.ts           # Sistema de logging estructurado
+│   │   ├── token-refresh.service.ts    # Encapsula renovación de tokens
+│   │   ├── auth-error-handler.service.ts # Manejo centralizado de errores
+│   │   ├── loading.service.ts          # Estado de carga global
+│   │   └── network-error.service.ts    # Resiliencia de red
 │   └── models/     # Modelos de datos transversales
 ├── features/       # CAPA DE NEGOCIO (Dominios)
 │   ├── dashboard/  # Dominio: Panel de Control
@@ -136,6 +141,15 @@ graph LR
     style W_SIGNAL fill:#bbf,stroke:#333,stroke-width:2px
     style C_SIGNAL fill:#bfb,stroke:#333,stroke-width:2px
 ```
+
+#### E. Single Responsibility Principle (SRP) en Servicios
+*   **Concepto**: Cada servicio tiene una única responsabilidad bien definida.
+*   **En Uyuni**:
+    *   `LoggerService`: Solo logging estructurado con niveles configurables.
+    *   `TokenRefreshService`: Solo encapsula la lógica de renovación de tokens.
+    *   `AuthErrorHandlerService`: Solo manejo de errores de autenticación.
+    *   `LoadingService`: Solo estado de carga global.
+*   **Beneficio**: Testabilidad, mantenibilidad y prevención de código espagueti.
 
 ---
 

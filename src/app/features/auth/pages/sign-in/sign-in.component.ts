@@ -1,10 +1,17 @@
 import { Component, signal, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
 import { SigninFormComponent } from '@features/auth/components/signin-form/signin-form.component';
 import { AuthService } from '@core/auth/auth.service';
+import { AuthErrorHandlerService } from '@core/services/auth-error-handler.service';
+import { LoggerService } from '@core/services/logger.service';
 
+/**
+ * Sign In Page Component
+ * 
+ * Smart component that handles user authentication.
+ * Uses AuthErrorHandlerService for consistent error handling.
+ */
 @Component({
   selector: 'app-sign-in',
   standalone: true,
@@ -18,11 +25,16 @@ import { AuthService } from '@core/auth/auth.service';
 export class SignInComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private authErrorHandler = inject(AuthErrorHandlerService);
+  private logger = inject(LoggerService);
 
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
 
-  handleSignIn(credentials: { username: string; password: string }) {
+  /**
+   * Handle sign in form submission
+   */
+  handleSignIn(credentials: { username: string; password: string }): void {
     this.isLoading.set(true);
     this.errorMessage.set(null);
 
@@ -32,26 +44,25 @@ export class SignInComponent {
     }).subscribe({
       next: () => {
         this.isLoading.set(false);
+        this.logger.info('User logged in successfully', { username: credentials.username }, 'SignInComponent');
         this.router.navigate(['/']);
       },
-      error: (err: HttpErrorResponse) => {
+      error: (error) => {
         this.isLoading.set(false);
-        console.error('Login error:', err);
-
-        if (err.status === 403 && err.error?.detail?.code === 'ACCOUNT_LOCKED') {
-          const detail = err.error.detail;
-          const minutes = Math.ceil(detail.wait_seconds / 60);
-           this.errorMessage.set(`Cuenta bloqueada tras ${detail.max_attempts} intentos fallidos. Inténtalo de nuevo en ${minutes} minutos.`);
-        } else if (err.status === 401) {
-           this.errorMessage.set('Usuario o contraseña incorrectos.');
-        } else {
-           this.errorMessage.set('No se pudo conectar con el servidor. Por favor, inténtalo más tarde.');
-        }
+        
+        // Use AuthErrorHandlerService for consistent error handling
+        const authError = this.authErrorHandler.handleLoginError(error);
+        
+        this.logger.warn('Login failed', { code: authError.code }, 'SignInComponent');
+        this.errorMessage.set(authError.message);
       }
     });
   }
 
-  clearErrorMessage() {
+  /**
+   * Clear the error message
+   */
+  clearErrorMessage(): void {
     this.errorMessage.set(null);
   }
 }

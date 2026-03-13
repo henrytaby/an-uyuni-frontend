@@ -1,29 +1,44 @@
 import { HttpInterceptorFn, HttpErrorResponse, HttpEvent, HttpRequest, HttpHandlerFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { AuthService } from '@core/auth/auth.service';
-import { catchError, switchMap, throwError, BehaviorSubject, filter, take, Observable } from 'rxjs';
-import { TokenResponse } from '@features/auth/models/auth.models';
+import { catchError, switchMap, throwError, Observable } from 'rxjs';
+import { TokenRefreshService } from '@core/services/token-refresh.service';
+import { LoggerService } from '@core/services/logger.service';
 
-let isRefreshing = false;
-const refreshTokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
-
+/**
+ * Authentication Interceptor
+ * 
+ * This interceptor handles:
+ * - Adding Bearer token to outgoing requests
+ * - Adding X-Active-Role header for multi-tenant filtering
+ * - Automatic token refresh on 401 errors
+ * - Request queuing during token refresh
+ * 
+ * Refactored to use TokenRefreshService instead of global variables,
+ * following the Single Responsibility Principle.
+ */
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
-  const token = authService.getToken();
+  const tokenRefreshService = inject(TokenRefreshService);
+  const logger = inject(LoggerService);
 
+  const token = authService.getToken();
   const activeRole = authService.activeRole();
 
   let authReq = req;
   const headers: Record<string, string> = {};
 
+  // Add Authorization header if token exists
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
+  // Add active role header for backend filtering
   if (activeRole) {
     headers['X-Active-Role'] = activeRole.slug;
   }
 
+  // Clone request with headers if any
   if (Object.keys(headers).length > 0) {
     authReq = req.clone({
       setHeaders: headers
@@ -33,51 +48,70 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   return next(authReq).pipe(
     catchError((error: unknown) => {
       if (error instanceof HttpErrorResponse && error.status === 401) {
-        // Build a smarter check to avoid loops: if the URL is the refresh URL, don't try to refresh again.
-        if (req.url.includes('/auth/refresh') || req.url.includes('/auth/login')) {
-             return throwError(() => error);
+        // Avoid refresh loops for auth endpoints
+        if (isAuthEndpoint(req.url)) {
+          logger.debug('401 on auth endpoint, not refreshing', { url: req.url }, 'AuthInterceptor');
+          return throwError(() => error);
         }
 
-        return handle401Error(authReq, next, authService);
+        return handle401Error(authReq, next, tokenRefreshService, authService, logger);
       }
       return throwError(() => error);
     })
   );
 };
 
-function handle401Error(request: HttpRequest<unknown>, next: HttpHandlerFn, authService: AuthService): Observable<HttpEvent<unknown>> {
-  if (!isRefreshing) {
-    isRefreshing = true;
-    refreshTokenSubject.next(null);
+/**
+ * Check if the request URL is an authentication endpoint
+ */
+function isAuthEndpoint(url: string): boolean {
+  return url.includes('/auth/refresh') || url.includes('/auth/login');
+}
 
-    return authService.refreshToken().pipe(
-      switchMap((token: TokenResponse) => {
-        isRefreshing = false;
-        refreshTokenSubject.next(token.access_token);
-        
-        return next(request.clone({
-          setHeaders: {
-            Authorization: `Bearer ${token.access_token}`
-          }
-        }));
-      }),
-      catchError((err: unknown) => {
-        isRefreshing = false;
-        authService.logout();
-        return throwError(() => err);
-      })
-    );
-  } else {
-    return refreshTokenSubject.pipe(
-      filter(token => token !== null),
-      take(1),
+/**
+ * Handle 401 Unauthorized errors by refreshing the token
+ * and retrying the original request.
+ */
+function handle401Error(
+  request: HttpRequest<unknown>,
+  next: HttpHandlerFn,
+  tokenRefreshService: TokenRefreshService,
+  authService: AuthService,
+  logger: LoggerService
+): Observable<HttpEvent<unknown>> {
+  // If already refreshing, wait for the new token
+  if (tokenRefreshService.isRefreshing()) {
+    logger.debug('Token refresh in progress, waiting...', undefined, 'AuthInterceptor');
+    
+    return tokenRefreshService.waitForToken().pipe(
       switchMap(token => {
+        logger.debug('Received refreshed token, retrying request', undefined, 'AuthInterceptor');
         return next(request.clone({
           setHeaders: {
-            Authorization: `Bearer ${token!}`
+            Authorization: `Bearer ${token}`
           }
         }));
       })
     );
   }
+
+  // Start refresh process
+  logger.info('Starting token refresh due to 401', undefined, 'AuthInterceptor');
+
+  return tokenRefreshService.refreshToken().pipe(
+    switchMap(token => {
+      logger.info('Token refreshed successfully, retrying request', undefined, 'AuthInterceptor');
+      return next(request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`
+        }
+      }));
+    }),
+    catchError((err) => {
+      logger.error('Token refresh failed, logging out', err, 'AuthInterceptor');
+      tokenRefreshService.reset();
+      authService.logout();
+      return throwError(() => err);
+    })
+  );
 }

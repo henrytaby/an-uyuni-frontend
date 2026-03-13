@@ -23,6 +23,7 @@ Este servicio es el "cerebro" reactivo que gestiona el estado de carga mediante 
 *   **Reset de Seguridad (NavigationStart)**: El servicio se suscribe al Router y llama a `forceReset()` en cada inicio de navegación para limpiar remanentes de la página anterior.
 *   **Debounce (300ms)**: Si una petición es ultrarrápida, el spinner nunca parpadea.
 *   **Fail-Safe (6s)**: Reset automático tras 6 segundos por si el servidor nunca responde.
+*   **Logging Integrado**: Utiliza `LoggerService` para registrar eventos de depuración y errores, con niveles configurables desde `config.json`.
 
 ---
 

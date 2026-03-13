@@ -2,33 +2,75 @@ import { Injectable, signal, NgZone, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { LoggerService } from './logger.service';
 
+/**
+ * NetworkErrorService handles network connectivity detection and error display.
+ * 
+ * Features:
+ * - Detects network chunk loading failures
+ * - Provides connection check functionality
+ * - Manages connection error dialog state
+ * 
+ * @example
+ * ```typescript
+ * // In global error handler
+ * networkErrorService.triggerConnectionError();
+ * 
+ * // In component
+ * if (networkErrorService.showConnectionError()) {
+ *   // Show retry dialog
+ * }
+ * ```
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class NetworkErrorService {
   private zone = inject(NgZone);
   private http = inject(HttpClient);
+  private logger = inject(LoggerService);
   
   readonly showConnectionError = signal(false);
 
-  triggerConnectionError() {
+  /**
+   * Trigger the connection error dialog
+   */
+  triggerConnectionError(): void {
+    this.logger.warn('Connection error triggered', undefined, 'NetworkErrorService');
+    
     // Ensure we run inside Angular Zone to trigger UI updates
     this.zone.run(() => {
-        this.showConnectionError.set(true);
+      this.showConnectionError.set(true);
     });
   }
 
-  resetError() {
+  /**
+   * Reset the connection error state
+   */
+  resetError(): void {
+    this.logger.debug('Connection error reset', undefined, 'NetworkErrorService');
     this.showConnectionError.set(false);
   }
 
+  /**
+   * Check if the application has network connectivity
+   * 
+   * @returns Observable<boolean> - true if connected, false otherwise
+   */
   checkConnection(): Observable<boolean> {
-    // Ping to a lightweight asset (favicon or root) to check visibility
-    // Using CSS to avoid CORS issues if different domain, but here app is same origin
+    this.logger.debug('Checking connection...', undefined, 'NetworkErrorService');
+    
+    // Ping a lightweight asset to check connectivity
     return this.http.head('/favicon.ico', { responseType: 'blob' }).pipe(
-      map(() => true),
-      catchError(() => of(false))
+      map(() => {
+        this.logger.debug('Connection check successful', undefined, 'NetworkErrorService');
+        return true;
+      }),
+      catchError((error) => {
+        this.logger.warn('Connection check failed', error, 'NetworkErrorService');
+        return of(false);
+      })
     );
   }
 }

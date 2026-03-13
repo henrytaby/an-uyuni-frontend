@@ -88,7 +88,12 @@ Contiene la lógica que **debe existir una sola vez** en toda la aplicación (Si
 -   **`config/`**: Configuración global de la app (`ConfigService`), carga de variables de entorno al inicio.
 -   **`guards/`**: Guardas de rutas (`AuthGuard`) para proteger accesos.
 -   **`interceptors/`**: Interceptores HTTP (`AuthInterceptor`) para inyectar tokens JWT.
--   **`services/`**: Servicios globales de utilidad (ej. `LayoutService`).
+-   **`services/`**: Servicios globales de utilidad:
+    - `LoadingService`: Gestión de estado de carga global con contador de peticiones.
+    - `LoggerService`: Sistema de logging estructurado con niveles configurables.
+    - `TokenRefreshService`: Encapsula la lógica de renovación de tokens JWT.
+    - `AuthErrorHandlerService`: Manejo centralizado de errores de autenticación.
+    - `NetworkErrorService`: Detección y recuperación de errores de red.
 
 ### Flujo de Seguridad:
 

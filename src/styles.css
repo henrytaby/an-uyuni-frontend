@@ -418,17 +418,19 @@
   }
   &::-webkit-scrollbar-thumb {
     @apply bg-gray-200 rounded-full transition-colors;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-300;
+  }
+}
 
-    @variant dark {
-      @apply bg-gray-800;
-    }
-
-    &:hover {
-      @apply bg-gray-300;
-      @variant dark {
-        @apply bg-gray-700;
-      }
-    }
+/* Dark mode scrollbar styles */
+.dark {
+  &::-webkit-scrollbar-thumb {
+    @apply bg-gray-800;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-700;
   }
 }
 

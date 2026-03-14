@@ -87,4 +87,4 @@ sequenceDiagram
 
 ---
 
-**Última Actualización:** Enero 2026 (v1.2 - Truly Global Loader)
+**Última Actualización:** Marzo 2026 (v1.3 - LoggerService Integration)

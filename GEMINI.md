@@ -5,8 +5,8 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 ## 📌 Project Overview
 - **Name**: Uyuni Frontend (UyuniAdmin)
 - **Framework**: Angular v21 (Standalone Components)
-- **UI Library**: PrimeNG v21 (Aura Theme) + PrimeIcons
-- **Styling**: Tailwind CSS v4-beta (Configured via `@theme` & `tailwindcss-primeui`)
+- **UI Library**: PrimeNG v21 (Aura Theme via @primeuix/themes) + PrimeIcons
+- **Styling**: Tailwind CSS v4 (Configured via `@theme` & `tailwindcss-primeui`)
 - **Architecture**: Domain-Driven Design (DDD) Lite / Modular Monolith.
 - **Status**: Legacy code refactoring completed (Jan 2026).
 
@@ -51,6 +51,14 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 19. **Skeleton Navigation**: Implemented "Gold Standard" **Skeleton Screens** for navigation events (`UiSkeletonPageComponent`).
 20. **Role Selection UX**: Implemented a "Fetch-on-Open" strategy for the role switcher with a dedicated **Role Skeleton Loader**.
 21. **Architectural Cleanup**: Enforced **Path Aliases** (`@core`, `@shared`, `@features`, `@env`) and the **`inject()` pattern** project-wide.
+22. **Clean Code Improvements (Mar 2026)**:
+    - Created `LoggerService` for structured logging with configurable levels.
+    - Created `TokenRefreshService` to encapsulate JWT refresh logic (eliminated global state).
+    - Created `AuthErrorHandlerService` for centralized auth error handling.
+    - Fixed circular dependency between `LoggerService` and `ConfigService`.
+23. **Theme Migration**: Migrated from deprecated `@primeng/themes` to `@primeuix/themes` v2.0.1.
+24. **Security Update**: Updated `swiper` from v11 to v12 to fix critical security vulnerability.
+25. **CSS Fix**: Fixed Tailwind CSS v4 "Empty sub-selector" warning in custom scrollbar utility.
 
 
 ## 🧠 AI Persona & Technical Directives
@@ -82,4 +90,4 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 - **Build**: If `ng serve` fails due to test types, ensure specs are excluded in `tsconfig.app.json`.
 
 ---
-*Last update: January 2026 (v1.1) by Antigravity.*
+*Last update: March 2026 (v1.2) by Antigravity.*

@@ -56,7 +56,7 @@ Para generar la versión optimizada de producción, necesitamos las herramientas
     ```bash
     npm run build
     ```
-    *   Este comando ejecuta `ng build`, que por defecto en Angular v17+:
+    *   Este comando ejecuta `ng build`, que por defecto en Angular v21+:
         *   ✅ Minifica el código (Tree-shaking).
         *   ✅ Optimiza los assets.
         *   ✅ Genera nombres con hash para caché (Cache-busting).

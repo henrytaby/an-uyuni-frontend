@@ -3,7 +3,7 @@
 Bienvenido al proyecto **Uyuni Frontend**. Este documento está diseñado para ayudar a los nuevos desarrolladores a entender la arquitectura, los patrones de diseño y la estructura del proyecto.
 
 ## 1. Filosofía Arquitectónica
-El proyecto sigue una arquitectura basada en **Domain-Driven Design (DDD) Lite** y **Modular Monolith**, adaptada específicamente para Angular moderno (v17+).
+El proyecto sigue una arquitectura basada en **Domain-Driven Design (DDD) Lite** y **Modular Monolith**, adaptada específicamente para Angular moderno (v21).
 
 ### Principios Clave:
 1.  **Separación de Responsabilidades**: Distinción clara entre lógica de negocio, presentación UI y configuración global.

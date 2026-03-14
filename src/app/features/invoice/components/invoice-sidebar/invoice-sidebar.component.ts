@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
@@ -7,6 +7,7 @@ import { InvoiceUser } from '../../models/invoice.model';
 
 @Component({
   selector: 'app-invoice-sidebar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     IconFieldModule,

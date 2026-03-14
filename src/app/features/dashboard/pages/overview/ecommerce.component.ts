@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { EcommerceMetricsComponent } from '@features/dashboard/components/ecommerce-metrics/ecommerce-metrics.component';
 import { MonthlySalesChartComponent } from '@features/dashboard/components/monthly-sales-chart/monthly-sales-chart.component';
 import { MonthlyTargetComponent } from '@features/dashboard/components/monthly-target/monthly-target.component';
@@ -7,6 +7,7 @@ import { RecentOrdersComponent } from '@features/dashboard/components/recent-ord
 
 @Component({
   selector: 'app-ecommerce',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     EcommerceMetricsComponent,
     MonthlySalesChartComponent,

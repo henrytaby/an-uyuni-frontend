@@ -13,7 +13,7 @@
 
 
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -30,6 +30,7 @@ interface Product {
 
 @Component({
   selector: 'app-recent-orders',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TableModule,
     TagModule,

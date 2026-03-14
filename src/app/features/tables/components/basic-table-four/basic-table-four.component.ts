@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TagModule } from 'primeng/tag';
 import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-basic-table-four',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TagModule,
     MenuModule,

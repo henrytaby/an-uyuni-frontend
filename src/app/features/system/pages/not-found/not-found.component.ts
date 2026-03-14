@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
@@ -7,6 +7,7 @@ import { RippleModule } from 'primeng/ripple';
 @Component({
   selector: 'app-not-found',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     ButtonModule,

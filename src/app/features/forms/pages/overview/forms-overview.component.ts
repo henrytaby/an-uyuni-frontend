@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
 import { InputTextModule } from 'primeng/inputtext';
@@ -19,6 +19,7 @@ import { FluidModule } from 'primeng/fluid';
 
 @Component({
   selector: 'app-forms-overview',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     PageBreadcrumbComponent,
     FormsModule,

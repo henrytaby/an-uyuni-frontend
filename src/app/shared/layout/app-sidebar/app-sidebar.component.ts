@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed } from '@angular/core';
+import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { SidebarService } from '@shared/services/sidebar.service';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '@core/auth/auth.service';
@@ -15,6 +15,7 @@ interface NavItem {
 
 @Component({
   selector: 'app-sidebar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     RouterModule

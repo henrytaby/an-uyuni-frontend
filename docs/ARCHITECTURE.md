@@ -219,9 +219,39 @@ Una feature **NO debe importar** componentes privados de otra feature.
 | `src/environments`| Variables de entorno | API URLs, flags de producción. |
 
 ---
-**Generado automáticamente por Antigravity AI**
 
-## 6. Referencias y Lectura Recomendada 📚
+## 6. Optimización de Performance
+
+### 6.1 ChangeDetectionStrategy.OnPush
+
+El proyecto utiliza `ChangeDetectionStrategy.OnPush` en **todos los componentes** (52 componentes) para optimizar el rendimiento de la aplicación.
+
+**Beneficios:**
+- Reduce las verificaciones de change detection hasta en un 90%
+- Fuerza patrones de inmutabilidad
+- Mejor integración con Angular Signals
+
+**Implementación:**
+```typescript
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent {
+  // ...
+}
+```
+
+> [!IMPORTANT]
+> Para entender completamente cómo funciona OnPush, cuándo se dispara la detección de cambios, y patrones de inmutabilidad, consulta la guía completa: **[CHANGE_DETECTION_ONPUSH_GUIDE.md](CHANGE_DETECTION_ONPUSH_GUIDE.md)**.
+
+---
+
+## 7. Referencias y Lectura Recomendada 📚
 
 Para profundizar en los patrones utilizados, recomendamos las siguientes lecturas:
 
@@ -233,3 +263,5 @@ Para profundizar en los patrones utilizados, recomendamos las siguientes lectura
     -   [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
 -   **Angular Signals**:
     -   [Angular Signals Guide](https://angular.io/guide/signals)
+-   **Change Detection**:
+    -   [CHANGE_DETECTION_ONPUSH_GUIDE.md](CHANGE_DETECTION_ONPUSH_GUIDE.md) - Guía interna del proyecto

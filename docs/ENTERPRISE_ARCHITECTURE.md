@@ -129,6 +129,35 @@ sequenceDiagram
 *   **Diferencia vs RxJS**: RxJS se reserva para eventos asíncronos complejos (streams). Signals se usa para el estado síncrono de la vista (loading, visibility, form values).
 *   **Beneficio**: Eliminación de estrategia `CheckAlways`, mejorando el rendimiento de detección de cambios (Change Detection).
 
+#### E. ChangeDetectionStrategy.OnPush
+*   **Concepto**: Optimización de detección de cambios que solo verifica el componente cuando hay cambios reales.
+*   **Implementación**: Todos los componentes del proyecto (52 en total) utilizan `OnPush`.
+*   **Triggers de detección**:
+    *   Cambio de referencia en `@Input()` (nueva referencia, no mutación)
+    *   Eventos del DOM (click, input, etc.)
+    *   Actualización de Signals
+    *   Async Pipe en templates
+*   **Beneficio**: Reducción de hasta 90% en verificaciones innecesarias de change detection.
+
+```typescript
+// Patrón obligatorio en todos los componentes
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush, // ← Siempre incluir
+  imports: [CommonModule],
+  templateUrl: './example.component.html'
+})
+export class ExampleComponent {
+  // Signals para estado reactivo
+  isLoading = signal(false);
+  data = signal<Data | null>(null);
+}
+```
+
+> [!IMPORTANT]
+> Para una guía completa sobre OnPush, incluyendo patrones de inmutabilidad, troubleshooting y ejemplos detallados, consulta **[CHANGE_DETECTION_ONPUSH_GUIDE.md](CHANGE_DETECTION_ONPUSH_GUIDE.md)**.
+
 ```mermaid
 graph LR
     API[Back-end API] -->|Response| SERVICE[Facade Service]
@@ -142,7 +171,7 @@ graph LR
     style C_SIGNAL fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
-#### E. Single Responsibility Principle (SRP) en Servicios
+#### F. Single Responsibility Principle (SRP) en Servicios
 *   **Concepto**: Cada servicio tiene una única responsabilidad bien definida.
 *   **En Uyuni**:
     *   `LoggerService`: Solo logging estructurado con niveles configurables.

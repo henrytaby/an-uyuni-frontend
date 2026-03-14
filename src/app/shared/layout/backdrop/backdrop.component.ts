@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { SidebarService } from '@shared/services/sidebar.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-backdrop',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
   ],

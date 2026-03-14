@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 import { CardModule } from 'primeng/card';
 import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
@@ -6,6 +6,7 @@ import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-avatar-element',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     AvatarModule,
     CardModule,

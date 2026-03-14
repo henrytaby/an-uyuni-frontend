@@ -1,4 +1,4 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
 import { SigninFormComponent } from '@features/auth/components/signin-form/signin-form.component';
@@ -15,6 +15,7 @@ import { LoggerService } from '@core/services/logger.service';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     AuthPageLayoutComponent,
     SigninFormComponent,

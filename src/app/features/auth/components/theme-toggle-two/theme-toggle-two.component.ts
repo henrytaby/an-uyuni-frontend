@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ThemeService } from '@shared/services/theme.service';
 
 
@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-theme-toggle-two',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ButtonModule],
   templateUrl: './theme-toggle-two.component.html',
   styles: ``

@@ -1,8 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-basic-table-five',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   templateUrl: './basic-table-five.component.html',
   styles: ``

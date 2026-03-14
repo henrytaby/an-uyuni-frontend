@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +10,7 @@ export interface BreadcrumbItem {
 
 @Component({
   selector: 'app-page-breadcrumb',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     CommonModule

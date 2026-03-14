@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FormsModule } from '@angular/forms';
@@ -9,6 +9,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 @Component({
   selector: 'app-statics-chart',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ChartModule, SelectButtonModule, DatePickerModule, FormsModule],
   templateUrl: './statics-chart.component.html',
 })

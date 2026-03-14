@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
 import { ChartData, ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-monthly-target',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ChartModule,
     CommonModule

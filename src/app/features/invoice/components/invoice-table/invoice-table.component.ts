@@ -1,11 +1,12 @@
 
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { InvoiceItem } from '../../models/invoice.model';
 
 @Component({
   selector: 'app-invoice-table',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     TableModule

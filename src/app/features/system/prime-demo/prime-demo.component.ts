@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DatePickerModule } from 'primeng/datepicker';
@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-prime-demo',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ButtonModule, DatePickerModule, CardModule, FormsModule],
   template: `
     <div class="p-10 space-y-8 bg-gray-50 min-h-screen">

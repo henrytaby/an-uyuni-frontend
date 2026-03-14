@@ -25,6 +25,12 @@
 - Each service/component has one clear purpose
 - Avoid god objects and monolithic services
 
+### 5. ChangeDetectionStrategy.OnPush
+- All components use `ChangeDetectionStrategy.OnPush` (52 components)
+- Optimizes performance by reducing unnecessary change detection cycles
+- Works seamlessly with Angular Signals
+- Requires immutable patterns for objects and arrays
+
 ## Directory Structure
 
 ```

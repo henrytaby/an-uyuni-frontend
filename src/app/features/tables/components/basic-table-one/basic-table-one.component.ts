@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-basic-table-one',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TagModule
 ],

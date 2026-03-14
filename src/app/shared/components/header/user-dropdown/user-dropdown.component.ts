@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed } from '@angular/core';
+import { Component, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { DropdownComponent } from '@shared/components/ui/dropdown/dropdown.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -8,6 +8,7 @@ import { AuthService } from '@core/auth/auth.service';
 @Component({
   selector: 'app-user-dropdown',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-dropdown.component.html',
   imports:[CommonModule,RouterModule,DropdownComponent,DropdownItemComponent]
 })

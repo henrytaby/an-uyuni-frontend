@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-grid-shape',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   templateUrl: './grid-shape.component.html',
   styles: ``

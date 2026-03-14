@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { GridShapeComponent } from '@features/auth/components/grid-shape/grid-shape.component';
 import { RouterModule } from '@angular/router';
 import { ThemeToggleTwoComponent } from '@features/auth/components/theme-toggle-two/theme-toggle-two.component';
 
 @Component({
   selector: 'app-auth-page-layout',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     GridShapeComponent,
     RouterModule,

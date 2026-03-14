@@ -4,7 +4,7 @@
 
 This memory bank contains comprehensive documentation about the UyuniAdmin Frontend project. It serves as a knowledge base for Kilo Code (and other AI assistants) to understand the project's architecture, patterns, and conventions.
 
-> **Note**: This memory-bank is located in `.kilocode/rules/` which is the standard location for Kilo Code rules and context files.
+> **Note**: This memory-bank is located in `.kilocode/rules/memory-bank/` which is the standard location for Kilo Code memory-bank files.
 
 ## 📁 File Structure
 
@@ -68,16 +68,19 @@ npm run lint   # Lint code
 ## 🔗 Related Documentation
 
 ### Project Docs (`/docs`)
-- [`ARCHITECTURE.md`](../docs/ARCHITECTURE.md) - Detailed architecture guide
-- [`AUTHENTICATION.md`](../docs/AUTHENTICATION.md) - Auth system documentation
-- [`ENTERPRISE_ARCHITECTURE.md`](../docs/ENTERPRISE_ARCHITECTURE.md) - Enterprise patterns
-- [`DEPLOYMENT_GUIDE.md`](../docs/DEPLOYMENT_GUIDE.md) - Deployment instructions
-- [`LAYOUT_GUIDE.md`](../docs/LAYOUT_GUIDE.md) - Layout system guide
-- [`LOADING_SKELETON_SYSTEM.md`](../docs/LOADING_SKELETON_SYSTEM.md) - Loading patterns
-- [`NETWORK_RESILIENCE.md`](../docs/NETWORK_RESILIENCE.md) - Network error handling
+- [`ARCHITECTURE.md`](../../../docs/ARCHITECTURE.md) - Detailed architecture guide
+- [`AUTHENTICATION.md`](../../../docs/AUTHENTICATION.md) - Auth system documentation
+- [`ENTERPRISE_ARCHITECTURE.md`](../../../docs/ENTERPRISE_ARCHITECTURE.md) - Enterprise patterns
+- [`DEPLOYMENT_GUIDE.md`](../../../docs/DEPLOYMENT_GUIDE.md) - Deployment instructions
+- [`LAYOUT_GUIDE.md`](../../../docs/LAYOUT_GUIDE.md) - Layout system guide
+- [`LOADING_SKELETON_SYSTEM.md`](../../../docs/LOADING_SKELETON_SYSTEM.md) - Loading patterns
+- [`NETWORK_RESILIENCE.md`](../../../docs/NETWORK_RESILIENCE.md) - Network error handling
 
 ### AI Context
-- [`GEMINI.md`](../GEMINI.md) - AI context file for Gemini
+- [`GEMINI.md`](../../../GEMINI.md) - AI context file for Gemini
+
+### Project Rules
+- [`project-rules.md`](../project-rules.md) - Quick reference rules for Kilo Code
 
 ## 📝 Recent Changes (January 2026)
 

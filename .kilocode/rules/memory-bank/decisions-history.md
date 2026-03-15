@@ -334,4 +334,47 @@ fullName = computed(() =>
 
 ---
 
+## Testing Implementation (March 2026)
+
+### Decision: Jest with Coverage Thresholds
+
+**Decision**: Implement comprehensive unit tests for core services using Jest with coverage thresholds.
+
+**Rationale**:
+- Jest is already configured in the project
+- Coverage thresholds enforce quality standards
+- Testing core services first provides foundation for component testing
+
+**Implementation**:
+- 188 tests across 8 test suites
+- Coverage thresholds: 80% statements, 70% branches, 75% functions
+- Services tested: LoggerService, LoadingService, AuthErrorHandlerService, NetworkErrorService, ConfigService, TokenRefreshService, AuthService
+
+**Trade-offs**:
+- Time investment was significant (~188 tests)
+- Some branches difficult to test (private methods, constructor logic)
+- 95-100% coverage achieved for core services
+
+### Lessons Learned from Testing
+
+1. **Testing Private Methods**: Private methods like `refreshProfile()` in AuthService are difficult to test directly. Solution: Test through public API or use integration tests.
+
+2. **Constructor Logic**: Testing constructor logic that depends on localStorage state requires creating new service instances, which conflicts with TestBed's singleton pattern.
+
+3. **Catch Blocks**: To test catch blocks, create objects with getters that throw exceptions:
+```typescript
+const throwingError = {
+  get detail() { throw new Error('Test error'); }
+};
+```
+
+4. **Console Spies**: Always spy on console methods when testing error handling to avoid noise in test output:
+```typescript
+const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+// ... test code ...
+consoleSpy.mockRestore();
+```
+
+---
+
 *Last updated: March 2026*

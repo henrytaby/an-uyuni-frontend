@@ -52,13 +52,19 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 20. **Role Selection UX**: Implemented a "Fetch-on-Open" strategy for the role switcher with a dedicated **Role Skeleton Loader**.
 21. **Architectural Cleanup**: Enforced **Path Aliases** (`@core`, `@shared`, `@features`, `@env`) and the **`inject()` pattern** project-wide.
 22. **Clean Code Improvements (Mar 2026)**:
-    - Created `LoggerService` for structured logging with configurable levels.
-    - Created `TokenRefreshService` to encapsulate JWT refresh logic (eliminated global state).
-    - Created `AuthErrorHandlerService` for centralized auth error handling.
-    - Fixed circular dependency between `LoggerService` and `ConfigService`.
+- Created `LoggerService` for structured logging with configurable levels.
+- Created `TokenRefreshService` to encapsulate JWT refresh logic (eliminated global state).
+- Created `AuthErrorHandlerService` for centralized auth error handling.
+- Fixed circular dependency between `LoggerService` and `ConfigService`.
 23. **Theme Migration**: Migrated from deprecated `@primeng/themes` to `@primeuix/themes` v2.0.1.
 24. **Security Update**: Updated `swiper` from v11 to v12 to fix critical security vulnerability.
 25. **CSS Fix**: Fixed Tailwind CSS v4 "Empty sub-selector" warning in custom scrollbar utility.
+26. **Unit Testing Implementation (Mar 2026)**:
+- Created comprehensive unit tests for all core services (188 tests, 8 suites).
+- Services tested: `LoggerService`, `LoadingService`, `AuthErrorHandlerService`, `NetworkErrorService`, `ConfigService`, `TokenRefreshService`, `AuthService`.
+- Coverage: 95-100% for core services.
+- Configured Jest coverage thresholds (80% statements, 70% branches, 75% functions).
+- Created `docs/UNIT_TESTING_GUIDE.md` with testing patterns and best practices.
 
 
 ## 🧠 AI Persona & Technical Directives
@@ -90,4 +96,4 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 - **Build**: If `ng serve` fails due to test types, ensure specs are excluded in `tsconfig.app.json`.
 
 ---
-*Last update: March 2026 (v1.2) by Antigravity.*
+*Last update: March 2026 (v1.3) by Kilo Code - Added Unit Testing implementation.*

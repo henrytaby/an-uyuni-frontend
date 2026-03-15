@@ -163,4 +163,4 @@ Para guías detalladas sobre cómo desplegar en un servidor Ubuntu con Nginx:
 
 ---
 
-&copy; 2026 Uyuni Project. Built with ❤️ utilizing Angular 21.
+&copy; 2026 Uyuni Project. Built with utilizing Angular 21.

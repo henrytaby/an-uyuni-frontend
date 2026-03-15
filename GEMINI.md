@@ -60,9 +60,11 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 24. **Security Update**: Updated `swiper` from v11 to v12 to fix critical security vulnerability.
 25. **CSS Fix**: Fixed Tailwind CSS v4 "Empty sub-selector" warning in custom scrollbar utility.
 26. **Unit Testing Implementation (Mar 2026)**:
-- Created comprehensive unit tests for all core services (188 tests, 8 suites).
+- Created comprehensive unit tests for all core services, guards, and interceptors (216 tests, 10 suites).
 - Services tested: `LoggerService`, `LoadingService`, `AuthErrorHandlerService`, `NetworkErrorService`, `ConfigService`, `TokenRefreshService`, `AuthService`.
-- Coverage: 95-100% for core services.
+- Guards tested: `authGuard`.
+- Interceptors tested: `authInterceptor`.
+- Coverage: 95-100% for core services, 100% for guards/interceptors.
 - Configured Jest coverage thresholds (80% statements, 70% branches, 75% functions).
 - Created `docs/UNIT_TESTING_GUIDE.md` with testing patterns and best practices.
 

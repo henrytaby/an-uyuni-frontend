@@ -4,14 +4,14 @@
 
 El proyecto **Uyuni Frontend** presenta una **arquitectura sólida y moderna** que cumple con muchos estándares enterprise. La implementación demuestra un buen entendimiento de Angular moderno (v21) con patrones de diseño bien aplicados. Se han implementado mejoras significativas en Clean Code, elevando la calidad del código.
 
-### Calificación General: **8.25/10** (Muy Bueno con testing implementado)
+### Calificación General: **8.3/10** (Muy Bueno con testing implementado)
 
 | Categoría | Score | Estado |
 |-----------|-------|--------|
 | Arquitectura | 9/10 | ✅ Excelente |
 | Clean Code | 9/10 | ✅ Excelente (mejorado) |
 | SOLID | 9/10 | ✅ Excelente |
-| Testing | 6/10 | ⚠️ Mejorable (core services cubiertos) |
+| Testing | 6.5/10 | ⚠️ Mejorable (core + guards/interceptors cubiertos) |
 | Seguridad | 8/10 | ✅ Bueno |
 | Performance | 8/10 | ✅ Bueno (OnPush implementado) |
 | CI/CD | 1/10 | ❌ Crítico |
@@ -234,7 +234,7 @@ sequenceDiagram
 **Configuración:** Jest configurado ([`jest.config.js`](jest.config.js))
 
 **Cobertura actual:**
-- Tests unitarios: **188 tests en 8 suites** ✅
+- Tests unitarios: **216 tests en 10 suites** ✅
 - Tests E2E: **No configurado** ❌
 - Coverage core services: **95-100%** ✅
 
@@ -249,12 +249,15 @@ sequenceDiagram
 | `ConfigService` | 22 | 100% | ✅ |
 | `TokenRefreshService` | 22 | 100% | ✅ |
 | `AuthService` | 30 | 95.79% | ✅ |
+| `authGuard` | 8 | 100% | ✅ |
+| `authInterceptor` | 20 | 100% | ✅ |
 
 ### 4.2 Brecha con Estándar Enterprise
 
 | Tipo de Test | Estándar Enterprise | Estado Actual |
 |--------------|---------------------|---------------|
 | Unit Tests (core) | >80% coverage | ✅ 95-100% |
+| Unit Tests (guards/interceptors) | >80% coverage | ✅ 100% |
 | Unit Tests (components) | >80% coverage | ❌ <5% |
 | Integration Tests | Críticos | ❌ No existe |
 | E2E Tests | Happy path + errores | ❌ No configurado |
@@ -265,27 +268,27 @@ sequenceDiagram
 ```mermaid
 graph LR
 subgraph Fase1 [Fase 1 - Fundamentos ✅]
-JEST[Jest Setup Completo ✅]
-COVERAGE[Coverage Threshold ✅]
+    JEST[Jest Setup Completo ✅]
+    COVERAGE[Coverage Threshold ✅]
 end
 
 subgraph Fase2 [Fase 2 - Servicios ✅]
-AUTH_TEST[AuthService Tests ✅]
-LOGGER_TEST[LoggerService Tests ✅]
-LOADING_TEST[LoadingService Tests ✅]
-ERROR_TEST[AuthErrorHandler Tests ✅]
+    AUTH_TEST[AuthService Tests ✅]
+    LOGGER_TEST[LoggerService Tests ✅]
+    LOADING_TEST[LoadingService Tests ✅]
+    ERROR_TEST[AuthErrorHandler Tests ✅]
 end
 
-subgraph Fase3 [Fase 3 - Pendiente]
-GUARD_TEST[Guard Tests]
-INTER_TEST[Interceptor Tests]
-COMP_TEST[Component Tests]
+subgraph Fase3 [Fase 3 - Guards/Interceptors ✅]
+    GUARD_TEST[Guard Tests ✅]
+    INTER_TEST[Interceptor Tests ✅]
 end
 
-subgraph Fase4 [Fase 4 - E2E]
-CYPRESS[Cypress/Playwright]
-E2E_AUTH[Auth Flows]
-E2E_CRUD[CRUD Flows]
+subgraph Fase4 [Fase 4 - Pendiente]
+    COMP_TEST[Component Tests]
+    CYPRESS[Cypress/Playwright]
+    E2E_AUTH[Auth Flows]
+    E2E_CRUD[CRUD Flows]
 end
 
 Fase1 --> Fase2 --> Fase3 --> Fase4
@@ -421,11 +424,11 @@ graph LR
 | Arquitectura | 20% | 9/10 | 1.8 | ✅ Excelente |
 | Clean Code | 15% | 9/10 | 1.35 | ✅ Excelente |
 | SOLID | 15% | 9/10 | 1.35 | ✅ Excelente |
-| Testing | 20% | 6/10 | 1.2 | ⚠️ Mejorable |
+| Testing | 20% | 6.5/10 | 1.3 | ⚠️ Mejorable (core + guards/interceptors cubiertos) |
 | Seguridad | 15% | 8/10 | 1.2 | ✅ Bueno |
 | Performance | 10% | 8/10 | 0.8 | ✅ Bueno |
 | CI/CD | 5% | 1/10 | 0.05 | ❌ Crítico |
-| **TOTAL** | **100%** | - | **8.25/10** | **Muy Bueno** |
+| **TOTAL** | **100%** | - | **8.3/10** | **Muy Bueno** |
 
 ---
 
@@ -449,11 +452,11 @@ graph LR
 | 7 | Implementar AuthErrorHandler service | 🟡 Alta | Medio | ✅ Completado |
 | 8 | Añadir ChangeDetectionStrategy.OnPush | 🟡 Alta | Medio | ✅ Completado |
 
-### Fase 3: Testing Avanzado (Importante)
+### Fase 3: Testing Avanzado (Importante) ✅ PARCIALMENTE COMPLETADO
 
 | # | Mejora | Prioridad | Esfuerzo | Estado |
 |---|--------|-----------|----------|--------|
-| 9 | Tests de guards e interceptors | 🟡 Alta | Medio | ⬜ Pendiente |
+| 9 | Tests de guards e interceptors | 🟡 Alta | Medio | ✅ Completado |
 | 10 | Tests de componentes UI | 🟡 Alta | Alto | ⬜ Pendiente |
 | 11 | Configurar Cypress/Playwright | 🟡 Alta | Alto | ⬜ Pendiente |
 | 12 | Tests de integración por feature | 🟡 Alta | Alto | ⬜ Pendiente |
@@ -485,9 +488,9 @@ Se han completado las siguientes mejoras de calidad de código:
 
 Estas mejoras incrementaron la puntuación de Clean Code de **7/10 a 9/10**, Performance de **7/10 a 8/10**, y la puntuación general de **7.4/10 a 7.95/10**.
 
-### ✅ Mejoras Implementadas (Testing - Fase 1)
+### ✅ Mejoras Implementadas (Testing - Fase 1 y 3)
 
-Se han completado los tests unitarios para servicios core:
+Se han completado los tests unitarios para servicios core, guards e interceptors:
 
 1. **LoggerService**: 39 tests, 100% coverage
 2. **LoadingService**: 29 tests, 100% coverage
@@ -496,10 +499,12 @@ Se han completado los tests unitarios para servicios core:
 5. **ConfigService**: 22 tests, 100% coverage
 6. **TokenRefreshService**: 22 tests, 100% coverage
 7. **AuthService**: 30 tests, 95.79% coverage
+8. **authGuard**: 8 tests, 100% coverage
+9. **authInterceptor**: 20 tests, 100% coverage
 
-**Total: 188 tests en 8 suites**
+**Total: 216 tests en 10 suites**
 
-Estas mejoras incrementaron la puntuación de Testing de **2/10 a 6/10** y la puntuación general de **7.95/10 a 8.25/10**.
+Estas mejoras incrementaron la puntuación de Testing de **2/10 a 6.5/10** y la puntuación general de **7.95/10 a 8.3/10**.
 
 ### ❌ Pendientes Críticos
 

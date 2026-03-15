@@ -338,22 +338,26 @@ fullName = computed(() =>
 
 ### Decision: Jest with Coverage Thresholds
 
-**Decision**: Implement comprehensive unit tests for core services using Jest with coverage thresholds.
+**Decision**: Implement comprehensive unit tests for core services, guards, and interceptors using Jest with coverage thresholds.
 
 **Rationale**:
 - Jest is already configured in the project
 - Coverage thresholds enforce quality standards
 - Testing core services first provides foundation for component testing
+- Guards and interceptors are critical for authentication flow
 
 **Implementation**:
-- 188 tests across 8 test suites
+- 216 tests across 10 test suites
 - Coverage thresholds: 80% statements, 70% branches, 75% functions
 - Services tested: LoggerService, LoadingService, AuthErrorHandlerService, NetworkErrorService, ConfigService, TokenRefreshService, AuthService
+- Guards tested: authGuard (8 tests, 100% coverage)
+- Interceptors tested: authInterceptor (20 tests, 100% coverage)
 
 **Trade-offs**:
-- Time investment was significant (~188 tests)
+- Time investment was significant (~216 tests)
 - Some branches difficult to test (private methods, constructor logic)
 - 95-100% coverage achieved for core services
+- 100% coverage achieved for guards and interceptors
 
 ### Lessons Learned from Testing
 
@@ -375,6 +379,21 @@ const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 consoleSpy.mockRestore();
 ```
 
----
+5. **Testing Functional Guards/Interceptors**: Use `TestBed.runInInjectionContext()` to test Angular's functional guards and interceptors that use `inject()`:
+```typescript
+const result = TestBed.runInInjectionContext(() => authGuard(mockRoute, mockState));
+```
 
+6. **Testing HTTP Interceptors**: Mock the handler function to control request/response behavior:
+```typescript
+mockHandler.mockImplementation(() => {
+  callCount++;
+  if (callCount === 1) {
+    return throwError(() => new HttpErrorResponse({ status: 401 }));
+  }
+  return of({} as HttpEvent<unknown>);
+});
+```
+
+---
 *Last updated: March 2026*

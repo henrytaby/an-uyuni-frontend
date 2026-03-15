@@ -351,11 +351,18 @@ it('should store token', () => {
 | NetworkErrorService | 100% | 100% | 100% | 100% |
 | TokenRefreshService | 100% | 100% | 100% | 100% |
 
+### Current Coverage (Guards & Interceptors)
+
+| File | Tests | Coverage | Status |
+|------|-------|----------|--------|
+| authGuard | 8 | 100% | ✅ |
+| authInterceptor | 20 | 100% | ✅ |
+
 ### Total Tests
 
-- **Test Suites**: 7
-- **Tests**: 185
-- **Coverage**: Core services fully tested
+- **Test Suites**: 10
+- **Tests**: 216
+- **Coverage**: Core services + guards/interceptors fully tested
 
 ## Best Practices
 

@@ -363,6 +363,20 @@ npm run lint
 npm run lint -- --fix
 ```
 
+### Husky + Lint-Staged (Pre-commit Hooks)
+```bash
+# Automatically runs on every git commit
+git commit -m "feat: add new feature"
+
+# Pre-commit hook executes:
+# 1. npx lint-staged
+# 2. eslint --fix on *.ts and *.html files
+# 3. Auto-stages fixed files
+
+# Skip hook (NOT recommended for production)
+git commit --no-verify -m "WIP"
+```
+
 ### TypeScript Strict Mode
 ```json
 // tsconfig.json

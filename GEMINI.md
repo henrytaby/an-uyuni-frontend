@@ -28,6 +28,7 @@ This file serves as a knowledge base for Gemini (and other AI agents) to underst
 - **Linting**: ESLint with Angular Pro rules. Run with `npm run lint`.
 - **Testing**: Jest (primary engine). Specs excluded from production build via `tsconfig.app.json`.
 - **Compilation**: Angular Build System (Vite/Esbuild).
+- **Git Hooks**: Husky v9 + Lint-Staged for pre-commit auto-fix (Mar 2026).
 
 ## 📜 Critical Change History (Jan 2026)
 1. **Legacy Refactoring**: The `_legacy` folder was removed, and components were categorized into `features/`.

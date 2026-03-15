@@ -20,6 +20,7 @@ Bienvenido a **Uyuni Frontend**, una aplicación empresarial moderna construida 
 -   **Standalone Components**: Adopción total del paradigma moderno de Angular (sin `NgModules` innecesarios).
 -   **Path Aliases**: Configuración limpia (`@core`, `@features`) eliminando imports relativos.
 -   **Rendimiento**: Optimizado para Core Web Vitals.
+-   **Husky + Lint-Staged**: Pre-commit hooks para código limpio automáticamente.
 
 ---
 
@@ -30,6 +31,7 @@ Asegúrate de tener instalado:
 -   **Node.js**: v18.13.0 o superior (Recomendado v20+).
 -   **NPM**: v9+ o **Yarn** / **PNPM**.
 -   **Angular CLI**: v21 (`npm install -g @angular/cli`).
+-   **Git**: v2.0+ (para Husky hooks).
 
 ---
 

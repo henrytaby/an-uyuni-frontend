@@ -59,7 +59,7 @@ dia-16-integracion-completa/
 ├── README.md                    # Este archivo
 ├── contenido.md                 # Contenido detallado
 ├── slides/
-│   └── presentacion.md          # Slides de la clase
+│   └── dia-16-integracion-completa_Marp.md          # Slides de la clase
 ├── ejercicios/
 │   ├── lab-01.md               # Lab: Integración Auth + Dashboard
 │   └── lab-02.md               # Lab: Proyecto Final

@@ -46,7 +46,7 @@ dia-10-rxjs-fundamentos/
 ├── README.md                    # Este archivo
 ├── contenido.md                 # Contenido detallado
 ├── slides/
-│   └── presentacion.md          # Diapositivas
+│   └── dia-10-rxjs-fundamentos_Marp.md          # Diapositivas
 ├── ejercicios/
 │   ├── lab-01.md               # Lab: Observables y Observers
 │   └── lab-02.md               # Lab: Subjects y Operadores
@@ -71,7 +71,7 @@ dia-10-rxjs-fundamentos/
 ## 🚀 Cómo Empezar
 
 1. Lee el [`contenido.md`](./contenido.md) para la teoría completa
-2. Revisa las [`slides/presentacion.md`](./slides/presentacion.md)
+2. Revisa las [`slides/dia-10-rxjs-fundamentos_Marp.md`](./slides/dia-10-rxjs-fundamentos_Marp.md)
 3. Completa los ejercicios en orden:
    - [`lab-01.md`](./ejercicios/lab-01.md) - Observables y Observers
    - [`lab-02.md`](./ejercicios/lab-02.md) - Subjects y Operadores

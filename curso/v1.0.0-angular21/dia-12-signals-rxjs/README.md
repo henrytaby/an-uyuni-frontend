@@ -22,7 +22,7 @@ Al finalizar este día, el estudiante será capaz de:
 
 ### Teoría
 - [Contenido Detallado](./contenido.md) - Material teórico completo
-- [Presentación](./slides/presentacion.md) - Slides para la clase
+- [Presentación](./slides/dia-12-signals-rxjs_Marp.md) - Slides para la clase
 
 ### Práctica
 - [Lab 01: toSignal y toObservable](./ejercicios/lab-01.md) - Conversión entre Signals y Observables

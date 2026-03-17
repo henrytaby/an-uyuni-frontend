@@ -64,7 +64,7 @@ dia-13-ui-primeng/
 ├── README.md                    # Este archivo
 ├── contenido.md                 # Contenido detallado
 ├── slides/
-│   └── presentacion.md          # Diapositivas
+│   └── dia-13-ui-primeng_Marp.md          # Diapositivas
 ├── ejercicios/
 │   ├── lab-01.md               # Lab: Formularios
 │   └── lab-02.md               # Lab: Tabla de datos
@@ -127,7 +127,7 @@ Construiremos un **módulo de gestión de usuarios** que incluye:
 ## Próximos Pasos
 
 1. Lee el [`contenido.md`](./contenido.md) para la teoría completa
-2. Revisa las [`slides/presentacion.md`](./slides/presentacion.md)
+2. Revisa las [`slides/dia-13-ui-primeng_Marp.md`](./slides/dia-13-ui-primeng_Marp.md)
 3. Completa los labs en orden
 4. Responde el assessment
 5. Consulta los recursos adicionales

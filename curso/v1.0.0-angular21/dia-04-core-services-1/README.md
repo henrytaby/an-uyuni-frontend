@@ -59,7 +59,7 @@ Al finalizar este día, el estudiante será capaz de:
 | Archivo | Descripción |
 |---------|-------------|
 | [`contenido.md`](./contenido.md) | Contenido teórico completo |
-| [`slides/presentacion.md`](./slides/presentacion.md) | Presentación Marp |
+| [`slides/dia-04-core-services-1_Marp.md`](./slides/dia-04-core-services-1_Marp.md) | Presentación Marp |
 | [`ejercicios/lab-01.md`](./ejercicios/lab-01.md) | Lab: LoggerService |
 | [`ejercicios/lab-02.md`](./ejercicios/lab-02.md) | Lab: LoadingService |
 | [`assessment/preguntas.md`](./assessment/preguntas.md) | 50 preguntas de opción múltiple |

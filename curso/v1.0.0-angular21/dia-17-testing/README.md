@@ -26,7 +26,7 @@ dia-17-testing/
 ├── README.md                 # Este archivo
 ├── contenido.md              # Contenido detallado
 ├── slides/
-│   └── presentacion.md       # Slides de la clase
+│   └── dia-17-testing_Marp.md       # Slides de la clase
 ├── ejercicios/
 │   ├── lab-01.md            # Lab: Testing de servicios
 │   └── lab-02.md            # Lab: Testing de componentes

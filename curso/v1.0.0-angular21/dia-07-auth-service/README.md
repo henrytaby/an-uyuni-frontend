@@ -71,7 +71,7 @@ Resumen y preparación para interceptors.
 | Archivo | Descripción |
 |---------|-------------|
 | `contenido.md` | Contenido teórico completo |
-| `slides/presentacion.md` | Presentación Marp |
+| `slides/dia-07-auth-service_Marp.md` | Presentación Marp |
 | `ejercicios/lab-01.md` | Login y logout |
 | `ejercicios/lab-02.md` | Roles y menús |
 | `assessment/preguntas.md` | 50 preguntas |

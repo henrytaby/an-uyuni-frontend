@@ -55,7 +55,7 @@
 | Archivo | Descripción |
 |---------|-------------|
 | [`contenido.md`](./contenido.md) | Contenido teórico completo |
-| [`slides/presentacion.md`](./slides/presentacion.md) | Presentación Marp |
+| [`slides/dia-06-core-services-3_Marp.md`](./slides/dia-06-core-services-3_Marp.md) | Presentación Marp |
 | [`ejercicios/lab-01.md`](./ejercicios/lab-01.md) | Lab: AuthErrorHandlerService |
 | [`ejercicios/lab-02.md`](./ejercicios/lab-02.md) | Lab: NetworkErrorService |
 | [`assessment/preguntas.md`](./assessment/preguntas.md) | 50 preguntas |

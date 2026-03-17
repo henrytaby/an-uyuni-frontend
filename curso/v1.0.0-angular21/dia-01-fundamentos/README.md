@@ -40,7 +40,7 @@ Al finalizar este día, serás capaz de:
 - 📄 [`contenido.md`](./contenido.md) - Teoría extensa y explicaciones
 
 ### Presentación
-- 📊 [`slides/presentacion.md`](./slides/presentacion.md) - Marp slides
+- 📊 [`slides/dia-01-fundamentos_Marp.md`](./slides/dia-01-fundamentos_Marp.md) - Marp slides
 
 ### Ejercicios
 - 🧪 [`ejercicios/lab-01.md`](./ejercicios/lab-01.md) - Práctica guiada

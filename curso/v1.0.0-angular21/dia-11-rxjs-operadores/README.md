@@ -22,7 +22,7 @@ Al finalizar este día, el estudiante será capaz de:
 
 ### Teoría
 - [Contenido Detallado](./contenido.md) - Material teórico completo
-- [Presentación](./slides/presentacion.md) - Slides para la clase
+- [Presentación](./slides/dia-11-rxjs-operadores_Marp.md) - Slides para la clase
 
 ### Práctica
 - [Lab 01: Operadores de Transformación](./ejercicios/lab-01.md) - switchMap, mergeMap, concatMap

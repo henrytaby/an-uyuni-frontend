@@ -71,7 +71,7 @@ Resumen y preparación para guards.
 | Archivo | Descripción |
 |---------|-------------|
 | `contenido.md` | Contenido teórico completo |
-| `slides/presentacion.md` | Presentación Marp |
+| `slides/dia-08-interceptors_Marp.md` | Presentación Marp |
 | `ejercicios/lab-01.md` | authInterceptor |
 | `ejercicios/lab-02.md` | loadingInterceptor |
 | `assessment/preguntas.md` | 50 preguntas |

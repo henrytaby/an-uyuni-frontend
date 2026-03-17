@@ -84,7 +84,7 @@ Explicar que el 80% del código no se necesita en la primera carga. Lazy Loading
 | Archivo | Descripción |
 |---------|-------------|
 | [`contenido.md`](./contenido.md) | Contenido teórico completo |
-| [`slides/presentacion.md`](./slides/presentacion.md) | Presentación Marp |
+| [`slides/dia-03-lazy-loading_Marp.md`](./slides/dia-03-lazy-loading_Marp.md) | Presentación Marp |
 | [`ejercicios/lab-01.md`](./ejercicios/lab-01.md) | Práctica: Lazy Loading |
 | [`ejercicios/lab-02.md`](./ejercicios/lab-02.md) | Práctica: Guards y Resolvers |
 | [`assessment/preguntas.md`](./assessment/preguntas.md) | 50 preguntas de opción múltiple |

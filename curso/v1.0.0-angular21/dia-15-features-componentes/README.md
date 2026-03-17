@@ -64,7 +64,7 @@ dia-15-features-componentes/
 ├── README.md                    # Este archivo
 ├── contenido.md                 # Contenido detallado
 ├── slides/
-│   └── presentacion.md          # Diapositivas
+│   └── dia-15-features-componentes_Marp.md          # Diapositivas
 ├── ejercicios/
 │   ├── lab-01.md               # Lab: Feature Dashboard
 │   └── lab-02.md               # Lab: Feature Users
@@ -147,7 +147,7 @@ Construiremos un **feature de Users** completo que incluye:
 ## Próximos Pasos
 
 1. Lee el [`contenido.md`](./contenido.md) para la teoría completa
-2. Revisa las [`slides/presentacion.md`](./slides/presentacion.md)
+2. Revisa las [`slides/dia-15-features-componentes_Marp.md`](./slides/dia-15-features-componentes_Marp.md)
 3. Completa los labs en orden
 4. Responde el assessment
 5. Consulta los recursos adicionales

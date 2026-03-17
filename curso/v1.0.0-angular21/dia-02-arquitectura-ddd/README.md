@@ -81,7 +81,7 @@ Explicar que el 60% de los problemas de rendimiento en Angular se deben a un mal
 | Archivo | Descripción |
 |---------|-------------|
 | [`contenido.md`](./contenido.md) | Contenido teórico completo |
-| [`slides/presentacion.md`](./slides/presentacion.md) | Presentación Marp |
+| [`slides/dia-02-arquitectura-ddd_Marp.md`](./slides/dia-02-arquitectura-ddd_Marp.md) | Presentación Marp |
 | [`ejercicios/lab-01.md`](./ejercicios/lab-01.md) | Práctica guiada: Smart/Dumb Components |
 | [`ejercicios/lab-02.md`](./ejercicios/lab-02.md) | Práctica independiente: OnPush |
 | [`assessment/preguntas.md`](./assessment/preguntas.md) | 50 preguntas de opción múltiple |

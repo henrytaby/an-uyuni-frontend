@@ -54,9 +54,9 @@
 
 ### Smart vs Dumb Components
 
-1. **"Presentational and Container Components"** - Dan Abramov
-   - Artículo fundacional del patrón
-   - https://medium.com/@dan_abramov/smart-and-dumb-components-7ca3f9f8c7d2
+1. **"Clean Code: Container & Presentational Components in Angular"** - Telerik
+   - Artículo actualizado sobre el patrón
+   - https://www.telerik.com/blogs/clean-code-using-container-presentational-components-angular
 
 2. **"Angular Component Architecture"** - Thoughtram
    - Aplicación del patrón en Angular
@@ -80,11 +80,11 @@
 
 1. **"Angular 14 inject() Function"** - Angular Blog
    - Anuncio oficial
-   - https://blog.angular.io/
+   - https://blog.angular.dev/angular-v14-is-now-available-391a6db736b3
 
 2. **"Modern Dependency Injection"** - Tim Deschryver
    - Patrones modernos
-   - https://timdeschryver.github.io/
+   - https://timdeschryver.dev/
 
 ---
 
@@ -104,17 +104,17 @@
 1. **"Angular Change Detection - The Complete Guide"**
    - Angular University
    - Duración: 45 min
-   - https://www.youtube.com/watch?v=
+   - https://www.youtube.com/@AngularUniversity/search?query=change%20detection
 
 2. **"Smart vs Dumb Components in Angular"**
    - Fireship
    - Duración: 8 min
-   - https://www.youtube.com/watch?v=
+   - https://www.youtube.com/@Fireship/search?query=angular%20components
 
 3. **"Angular Signals Deep Dive"**
    - Joshua Morony
    - Duración: 30 min
-   - https://www.youtube.com/watch?v=
+   - https://www.youtube.com/@JoshuaMorony/search?query=signals
 
 ---
 

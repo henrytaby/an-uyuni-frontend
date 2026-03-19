@@ -27,24 +27,24 @@
 
 | Artículo | URL | Autor |
 |----------|-----|-------|
-| **Clean Imports with TypeScript Path Aliases** | https://dev.to/typescript-path-aliases | Dev.to |
-| **Angular Path Mapping Best Practices** | https://blog.angular.io/path-mapping | Angular Blog |
-| **TypeScript Path Aliases in Depth** | https://medium.com/typescript-aliases | Medium |
+| **Mastering Angular Environments and Path Aliases with Signals** | https://dev.to/cristiansifuentes/mastering-angular-environments-and-path-aliases-with-signals-a-calculator-example-1i0k | Cristian Sifuentes |
+| **Why you should use path aliases in Angular** | https://www.linkedin.com/posts/rahul-roy-10023_absolutely-agree-setting-up-path-aliases-activity-7334042999972077568-jAfP | Rahul Roy |
+| **Angular Library Linking Made Easy: Paths, Workspaces, and Symlinks** | https://dev.to/sumthedeveloperwastaken/angular-library-linking-made-easy-paths-workspaces-and-symlinks-284d | Dev.to |
 
 ### Standalone Components
 
 | Artículo | URL | Autor |
 |----------|-----|-------|
-| **Angular Standalone Components: The Complete Guide** | https://blog.angular.io/standalone-components | Angular Team |
-| **Migrating to Standalone Components** | https://dev.to/migrating-standalone | Community |
+| **The future is standalone!** | https://blog.angular.dev/the-future-is-standalone-475d7edbc706 | Angular Team |
+| **Angular Standalone Components: Complete Guide** | https://blog.angular-university.io/angular-standalone-components/ | Angular University |
 
 ### Architecture
 
 | Artículo | URL | Autor |
 |----------|-----|-------|
-| **DDD Lite in Angular** | https://khalilstemmler.com/articles/domain-driven-design-typescript | Khalil Stemmler |
-| **Enterprise Angular Architecture** | https://angular.io/guide/architecture | Angular Docs |
-| **Angular Folder Structure** | https://itnext.io/angular-folder-structure | ITNext |
+| **An Introduction to Domain-Driven Design (DDD)** | https://khalilstemmler.com/articles/domain-driven-design-intro/ | Khalil Stemmler |
+| **Angular Architecture Patterns** | https://angular.io/guide/architecture | Angular Docs |
+| **10 Modern Best Practices for Structuring Large-Scale Angular Applications** | https://dev.to/xrdev38/10-modern-best-practices-for-structuring-large-scale-angular-applications-2m9d | Dev.to |
 
 ---
 
@@ -52,19 +52,19 @@
 
 ### YouTube - Angular
 
-| Video | Canal | Duración |
-|-------|-------|----------|
-| **Angular 21 What's New** | Angular | 15 min |
-| **Standalone Components Explained** | Josh Morony | 25 min |
-| **Angular Architecture Patterns** | Fireship | 12 min |
-| **TypeScript Strict Mode** | Matt Pocock | 20 min |
+| Video | Canal | Duración | URL |
+|-------|-------|----------|-----|
+| **Angular 21 What's New** | Angular | 15 min | https://www.youtube.com/@Angular/search?query=angular%2021 |
+| **Standalone Components Explained** | Josh Morony | 25 min | https://www.youtube.com/@JoshuaMorony/search?query=standalone |
+| **Angular Architecture Patterns** | Fireship | 12 min | https://www.youtube.com/@Fireship/search?query=angular |
+| **TypeScript Strict Mode** | Matt Pocock | 20 min | https://www.youtube.com/@mattpocockuk/search?query=typescript |
 
 ### YouTube - TypeScript
 
-| Video | Canal | Duración |
-|-------|-------|----------|
-| **TypeScript Configuration Deep Dive** | Matt Pocock | 30 min |
-| **Path Aliases in TypeScript** | Ben Awad | 10 min |
+| Video | Canal | Duración | URL |
+|-------|-------|----------|-----|
+| **TypeScript Configuration Deep Dive** | Matt Pocock | 30 min | https://www.youtube.com/@mattpocockuk/search?query=tsconfig |
+| **Path Aliases in TypeScript** | Ben Awad | 10 min | https://www.youtube.com/@BenAwad93/search?query=typescript |
 
 ---
 
@@ -114,9 +114,9 @@
 
 | Proyecto | URL | Descripción |
 |----------|-----|-------------|
-| **Angular RealWorld Example** | https://github.com/gothinkster/angular-realworld-example-app | App completa con mejores prácticas |
-| **Angular Enterprise** | https://github.com/angular-enterprise | Ejemplos de arquitectura enterprise |
-| **UyuniAdmin** | https://github.com/uyuniadmin | Proyecto base de este curso |
+| **Angular RealWorld Example App** | https://github.com/gothinkster/angular-realworld-example-app | App completa con mejores prácticas |
+| **Angular Examples** | https://github.com/angular/examples | Ejemplos oficiales de Angular |
+| **UyuniAdmin** | `./src/app` | Proyecto base de este curso (local) |
 
 ---
 
@@ -146,8 +146,8 @@
 Para el **Día 2**, se recomienda leer:
 
 1. [Angular Architecture Patterns](https://angular.io/guide/architecture)
-2. [DDD Lite Explained](https://khalilstemmler.com/articles/domain-driven-design-typescript)
-3. [Smart vs Dumb Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+2. [An Introduction to Domain-Driven Design (DDD)](https://khalilstemmler.com/articles/domain-driven-design-intro/)
+3. [Clean Code: Container & Presentational Components in Angular](https://www.telerik.com/blogs/clean-code-using-container-presentational-components-angular)
 
 ---
 

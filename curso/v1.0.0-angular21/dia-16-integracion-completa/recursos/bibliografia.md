@@ -26,15 +26,15 @@
 ### Architecture Patterns
 
 1. **"Angular Architecture Patterns"**
-   - URL: https://blog.angular-university.io/angular-architecture-patterns/
+   - URL: https://angular.dev/guide/architecture
    - Descripción: Patrones de arquitectura enterprise
 
 2. **"Large Scale Angular Applications"**
-   - URL: https://angular.io/guide/architecture-large-applications
+   - URL: https://angular.dev/guide/scalable-architecture
    - Descripción: Escalando aplicaciones Angular
 
 3. **"State Management in Angular"**
-   - URL: https://blog.angular-university.io/angular-signals/
+   - URL: https://blog.angular.dev/angular-signals-is-here
    - Descripción: Manejo de estado con Signals
 
 ### Integration Patterns
@@ -76,11 +76,11 @@
 ### Videos Oficiales
 
 1. **Angular - YouTube Channel**
-   - URL: https://www.youtube.com/@Angular
+   - URL: https://www.youtube.com/@Angular/search?query=architecture
    - Videos sobre arquitectura y integración
 
 2. **Angular Connect Conference**
-   - URL: https://www.youtube.com/@AngularConnect
+   - URL: https://www.youtube.com/@AngularConnect/search?query=enterprise
    - Charlas sobre enterprise patterns
 
 ### Cursos Online
@@ -90,7 +90,7 @@
    - Curso: "Angular Architecture and Best Practices"
 
 2. **Pluralsight**
-   - URL: https://www.pluralsight.com/
+   - URL: https://www.pluralsight.com/search?q=angular%20architecture
    - Curso: "Angular Large Scale Applications"
 
 ---

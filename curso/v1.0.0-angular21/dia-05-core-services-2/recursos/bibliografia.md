@@ -11,7 +11,7 @@
 
 ## Artículos
 
-- "Angular APP_INITIALIZER" - https://angular.io/guide/dependency-injection-providers#app_initializer
+- "Angular APP_INITIALIZER" - https://dev.to/angular/angular-app-initializer
 - "OAuth2 Refresh Token" - https://oauth.net/2/grant-types/refresh-token/
 - "Angular HTTP Interceptors" - https://angular.dev/guide/http/interceptors
 

@@ -32,12 +32,12 @@
 
 2. **"CSS-first Configuration in Tailwind v4"**
    - Autor: Tailwind Labs
-   - URL: https://tailwindcss.com/blog/css-first-configuration
+   - URL: https://tailwindcss.com/blog
    - Resumen: Explicación detallada de @theme
 
 3. **"The Oxide Engine"**
    - Autor: Tailwind Labs
-   - URL: https://tailwindcss.com/blog/oxide-engine
+   - URL: https://tailwindcss.com/blog
    - Resumen: Cómo el engine Rust mejora el rendimiento
 
 ### Tutoriales
@@ -46,19 +46,19 @@
    - Plataforma: YouTube
    - Canal: Tailwind Labs
    - Duración: 15 min
-   - URL: https://youtube.com/watch?v=example
+   - URL: https://www.youtube.com/@tailwindlabs/search?query=v4
 
 2. **"Dark Mode with Tailwind CSS"**
    - Plataforma: YouTube
    - Canal: Tailwind Labs
    - Duración: 10 min
-   - URL: https://youtube.com/watch?v=example
+   - URL: https://www.youtube.com/@tailwindlabs/search?query=dark%20mode
 
 3. **"Responsive Design with Tailwind"**
    - Plataforma: YouTube
    - Canal: Tailwind Labs
    - Duración: 12 min
-   - URL: https://youtube.com/watch?v=example
+   - URL: https://www.youtube.com/@tailwindlabs/search?query=responsive
 
 ---
 
@@ -102,9 +102,9 @@
 
 | Herramienta | URL | Descripción |
 |-------------|-----|-------------|
-| **Tailwind Shadows** | https://tailwind-shadows.com | Generador de sombras |
-| **Tailwind Gradients** | https://tailwind-gradients.com | Generador de gradientes |
-| **Tailwind Typography** | https://tailwind-typography.com | Plugin de tipografía |
+| **Tailwind Shadows** | https://getwaves.io/ | Generador de sombras |
+| **Tailwind Gradients** | https://cssgradient.io/ | Generador de gradientes |
+| **Tailwind Typography** | https://tailwindcss.com/docs/typography-plugin | Plugin de tipografía |
 
 ---
 
@@ -116,13 +116,13 @@
    - Plataforma: YouTube
    - Canal: Traversy Media
    - Duración: 1 hora
-   - URL: https://youtube.com/watch?v=example
+   - URL: https://www.youtube.com/@TraversyMedia/search?query=tailwind
 
 2. **"Tailwind CSS v4 New Features"**
    - Plataforma: YouTube
    - Canal: Tailwind Labs
    - Duración: 30 min
-   - URL: https://youtube.com/watch?v=example
+   - URL: https://www.youtube.com/@tailwindlabs/search?query=v4
 
 ### Cursos Pagos
 
@@ -130,13 +130,13 @@
    - Plataforma: Udemy
    - Instructor: Various
    - Duración: 10 horas
-   - URL: https://udemy.com/course/example
+   - URL: https://www.udemy.com/courses/search/?q=tailwind%20css
 
 2. **"Modern CSS with Tailwind"**
    - Plataforma: Frontend Masters
    - Instructor: Sarah Dayan
    - Duración: 4 horas
-   - URL: https://frontendmasters.com/courses/example
+   - URL: https://frontendmasters.com/search/?q=tailwind
 
 ---
 
@@ -154,7 +154,7 @@
 
 | Comunidad | URL | Descripción |
 |-----------|-----|-------------|
-| **Tailwind Discord** | https://tailwindcss.com/discord | Comunidad oficial |
+| **Tailwind Discord** | https://discord.gg/tailwindcss | Comunidad oficial |
 | **Reddit r/tailwindcss** | https://reddit.com/r/tailwindcss | Subreddit activo |
 | **Twitter @tailwindcss** | https://twitter.com/tailwindcss | Noticias y actualizaciones |
 
@@ -173,7 +173,7 @@
    - Descripción: Iconos SVG
 
 3. **tailwindui-templates**
-   - URL: https://github.com/tailwindlabs/tailwindui-templates
+   - URL: https://tailwindui.com/templates
    - Descripción: Plantillas de ejemplo
 
 ---
@@ -197,7 +197,7 @@
 ### Design Systems
 
 1. **Design Tokens**
-   - URL: https://design-tokens.github.io
+   - URL: https://github.com/design-tokens/community-group
    - Relevancia: Variables de diseño
 
 2. **Atomic Design**

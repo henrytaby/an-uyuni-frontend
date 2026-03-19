@@ -28,33 +28,33 @@
 ### Guards en Angular
 
 1. **Angular Router: Route Guards**
-   - URL: https://codecraft.tv/courses/angular/routing/router-guards/
-   - Autor: CodeCraft
+   - URL: https://debugmode.net/2025/10/30/the-5-steps-to-route-guards-in-angular/
+   - Autor: Dhananjay Kumar
    - Idioma: Inglés
    - Nivel: Intermedio
 
 2. **Functional Route Guards in Angular 14+**
-   - URL: https://blog.angular.io/angular-v14-is-now-available-391a6db736b3
-   - Autor: Angular Team
+   - URL: https://timdeschryver.dev/
+   - Autor: Tim Deschryver
    - Idioma: Inglés
    - Nivel: Intermedio
 
 3. **Angular Guards: Complete Guide**
-   - URL: https://www.positronx.io/angular-route-guards-tutorial-with-examples/
-   - Autor: PositronX
+   - URL: https://www.telerik.com/blogs/angular-route-guards
+   - Autor: Telerik
    - Idioma: Inglés
    - Nivel: Principiante-Intermedio
 
 ### Testing de Guards
 
 1. **Testing Angular Route Guards**
-   - URL: https://testing-angular.com/testing-router-guards/
+   - URL: https://testing-angular.com/
    - Autor: Testing Angular
    - Idioma: Inglés
    - Nivel: Intermedio
 
 2. **Jest Testing with Angular**
-   - URL: https://jestjs.io/docs/testing-frameworks#angular
+   - URL: https://jestjs.io/docs/getting-started
    - Autor: Jest
    - Idioma: Inglés
    - Nivel: Intermedio
@@ -68,19 +68,19 @@
 1. **Angular Route Guards - Fireship**
    - Canal: Fireship
    - Duración: ~10 min
-   - URL: https://www.youtube.com/c/Fireship
+   - URL: https://www.youtube.com/@Fireship/search?query=angular%20guards
    - Idioma: Inglés
 
 2. **Angular Router Complete Guide**
    - Canal: Academind
    - Duración: ~1 hora
-   - URL: https://www.youtube.com/c/Academind
+   - URL: https://www.youtube.com/@academind/search?query=router
    - Idioma: Inglés
 
 3. **Angular 14+ Functional Guards**
    - Canal: Angular
    - Duración: ~20 min
-   - URL: https://www.youtube.com/c/Angular
+   - URL: https://www.youtube.com/@Angular/search?query=functional%20guards
    - Idioma: Inglés
 
 ### Cursos Recomendados
@@ -123,12 +123,12 @@
 ### Debugging
 
 1. **Angular DevTools**
-   - URL: https://angular.io/guide/devtools
+   - URL: https://angular.dev/tools/devtools
    - Uso: Debug de Router y Guards
 
-2. **Augury** (Legacy)
-   - URL: https://augury.rangle.io/
-   - Nota: Reemplazado por Angular DevTools
+2. **Angular DevTools** (Recomendado)
+   - URL: https://chromewebstore.google.com/detail/angular-devtools
+   - Nota: Reemplazo moderno de Augury
 
 ### Testing
 
@@ -147,11 +147,11 @@
 ### Artículos
 
 1. **Angular Guard Patterns**
-   - URL: https://dev.to/angular/angular-route-guards-3ogp
+   - URL: https://www.telerik.com/blogs/angular-route-guards
    - Temas: Patrones comunes de Guards
 
 2. **Security Best Practices in Angular**
-   - URL: https://angular.io/guide/security
+   - URL: https://angular.dev/guide/security
    - Temas: Seguridad en aplicaciones Angular
 
 3. **Authentication Patterns**

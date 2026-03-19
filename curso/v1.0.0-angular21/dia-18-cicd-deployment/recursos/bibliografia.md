@@ -27,7 +27,7 @@
 
 1. **"GitHub Actions for Angular"**
    - Autor: Angular Blog
-   - URL: https://blog.angular.io/github-actions
+   - URL: https://blog.angular.dev/
    - Tema: CI/CD para Angular
 
 2. **"Complete GitHub Actions Guide"**
@@ -80,17 +80,17 @@
 1. **"GitHub Actions Crash Course"**
    - Canal: Traversy Media
    - Duración: 30 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@TraversyMedia/search?query=github%20actions
 
 2. **"Husky Tutorial"**
    - Canal: Web Dev Simplified
    - Duración: 15 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@WebDevSimplified/search?query=husky
 
 3. **"CI/CD for Angular"**
    - Canal: Angular University
    - Duración: 45 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@AngularUniversity/search?query=ci%2Fcd
 
 ### Cursos Online
 

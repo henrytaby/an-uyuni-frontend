@@ -17,7 +17,7 @@
 |-------------|-----|-----|
 | RxMarbles | [rxmarbles.com](https://rxmarbles.com/) | Visualización interactiva de operadores |
 | RxViz | [rxviz.com](https://rxviz.com/) | Visualización de Observables |
-| RxJS Explorer | [rxjs-explorer.firebaseapp.com](https://rxjs-explorer.firebaseapp.com/) | Explorador de operadores |
+| RxJS Learn | [learnrxjs.io](https://www.learnrxjs.io/) | Guía completa de operadores |
 
 ---
 
@@ -80,19 +80,19 @@
 1. **RxJS Basics - Fireship**
    - Canal: Fireship
    - Duración: ~10 min
-   - URL: https://www.youtube.com/c/Fireship
+   - URL: https://www.youtube.com/@Fireship/search?query=rxjs
    - Idioma: Inglés
 
 2. **RxJS Observables Tutorial**
    - Canal: Academind
    - Duración: ~30 min
-   - URL: https://www.youtube.com/c/Academind
+   - URL: https://www.youtube.com/@academind/search?query=rxjs
    - Idioma: Inglés
 
 3. **Understanding RxJS Subjects**
    - Canal: Angular University
    - Duración: ~20 min
-   - URL: https://www.youtube.com/c/AngularUniversity
+   - URL: https://www.youtube.com/@AngularUniversity/search?query=rxjs%20subjects
    - Idioma: Inglés
 
 ### Cursos Recomendados
@@ -135,11 +135,11 @@
 ### Artículos
 
 1. **RxJS Best Practices**
-   - URL: https://blog.angular.io/rxjs-best-practices-4a7849b0c1e8
+   - URL: https://javascript.plainenglish.io/rxjs-best-practices-in-angular-2024-2025-f443caa27c2e
    - Temas: Memory leaks, takeUntil, AsyncPipe
 
 2. **Avoiding RxJS Memory Leaks**
-   - URL: https://medium.com/angular-in-depth/avoiding-rxjs-memory-leaks-761e9b9a6a6f
+   - URL: https://dev.to/devin-rosario/best-practices-for-angular-state-management-2pm1
    - Temas: Unsubscribe, takeUntil, AsyncPipe
 
 3. **RxJS Error Handling**
@@ -153,7 +153,7 @@
 ### GitHub
 
 1. **RxJS Examples**
-   - URL: https://github.com/ReactiveX/rxjs/tree/main/spec
+   - URL: https://github.com/ReactiveX/rxjs/tree/master/spec
    - Descripción: Tests oficiales de RxJS
 
 2. **Angular RxJS Patterns**
@@ -161,8 +161,8 @@
    - Descripción: NgRx - State management con RxJS
 
 3. **UyuniAdmin Frontend**
-   - URL: [Proyecto actual]
-   - Descripción: Uso real de RxJS en servicios
+   - URL: `./src/app`
+   - Descripción: Uso real de RxJS en servicios (local)
 
 ---
 
@@ -186,7 +186,8 @@
    - URL: https://rxjs.dev/blog
 
 2. **Ben Lesh (RxJS Core Team)**
-   - URL: https://medium.com/@benlesh
+   - URL: https://twitter.com/benlesh
+   - Nota: Twitter/X para actualizaciones
 
 3. **Nicholas Jamieson (RxJS Core Team)**
    - URL: https://ncjamieson.com/

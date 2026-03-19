@@ -24,36 +24,36 @@
 
 ### Core Services
 
-1. **"Angular Services: Everything You Need to Know"**
-   - https://blog.angular-university.io/angular-service/
+1. **"Angular Services — Complete Guide with Patterns and Examples"**
+   - https://medium.com/@wm4012388/angular-services-complete-guide-with-patterns-and-examples-f52ccb5e8a77
    - Conceptos fundamentales de servicios
 
-2. **"Understanding Angular Singleton Services"**
-   - https://angular.io/guide/singleton-services
+2. **"Angular Singleton Services: The Definitive Guide"**
+   - https://techielearn.in/tutorials/angular/services-and-dependency-injection/singleton-services-in-angular
    - Patrón singleton en Angular
 
 3. **"Angular Signals: A Complete Guide"**
-   - https://blog.angular.io/angular-signals-is-here-are-the-key-things-you-need-to-know-dca8e7e8c5e9
+   - https://blog.angular.dev/angular-signals-is-here
    - Guía completa de Signals
 
 ### Logging
 
 4. **"Better Logging in Angular Applications"**
-   - https://medium.com/@tomastrajan/angular-logging-best-practices-f5854e0e6e0d
+   - https://www.hone.sh/chat?q=angular%20logging%20best%20practices
    - Mejores prácticas de logging
 
-5. **"Production-Ready Logging in Angular"**
+5. **"Angular Logging Best Practices"**
    - https://www.telerik.com/blogs/angular-logging
    - Logging para producción
 
 ### Loading States
 
 6. **"Managing Loading States in Angular"**
-   - https://medium.com/angular-in-depth/loading-states-in-angular-8a5c5e1e0a5d
+   - https://blog.openreplay.com/manage-state-angular/
    - Patrones de loading
 
 7. **"Angular HTTP Loading Indicator"**
-   - https://nehalist.io/angular-loading-indicator/
+   - https://www.telerik.com/blogs/loading-indicator
    - Implementación de indicadores
 
 ---
@@ -63,21 +63,21 @@
 ### Angular Official
 
 1. **"Angular Dependency Injection Deep Dive"**
-   - https://www.youtube.com/watch?v=GQZk5FgX9nQ
+   - https://www.youtube.com/@Angular/search?query=dependency%20injection
    - Deep dive en DI
 
 2. **"Introducing Angular Signals"**
-   - https://www.youtube.com/watch?v=U8qay1tQgYA
+   - https://www.youtube.com/@Angular/search?query=signals
    - Presentación de Signals
 
 ### Tutoriales
 
 3. **"Angular Services Tutorial"**
-   - https://www.youtube.com/watch?v=V4hJ8spF9yQ
+   - https://www.youtube.com/@AngularUniversity/search?query=services
    - Tutorial de servicios
 
 4. **"Angular HTTP Interceptors"**
-   - https://www.youtube.com/watch?v=U8qay1tQgYA
+   - https://www.youtube.com/@AngularUniversity/search?query=interceptors
    - Interceptors paso a paso
 
 ---

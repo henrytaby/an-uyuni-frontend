@@ -28,19 +28,22 @@
 
 1. **"Angular Signals: A Comprehensive Introduction"**
    - Autor: Angular Team
-   - URL: https://blog.angular.io/
+   - URL: https://blog.angular.dev/angular-signals-is-here
    - Tema: Introducción completa a Signals
 
 2. **"Understanding Angular's Reactivity with Signals"**
    - Autor: Netanel Basal
+   - URL: https://netbasal.com/
    - Tema: Profundización en reactividad
 
 3. **"Signals vs RxJS: When to Use What"**
    - Autor: Joshua Morony
+   - URL: https://www.youtube.com/@JoshuaMorony/search?query=signals%20vs%20rxjs
    - Tema: Comparación práctica
 
 4. **"The Complete Guide to Angular Signals"**
    - Autor: Tim Deschryver
+   - URL: https://timdeschryver.dev/
    - Tema: Guía exhaustiva
 
 ### RxJS Interop

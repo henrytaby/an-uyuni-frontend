@@ -17,12 +17,12 @@
 
 ### Manejo de Errores
 - [Error Handling Best Practices](https://blog.angular-university.io/rxjs-error-handling/) - Angular University
-- [HTTP Error Handling in Angular](https://ultimatecourses.com/blog/angular-http-error-handling) - Ultimate Courses
-- [Exponential Backoff Pattern](https://blog.bytebytego.com/p/exponential-backoff) - Byte Byte Go
+- [HTTP Error Handling in Angular](https://www.telerik.com/blogs/angular-http-error-handling) - Telerik
+- [Exponential Backoff Pattern](https://hexmaster.nl/posts/retry-on-http-requests-with-exponential-backoff/) - Hexmaster
 
 ### RxJS Avanzado
 - [Understanding retryWhen](https://www.learnrxjs.io/learn-rxjs/operators/error_handling/retrywhen) - Learn RxJS
-- [Error Handling Strategies](https://ncjamieson.com/understanding-rxjs-error-handling/) - Nicholas Jamieson
+- [Error Handling Strategies](https://rxjs.dev/guide/error-handling) - RxJS Official
 
 ## Libros
 
@@ -38,9 +38,9 @@
 ## Videos
 
 ### YouTube
-- [Angular HTTP Error Handling](https://www.youtube.com/results?search_query=angular+http+error+handling)
-- [RxJS retryWhen Operator](https://www.youtube.com/results?search_query=rxjs+retrywhen)
-- [Exponential Backoff Explained](https://www.youtube.com/results?search_query=exponential+backoff+explained)
+- [Angular HTTP Error Handling](https://www.youtube.com/@AngularUniversity/search?query=error%20handling)
+- [RxJS retryWhen Operator](https://www.youtube.com/@AngularUniversity/search?query=retrywhen)
+- [Exponential Backoff Explained](https://www.youtube.com/@Fireship/search?query=backoff)
 
 ## Herramientas
 

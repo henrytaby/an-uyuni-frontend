@@ -26,16 +26,16 @@
 
 ### Smart vs Dumb Components
 
-1. **"Presentational and Container Components"** - Dan Abramov
-   - URL: https://medium.com/@dan_abramov/smart-and-dumb-components-7ca3f9daa377
-   - Descripción: Artículo clásico sobre separación de componentes
+1. **"Clean Code: Container & Presentational Components in Angular"** - Telerik
+   - URL: https://www.telerik.com/blogs/clean-code-using-container-presentational-components-angular
+   - Descripción: Artículo actualizado sobre separación de componentes
 
 2. **"Angular Smart Components vs Presentational Components"**
-   - URL: https://blog.angular-university.io/angular-smart-components-vs-presentational-components/
+   - URL: https://www.telerik.com/blogs/angular-smart-components
    - Descripción: Aplicación del patrón en Angular
 
 3. **"Component Architecture in Angular"**
-   - URL: https://angular.io/guide/architecture-components
+   - URL: https://angular.dev/guide/components
    - Descripción: Arquitectura de componentes en Angular
 
 ### Feature Modules
@@ -73,11 +73,11 @@
 ### Videos Oficiales
 
 1. **Angular - YouTube Channel**
-   - URL: https://www.youtube.com/@Angular
+   - URL: https://www.youtube.com/@Angular/search?query=components
    - Videos sobre Signals y Componentes
 
 2. **Angular Connect Conference**
-   - URL: https://www.youtube.com/@AngularConnect
+   - URL: https://www.youtube.com/@AngularConnect/search?query=architecture
    - Charlas sobre arquitectura de componentes
 
 ### Cursos Online
@@ -87,7 +87,7 @@
    - Curso: "Angular Architecture and Best Practices"
 
 2. **Pluralsight**
-   - URL: https://www.pluralsight.com/
+   - URL: https://www.pluralsight.com/search?q=angular%20components
    - Curso: "Angular Component Communication"
 
 ---

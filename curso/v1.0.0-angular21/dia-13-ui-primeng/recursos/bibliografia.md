@@ -8,7 +8,7 @@
 |---------|-----|-------------|
 | PrimeNG Documentation | https://primeng.org/ | Documentación oficial |
 | PrimeNG Components | https://primeng.org/components | Lista de componentes |
-| PrimeNG Thememing | https://primeng.org/theming | Sistema de temas |
+| PrimeNG Themes | https://primeng.org/themes | Sistema de temas |
 | PrimeNG Icons | https://primeicons.org/ | Biblioteca de iconos |
 | PrimeNG Playground | https://primeng.org/playground | Editor en línea |
 
@@ -104,13 +104,13 @@
 
 ### YouTube
 
-| Canal | Video | Duración |
-|-------|-------|----------|
-| PrimeTek | "PrimeNG 21 Crash Course" | 60 min |
-| Joshua Morony | "PrimeNG Table Deep Dive" | 45 min |
-| Fireship | "PrimeNG in 100 Seconds" | 3 min |
-| Angular University | "PrimeNG Forms" | 30 min |
-| Codevolution | "PrimeNG Tutorial Series" | 5+ horas |
+| Canal | Video | Duración | URL |
+|-------|-------|----------|-----|
+| PrimeTek | "PrimeNG 21 Crash Course" | 60 min | https://www.youtube.com/@primetek/search?query=primeng |
+| Joshua Morony | "PrimeNG Table Deep Dive" | 45 min | https://www.youtube.com/@JoshuaMorony/search?query=primeng |
+| Fireship | "PrimeNG in 100 Seconds" | 3 min | https://www.youtube.com/@Fireship/search?query=primeng |
+| Angular University | "PrimeNG Forms" | 30 min | https://www.youtube.com/@AngularUniversity/search?query=primeng |
+| Codevolution | "PrimeNG Tutorial Series" | 5+ horas | https://www.youtube.com/@codevolution/search?query=primeng |
 
 ### Cursos Online
 
@@ -154,7 +154,7 @@
    - Descripción: Código fuente y ejemplos
 
 2. **PrimeNG Templates**
-   - URL: https://github.com/primefaces/primeng-templates
+   - URL: https://primeng.org/templates
    - Descripción: Plantillas enterprise
 
 3. **UyuniAdmin Frontend**
@@ -170,8 +170,8 @@
 | Herramienta | Uso | URL |
 |-------------|-----|-----|
 | PrimeNG CLI | Scaffolding | `ng add primeng` |
-| Theme Designer | Personalización | https://designer.primeng.org |
-| Figma Kit | Diseño | https://www.figma.com/primeng |
+| Theme Designer | Personalización | https://primeng.org/themes |
+| Figma Kit | Diseño | https://www.figma.com/community |
 
 ### Testing
 

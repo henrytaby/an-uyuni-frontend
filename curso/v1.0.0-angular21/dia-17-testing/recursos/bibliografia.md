@@ -38,14 +38,14 @@
 
 3. **"Testing Angular Signals"**
    - Autor: Angular Blog
-   - URL: https://blog.angular.io/testing-signals
+   - URL: https://blog.angular.dev/
    - Tema: Testing específico de signals
 
 ### Jest Best Practices
 
 1. **"Jest Best Practices"**
    - Autor: GitHub Repository
-   - URL: https://github.com/goldbergyoni/jest-testing-library-best-practices
+   - URL: https://github.com/jestjs/jest
    - Tema: Best practices de testing
 
 2. **"Effective Jest Testing"**
@@ -81,17 +81,17 @@
 1. **"Angular Testing Crash Course"**
    - Canal: Fireship
    - Duración: 15 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@Fireship/search?query=angular%20testing
 
 2. **"Jest Testing Tutorial"**
    - Canal: Traversy Media
    - Duración: 30 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@TraversyMedia/search?query=jest
 
 3. **"Testing Angular Components"**
    - Canal: Angular University
    - Duración: 45 min
-   - URL: https://youtube.com/watch?v=...
+   - URL: https://www.youtube.com/@AngularUniversity/search?query=testing
 
 ### Cursos Online
 

@@ -17,7 +17,7 @@
 
 ### Autenticación
 - [Angular Authentication Best Practices](https://blog.angular-university.io/angular-authentication/) - Angular University
-- [JWT Authentication in Angular](https://www.syncfusion.com/blogs/post/jwt-authentication-in-angular.aspx) - Syncfusion
+- [JWT Authentication in Angular](https://dev.to/indugrand/the-complete-guide-to-secure-angular-authentication-using-oauth-jwt-with-refresh-tokens-4a3o) - Dev.to
 - [State Management with Signals](https://angular.dev/guide/signals) - Angular Docs
 
 ### Seguridad
@@ -39,9 +39,9 @@
 ## Videos
 
 ### YouTube
-- [Angular Authentication Tutorial](https://www.youtube.com/results?search_query=angular+authentication+tutorial)
-- [JWT Authentication Explained](https://www.youtube.com/results?search_query=jwt+authentication+explained)
-- [Angular Signals Deep Dive](https://www.youtube.com/results?search_query=angular+signals+deep+dive)
+- [Angular Authentication Tutorial](https://www.youtube.com/@AngularUniversity/search?query=authentication)
+- [JWT Authentication Explained](https://www.youtube.com/@Fireship/search?query=jwt)
+- [Angular Signals Deep Dive](https://www.youtube.com/@Angular/search?query=signals)
 
 ## Herramientas
 

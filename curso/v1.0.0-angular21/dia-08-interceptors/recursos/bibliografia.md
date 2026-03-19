@@ -17,8 +17,8 @@
 
 ### Interceptors
 - [Angular HTTP Interceptors Deep Dive](https://blog.angular-university.io/angular-http-interceptors/) - Angular University
-- [Functional HTTP Interceptors in Angular](https://netbasal.com/functional-http-interceptors-in-angular-20a7c3c7c7c8) - Netanel Basal
-- [Token Refresh with Interceptors](https://itnext.io/angular-automatic-token-refresh-with-interceptors-22f5829e9a5d) - ITNext
+- [Functional HTTP Interceptors in Angular](https://dev.to/angular/functional-http-interceptors) - Dev.to
+- [Token Refresh with Interceptors](https://coreui.io/answers/how-to-refresh-jwt-tokens-in-angular/) - CoreUI
 
 ### Patrones
 - [Chain of Responsibility Pattern](https://refactoring.guru/design-patterns/chain-of-responsibility) - Refactoring Guru
@@ -38,9 +38,9 @@
 ## Videos
 
 ### YouTube
-- [Angular HTTP Interceptors Tutorial](https://www.youtube.com/results?search_query=angular+http+interceptors)
-- [Token Refresh in Angular](https://www.youtube.com/results?search_query=angular+token+refresh+interceptor)
-- [Functional Interceptors Angular 14+](https://www.youtube.com/results?search_query=functional+interceptors+angular)
+- [Angular HTTP Interceptors Tutorial](https://www.youtube.com/@AngularUniversity/search?query=interceptors)
+- [Token Refresh in Angular](https://www.youtube.com/@AngularUniversity/search?query=token%20refresh)
+- [Functional Interceptors Angular 14+](https://www.youtube.com/@Angular/search?query=functional%20interceptors)
 
 ## Herramientas
 

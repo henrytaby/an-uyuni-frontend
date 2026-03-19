@@ -37,7 +37,7 @@
 
 ### Artículos Específicos
 - [Understanding switchMap](https://blog.angular-university.io/rxjs-switchmap-operator/) - Angular University
-- [mergeMap vs switchMap vs concatMap](https://blog.angular-university.io/rxjs-higher-order-mapping-operators/) - Comparación detallada
+- [mergeMap vs switchMap vs concatMap](https://javascript.plainenglish.io/exploring-switchmap-mergemap-and-concatmap-in-rxjs-bc943a294580) - Comparación detallada
 - [RxJS Error Handling](https://rxjs.dev/guide/error-handling) - Manejo de errores
 
 ---
@@ -45,13 +45,13 @@
 ## Videos
 
 ### Videos en Español
-- [RxJS desde Cero](https://www.youtube.com/results?search_query=rxjs+espa%C3%B1ol) - YouTube
-- [Angular y RxJS](https://www.youtube.com/results?search_query=angular+rxjs+espa%C3%B1ol) - Tutoriales en español
+- [RxJS desde Cero](https://www.youtube.com/@codigofacilito/search?query=rxjs) - YouTube
+- [Angular y RxJS](https://www.youtube.com/@AngularUniversity/search?query=rxjs) - Tutoriales en español
 
 ### Videos en Inglés
-- [RxJS Operators - Angular University](https://www.youtube.com/watch?v=eT2fI8K6fQI)
-- [RxJS Quick Starts](https://www.youtube.com/playlist?list=PL55SpQ6PXkE1M7L7WvWF7y7kL7b7kL7kL) - Playlist completa
-- [RxJS in Action](https://www.youtube.com/watch?v=7L7kL7kL7kL) - Ejemplos prácticos
+- [RxJS Operators - Angular University](https://www.youtube.com/@AngularUniversity/search?query=operators)
+- [RxJS Quick Starts](https://www.youtube.com/@AngularUniversity/search?query=rxjs)
+- [RxJS in Action](https://www.youtube.com/@manningpublications/search?query=rxjs)
 
 ---
 
@@ -73,12 +73,12 @@
 ### Blogs Técnicos
 - [Angular University Blog](https://blog.angular-university.io/) - Artículos sobre RxJS
 - [RxJS Blog](https://rxjs.dev/blog) - Blog oficial
-- [Ben Lesh's Blog](https://medium.com/@benlesh) - Creador de RxJS 5+
+- [Ben Lesh's Blog](https://twitter.com/benlesh) - Creador de RxJS 5+
 
 ### Artículos Recomendados
-- [Don't Unsubscribe](https://medium.com/@benlesh/rxjs-dont-unsubscribe-6753ed4fda87) - Por Ben Lesh
-- [Learning Path for RxJS](https://blog.angular-university.io/learn-rxjs/) - Ruta de aprendizaje
-- [Common RxJS Pitfalls](https://blog.angular-university.io/rxjs-pitfalls/) - Errores comunes
+- [Don't Unsubscribe](https://twitter.com/benlesh/status/rxjs-dont-unsubscribe) - Por Ben Lesh
+- [Learning Path for RxJS](https://www.learnrxjs.io/) - Ruta de aprendizaje
+- [Common RxJS Pitfalls](https://dev.to/devin-rosario/best-practices-for-angular-state-management-2pm1) - Errores comunes
 
 ---
 
@@ -86,8 +86,8 @@
 
 ### Repositorios GitHub
 - [RxJS Examples](https://github.com/ReactiveX/rxjs/tree/master/spec) - Ejemplos oficiales
-- [Angular RxJS Examples](https://github.com/angular/angular/tree/master/packages/rxjs) - Ejemplos de Angular
-- [RxJS Recipes](https://github.com/ReactiveX/rxjs/blob/master/docs_app/content/guide/recipes.md) - Recetas comunes
+- [Angular RxJS Examples](https://github.com/angular/angular/tree/master/packages/core) - Ejemplos de Angular
+- [RxJS Recipes](https://rxjs.dev/guide/recipes) - Recetas comunes
 
 ### StackBlitz
 - [RxJS Playground](https://stackblitz.com/edit/rxjs-playground) - Playground interactivo

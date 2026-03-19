@@ -28,9 +28,9 @@
 
 ### Lazy Loading
 
-1. **"Lazy Loading in Angular"** - Angular University
+1. **"Lazy Loading Like a Pro: Angular's Secrets to Blazing Performance"** - Dev.to
    - Guía completa de lazy loading
-   - https://blog.angular-university.io/angular-lazy-loading/
+   - https://dev.to/karol_modelski/lazy-loading-like-a-pro-angulars-secrets-to-blazing-performance-423m
 
 2. **"Angular Performance Optimization"** - Minko Gechev
    - Optimización con lazy loading
@@ -46,13 +46,13 @@
    - Explicación detallada
    - https://blog.thoughtram.io/angular/2016/07/18/angular-2-route-guards.html
 
-2. **"Functional Guards in Angular 14"** - Tim Deschryver
+2. **"Functional Guards in Angular 14+"** - Tim Deschryver
    - Guards modernos
-   - https://timdeschryver.github.io/
+   - https://timdeschryver.dev/
 
-3. **"Authentication with Guards"** - Angular University
+3. **"The 5 Steps to Route Guards in Angular"** - Debug Mode
    - Implementación práctica
-   - https://blog.angular-university.io/
+   - https://debugmode.net/2025/10/30/the-5-steps-to-route-guards-in-angular/
 
 ### Resolvers
 
@@ -81,14 +81,17 @@
 1. **"Angular Router Complete Guide"**
    - Angular University
    - Duración: 60 min
+   - https://www.youtube.com/@AngularUniversity/search?query=router
 
 2. **"Lazy Loading Deep Dive"**
    - Fireship
    - Duración: 10 min
+   - https://www.youtube.com/@Fireship/search?query=lazy%20loading
 
 3. **"Route Guards Tutorial"**
    - Angular University
    - Duración: 30 min
+   - https://www.youtube.com/@AngularUniversity/search?query=guards
 
 ---
 

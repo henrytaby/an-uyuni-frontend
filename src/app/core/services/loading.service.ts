@@ -1,6 +1,8 @@
-import { Injectable, signal, inject, OnDestroy } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { inject, Injectable, OnDestroy,signal } from '@angular/core';
+import { NavigationCancel, NavigationEnd, NavigationError,NavigationStart, Router } from '@angular/router';
+
 import { Subscription } from 'rxjs';
+
 import { LoggerService } from './logger.service';
 
 /**

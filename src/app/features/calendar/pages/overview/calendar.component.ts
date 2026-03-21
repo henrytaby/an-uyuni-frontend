@@ -1,20 +1,20 @@
-import { Component, ViewChild, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
+import { ChangeDetectionStrategy,Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
-import { EventInput, CalendarOptions, DateSelectArg, EventClickArg } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import esLocale from '@fullcalendar/core/locales/es';
 
+import { ButtonModule } from 'primeng/button';
+import { DatePickerModule } from 'primeng/datepicker';
 // PrimeNG Imports
 import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { DatePickerModule } from 'primeng/datepicker';
-import { RadioButtonModule } from 'primeng/radiobutton';
 import { FluidModule } from 'primeng/fluid';
+import { InputTextModule } from 'primeng/inputtext';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarOptions, DateSelectArg, EventClickArg,EventInput } from '@fullcalendar/core';
+import esLocale from '@fullcalendar/core/locales/es';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 interface CalendarEvent extends EventInput {
   extendedProps: {

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { TablesOverviewComponent } from './pages/overview/tables-overview.component';
 
 export const routes: Routes = [

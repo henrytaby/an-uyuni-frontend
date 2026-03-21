@@ -1,8 +1,11 @@
-import { Injectable, signal, inject } from '@angular/core';
-import { HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpBackend,HttpClient } from '@angular/common/http';
+import { inject,Injectable, signal } from '@angular/core';
+
 import { lastValueFrom } from 'rxjs';
-import { AppConfig } from './config.model';
+
 import { LoggerService } from '@core/services/logger.service';
+
+import { AppConfig } from './config.model';
 
 /**
  * ConfigService handles application configuration loading.

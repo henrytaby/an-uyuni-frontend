@@ -1,7 +1,9 @@
 
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy,Component, signal } from '@angular/core';
+
 import { TableModule } from 'primeng/table';
+
 import { InvoiceItem } from '../../models/invoice.model';
 
 @Component({

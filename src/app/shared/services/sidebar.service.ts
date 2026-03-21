@@ -1,9 +1,13 @@
-import { Injectable, signal } from '@angular/core';
+import { inject,Injectable, signal } from '@angular/core';
+
+import { BreakpointService } from '@core/services/breakpoint.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
+  private breakpointService = inject(BreakpointService);
+
   readonly isExpanded = signal<boolean>(true);
   readonly isMobileOpen = signal<boolean>(false);
   readonly isHovered = signal<boolean>(false);
@@ -22,6 +26,17 @@ export class SidebarService {
 
   toggleMobileOpen() {
     this.isMobileOpen.update(prev => !prev);
+  }
+
+  /**
+   * Unified toggle method that decides which state to change based on screen size
+   */
+  toggleSmart() {
+    if (this.breakpointService.isDesktop()) {
+      this.toggleExpanded();
+    } else {
+      this.toggleMobileOpen();
+    }
   }
 
   setHovered(val: boolean) {

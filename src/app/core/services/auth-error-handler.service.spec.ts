@@ -1,6 +1,7 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthErrorHandlerService, AuthErrorCode } from './auth-error-handler.service';
+import { TestBed } from '@angular/core/testing';
+
+import { AuthErrorCode,AuthErrorHandlerService } from './auth-error-handler.service';
 import { LoggerService } from './logger.service';
 
 describe('AuthErrorHandlerService', () => {

@@ -1,6 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { CardModule } from 'primeng/card';
+
+import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
+
 import { LineChartOneComponent } from '../../components/line/line-chart-one/line-chart-one.component';
 
 @Component({

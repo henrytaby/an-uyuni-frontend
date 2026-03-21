@@ -1,5 +1,6 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { NavigationCancel, NavigationEnd, NavigationError,NavigationStart, Router } from '@angular/router';
+
 import { LoadingService } from './loading.service';
 import { LoggerService } from './logger.service';
 

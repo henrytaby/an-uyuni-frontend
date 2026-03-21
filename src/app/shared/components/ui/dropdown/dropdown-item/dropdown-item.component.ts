@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output, EventEmitter, inject, ChangeDetectionStrategy } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { ChangeDetectionStrategy,Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Router,RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dropdown-item',

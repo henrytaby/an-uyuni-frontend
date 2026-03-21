@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { LineChartComponent } from './pages/line-chart/line-chart.component';
+
 import { BarChartComponent } from './pages/bar-chart/bar-chart.component';
+import { LineChartComponent } from './pages/line-chart/line-chart.component';
 
 export const routes: Routes = [
   {

@@ -1,16 +1,19 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Router } from '@angular/router';
+
 import { of, throwError } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AppConfig } from '@core/config/config.model';
 import { ConfigService } from '@core/config/config.service';
+import { MenuGroup } from '@core/models/menu.models';
 import { LoadingService } from '@core/services/loading.service';
 import { LoggerService } from '@core/services/logger.service';
 import { TokenRefreshService } from '@core/services/token-refresh.service';
-import { User, UserRole, TokenResponse } from '@features/auth/models/auth.models';
-import { MenuGroup } from '@core/models/menu.models';
-import { AppConfig } from '@core/config/config.model';
+
+import { TokenResponse,User, UserRole } from '@features/auth/models/auth.models';
+
+import { AuthService } from './auth.service';
 
 describe('AuthService', () => {
   let service: AuthService;

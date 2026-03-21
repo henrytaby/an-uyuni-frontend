@@ -1,8 +1,11 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpBackend, HttpClient } from '@angular/common/http';
-import { ConfigService } from './config.service';
-import { LoggerService } from '@core/services/logger.service';
+import { TestBed } from '@angular/core/testing';
+
 import { of, throwError } from 'rxjs';
+
+import { LoggerService } from '@core/services/logger.service';
+
+import { ConfigService } from './config.service';
 
 describe('ConfigService', () => {
   let service: ConfigService;

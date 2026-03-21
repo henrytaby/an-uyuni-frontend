@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Output, input, ChangeDetectionStrategy, signal, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed,EventEmitter, input, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-import { PasswordModule } from 'primeng/password';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'app-signin-form',

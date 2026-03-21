@@ -1,6 +1,7 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
+import { ChangeDetectionStrategy,Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 

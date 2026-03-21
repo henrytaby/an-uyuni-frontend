@@ -1,7 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { PageBreadcrumbComponent } from '@shared/components/common/page-breadcrumb/page-breadcrumb.component';
-import { InvoiceSidebarComponent } from '../../components/invoice-sidebar/invoice-sidebar.component';
+
 import { InvoiceMainComponent } from '../../components/invoice-main/invoice-main.component';
+import { InvoiceSidebarComponent } from '../../components/invoice-sidebar/invoice-sidebar.component';
 
 @Component({
   selector: 'app-invoice-overview',

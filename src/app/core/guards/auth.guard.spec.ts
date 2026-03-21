@@ -1,7 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { authGuard } from './auth.guard';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+
 import { AuthService } from '@core/auth/auth.service';
+
+import { authGuard } from './auth.guard';
 
 describe('authGuard', () => {
   let mockAuthService: jest.Mocked<AuthService>;

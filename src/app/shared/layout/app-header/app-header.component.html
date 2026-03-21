@@ -5,7 +5,7 @@
       <button
         class="items-center justify-center w-10 h-10 text-gray-500 border-gray-200 rounded-lg z-40 dark:border-gray-800 flex dark:text-gray-400 lg:h-10 lg:w-10 xl:border"
         [ngClass]="{
-          'bg-gray-100 dark:bg-white/[0.03]': isMobileOpen()
+          'bg-gray-100 dark:bg-white/3': isMobileOpen()
         }" (click)="handleToggle()" aria-label="Toggle Sidebar">
         @if (isMobileOpen()) {
         <i class="pi pi-times text-xl"></i>
@@ -23,7 +23,7 @@
           <span class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ selectedRole()?.name }}</span>
         </div>
         <div class="w-px h-4 bg-gray-200 dark:bg-gray-700 mx-1"></div>
-        <button (click)="showRoleModal()"
+        <button (click)="roleSelector.show()"
           class="text-xs font-bold text-brand-600 dark:text-brand-300 hover:text-brand-800 dark:hover:text-brand-200 transition-colors uppercase tracking-widest">
           Cambiar
         </button>
@@ -50,7 +50,7 @@
           <i [class]="selectedRole()?.icon" class="text-brand-500 text-base"></i>
           <span class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ selectedRole()?.name }}</span>
         </div>
-        <p-button label="Cambiar" [text]="true" size="small" (click)="showRoleModal()"
+        <p-button label="Cambiar" [text]="true" size="small" (click)="roleSelector.show()"
           styleClass="font-bold py-0 h-6"></p-button>
       </div>
 
@@ -71,65 +71,4 @@
 </header>
 
 <!-- Global Role Selection Modal -->
-<p-dialog [(visible)]="isRoleModalVisible" [modal]="true" [header]="'Seleccionar Rol de Usuario'"
-  [breakpoints]="{ '960px': '75vw', '640px': '90vw' }" [style]="{ width: '450px' }" [draggable]="false"
-  [resizable]="false" class="role-selection-dialog">
-
-  <div class="flex flex-col gap-4 mt-2">
-    <!-- Filter Input -->
-    <!-- Filter Input -->
-    <p-iconfield iconPosition="left" class="w-full">
-      <p-inputicon class="pi pi-search text-gray-500 dark:text-gray-400" />
-      <input type="text" pInputText [(ngModel)]="roleSearchQuery" placeholder="Buscar rol por nombre o descripción..."
-        class="w-full" />
-    </p-iconfield>
-
-
-    <!-- Role List -->
-    <div class="flex flex-col gap-2 max-h-[350px] overflow-y-auto custom-scrollbar pr-1">
-      @if (isLoadingRoles()) {
-        <!-- Skeleton List -->
-        @for (i of [1, 2, 3]; track i) {
-          <div class="role-item pointer-events-none opacity-60">
-            <div class="flex items-center gap-3 w-full">
-              <p-skeleton shape="circle" size="2.5rem" />
-              <div class="flex flex-col gap-2 grow">
-                <p-skeleton width="60%" height="1rem" />
-                <p-skeleton width="80%" height="0.75rem" />
-              </div>
-            </div>
-          </div>
-        }
-      } @else {
-        @for (role of filteredRoles(); track role.id) {
-        <div (click)="selectRole(role)" (keydown.enter)="selectRole(role)" tabindex="0"
-          [class.role-item-active]="selectedRole()?.slug === role.slug"
-          class="role-item group focus:ring-2 focus:ring-brand-500/50 outline-none">
-          <div class="flex items-center gap-3">
-            <div class="role-icon-container" [class.active]="selectedRole()?.slug === role.slug">
-              <i [class]="role.icon"></i>
-            </div>
-            <div class="flex flex-col">
-              <span class="role-label">{{ role.name }}</span>
-              <span class="role-description text-gray-500 dark:text-gray-400">{{ role.description }}</span>
-            </div>
-          </div>
-          @if (selectedRole()?.slug === role.slug) {
-          <i class="pi pi-check-circle text-brand-600 dark:text-brand-400 ml-auto"></i>
-          }
-        </div>
-        } @empty {
-        <div class="flex flex-col items-center justify-center py-8 text-gray-400">
-          <i class="pi pi-search text-3xl mb-2 opacity-20"></i>
-          <p>No se encontraron roles que coincidan</p>
-        </div>
-        }
-      }
-    </div>
-  </div>
-
-  <ng-template pTemplate="footer">
-    <p-button label="Cerrar" icon="pi pi-times" [text]="true" (click)="isRoleModalVisible.set(false)"
-      severity="secondary"></p-button>
-  </ng-template>
-</p-dialog>
+<app-role-selector #roleSelector />

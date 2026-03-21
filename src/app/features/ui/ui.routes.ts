@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { AlertsComponent } from './pages/alerts/alerts.component';
 import { AvatarElementComponent } from './pages/avatar-element/avatar-element.component';
 import { BadgesComponent } from './pages/badges/badges.component';

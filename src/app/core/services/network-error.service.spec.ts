@@ -1,8 +1,10 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { NetworkErrorService } from './network-error.service';
-import { LoggerService } from './logger.service';
+import { TestBed } from '@angular/core/testing';
+
 import { of, throwError } from 'rxjs';
+
+import { LoggerService } from './logger.service';
+import { NetworkErrorService } from './network-error.service';
 
 describe('NetworkErrorService', () => {
   let service: NetworkErrorService;

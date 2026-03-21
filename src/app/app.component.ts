@@ -1,8 +1,10 @@
-import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component, computed, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoadingService } from '@core/services/loading.service';
+
 import { BlockUIModule } from 'primeng/blockui';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+
+import { LoadingService } from '@core/services/loading.service';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { GridShapeComponent } from '@features/auth/components/grid-shape/grid-shape.component';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { GridShapeComponent } from '@features/auth/components/grid-shape/grid-shape.component';
 import { ThemeToggleTwoComponent } from '@features/auth/components/theme-toggle-two/theme-toggle-two.component';
 
 @Component({

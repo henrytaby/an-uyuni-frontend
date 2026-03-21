@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { TagModule } from 'primeng/tag';
 
 @Component({

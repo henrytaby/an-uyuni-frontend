@@ -1,19 +1,20 @@
-import { Component, inject, signal, effect, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
+import { ChangeDetectionStrategy,Component, effect, inject, signal } from '@angular/core';
+import { Event,NavigationEnd, Router, RouterModule } from '@angular/router';
+
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { ProgressBarModule } from 'primeng/progressbar';
 import { filter } from 'rxjs';
 
-import { SidebarService } from '@shared/services/sidebar.service';
-import { AppSidebarComponent } from '@shared/layout/app-sidebar/app-sidebar.component';
-import { BackdropComponent } from '@shared/layout/backdrop/backdrop.component';
-import { AppHeaderComponent } from '@shared/layout/app-header/app-header.component';
 import { LoadingService } from '@core/services/loading.service';
 import { NetworkErrorService } from '@core/services/network-error.service';
-import { UiSkeletonPageComponent } from '@shared/layout/skeleton-page/ui-skeleton-page.component';
 
-import { ProgressBarModule } from 'primeng/progressbar';
-import { DialogModule } from 'primeng/dialog';
-import { ButtonModule } from 'primeng/button';
+import { AppHeaderComponent } from '@shared/layout/app-header/app-header.component';
+import { AppSidebarComponent } from '@shared/layout/app-sidebar/app-sidebar.component';
+import { BackdropComponent } from '@shared/layout/backdrop/backdrop.component';
+import { UiSkeletonPageComponent } from '@shared/layout/skeleton-page/ui-skeleton-page.component';
+import { SidebarService } from '@shared/services/sidebar.service';
 
 @Component({
   selector: 'app-layout',

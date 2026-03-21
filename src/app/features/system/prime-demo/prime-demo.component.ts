@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { DatePickerModule } from 'primeng/datepicker';
-import { CardModule } from 'primeng/card';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { DatePickerModule } from 'primeng/datepicker';
 
 @Component({
   selector: 'app-prime-demo',

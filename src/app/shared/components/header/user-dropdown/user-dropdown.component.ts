@@ -1,9 +1,11 @@
-import { Component, signal, inject, computed, ChangeDetectionStrategy } from '@angular/core';
-import { DropdownComponent } from '@shared/components/ui/dropdown/dropdown.component';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy,Component, computed, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DropdownItemComponent } from '@shared/components/ui/dropdown/dropdown-item/dropdown-item.component';
+
 import { AuthService } from '@core/auth/auth.service';
+
+import { DropdownComponent } from '@shared/components/ui/dropdown/dropdown.component';
+import { DropdownItemComponent } from '@shared/components/ui/dropdown/dropdown-item/dropdown-item.component';
 
 @Component({
   selector: 'app-user-dropdown',

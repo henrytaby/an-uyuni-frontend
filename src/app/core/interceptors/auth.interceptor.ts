@@ -1,9 +1,11 @@
-import { HttpInterceptorFn, HttpErrorResponse, HttpEvent, HttpRequest, HttpHandlerFn } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandlerFn,HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
+
+import { catchError, Observable,switchMap, throwError } from 'rxjs';
+
 import { AuthService } from '@core/auth/auth.service';
-import { catchError, switchMap, throwError, Observable } from 'rxjs';
-import { TokenRefreshService } from '@core/services/token-refresh.service';
 import { LoggerService } from '@core/services/logger.service';
+import { TokenRefreshService } from '@core/services/token-refresh.service';
 
 /**
  * Authentication Interceptor

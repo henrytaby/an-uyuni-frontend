@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component, OnInit } from '@angular/core';
+
 import { ChartModule } from 'primeng/chart';
 import { ChartData, ChartOptions } from 'chart.js';
 

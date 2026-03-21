@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
 import { SignupFormComponent } from '@features/auth/components/signup-form/signup-form.component';
 

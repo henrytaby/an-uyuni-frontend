@@ -1,7 +1,9 @@
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { InvoiceTableComponent } from '../invoice-table/invoice-table.component';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { ButtonModule } from 'primeng/button';
+
+import { InvoiceTableComponent } from '../invoice-table/invoice-table.component';
 
 @Component({
   selector: 'app-invoice-main',

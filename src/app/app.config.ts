@@ -1,15 +1,17 @@
-import { ApplicationConfig, provideZoneChangeDetection, provideAppInitializer, inject, ErrorHandler } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { ApplicationConfig, ErrorHandler,inject, provideAppInitializer, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+
 //import { provideAnimations } from '@angular/platform-browser/animations';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
-import { routes } from './app.routes';
 import { ConfigService } from '@core/config/config.service';
+import { GlobalErrorHandler } from '@core/handlers/global-error-handler';
 import { authInterceptor } from '@core/interceptors/auth.interceptor';
 import { loadingInterceptor } from '@core/interceptors/loading.interceptor';
-import { GlobalErrorHandler } from '@core/handlers/global-error-handler';
+
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [

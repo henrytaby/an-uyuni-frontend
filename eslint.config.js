@@ -3,6 +3,7 @@ const eslint = require("@eslint/js");
 const { defineConfig } = require("eslint/config");
 const tseslint = require("typescript-eslint");
 const angular = require("angular-eslint");
+const simpleImportSort = require("eslint-plugin-simple-import-sort");
 
 module.exports = defineConfig([
   {
@@ -14,7 +15,26 @@ module.exports = defineConfig([
       angular.configs.tsRecommended,
     ],
     processor: angular.processInlineTemplates,
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
     rules: {
+      "simple-import-sort/imports": [
+        "error",
+        {
+          groups: [
+            ["^@angular"],
+            ["^primeng", "^rxjs", "^@?\\w"],
+            ["^@core"],
+            ["^@shared"],
+            ["^@features"],
+            ["^\\u0000"],
+            ["^\\.\\.(?!/?$)", "^\\.\\./?$", "^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+            ["^.+\\.s?css$"],
+          ],
+        },
+      ],
+      "simple-import-sort/exports": "error",
       "@angular-eslint/directive-selector": [
         "error",
         {

@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectorRef, inject, OnInit, OnDestroy, AfterViewInit, signal, computed, ChangeDetectionStrategy } from '@angular/core';
-import { SidebarService } from '@shared/services/sidebar.service';
+import { AfterViewInit, ChangeDetectionStrategy,ChangeDetectorRef, Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { AuthService } from '@core/auth/auth.service';
+
 import { filter, Subscription } from 'rxjs';
+
+import { AuthService } from '@core/auth/auth.service';
+
+import { SidebarService } from '@shared/services/sidebar.service';
 
 interface NavItem {
   name: string;

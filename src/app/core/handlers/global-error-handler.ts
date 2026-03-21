@@ -1,6 +1,7 @@
-import { ErrorHandler, Injectable, Injector, inject } from '@angular/core';
-import { NetworkErrorService } from '@core/services/network-error.service';
+import { ErrorHandler, inject,Injectable, Injector } from '@angular/core';
+
 import { LoggerService } from '@core/services/logger.service';
+import { NetworkErrorService } from '@core/services/network-error.service';
 
 /**
  * Global Error Handler

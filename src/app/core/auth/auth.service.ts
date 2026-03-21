@@ -1,13 +1,16 @@
-import { Injectable, signal, computed, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { tap, catchError, throwError, Observable, of } from 'rxjs';
-import { ConfigService } from '@core/config/config.service';
-import { TokenResponse, User, UserRole } from '@features/auth/models/auth.models';
-import { MenuGroup } from '@core/models/menu.models';
+import { computed, inject,Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { catchError, Observable, of,tap, throwError } from 'rxjs';
+
+import { ConfigService } from '@core/config/config.service';
+import { MenuGroup } from '@core/models/menu.models';
 import { LoadingService } from '@core/services/loading.service';
 import { LoggerService } from '@core/services/logger.service';
 import { TokenRefreshService } from '@core/services/token-refresh.service';
+
+import { TokenResponse, User, UserRole } from '@features/auth/models/auth.models';
 
 /**
  * AuthService manages user authentication state and operations.

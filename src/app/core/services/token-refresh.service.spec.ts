@@ -1,9 +1,12 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { TokenRefreshService } from './token-refresh.service';
-import { ConfigService } from '@core/config/config.service';
-import { LoggerService } from './logger.service';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+
 import { of, throwError } from 'rxjs';
+
+import { ConfigService } from '@core/config/config.service';
+
+import { LoggerService } from './logger.service';
+import { TokenRefreshService } from './token-refresh.service';
 
 describe('TokenRefreshService', () => {
   let service: TokenRefreshService;

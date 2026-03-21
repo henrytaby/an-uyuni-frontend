@@ -1,10 +1,12 @@
-import { Component, signal, inject, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
-import { SigninFormComponent } from '@features/auth/components/signin-form/signin-form.component';
+
 import { AuthService } from '@core/auth/auth.service';
 import { AuthErrorHandlerService } from '@core/services/auth-error-handler.service';
 import { LoggerService } from '@core/services/logger.service';
+
+import { AuthPageLayoutComponent } from '@features/auth/components/layout/auth-page-layout/auth-page-layout.component';
+import { SigninFormComponent } from '@features/auth/components/signin-form/signin-form.component';
 
 /**
  * Sign In Page Component

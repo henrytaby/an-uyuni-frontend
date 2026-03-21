@@ -13,8 +13,9 @@
 
 
 
-import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy,Component } from '@angular/core';
+
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 

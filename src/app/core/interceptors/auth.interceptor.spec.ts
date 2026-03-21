@@ -1,11 +1,15 @@
+import { HttpErrorResponse, HttpEvent, HttpHeaders,HttpRequest } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { HttpRequest, HttpErrorResponse, HttpEvent, HttpHeaders } from '@angular/common/http';
-import { authInterceptor } from './auth.interceptor';
-import { AuthService } from '@core/auth/auth.service';
-import { TokenRefreshService } from '@core/services/token-refresh.service';
-import { LoggerService } from '@core/services/logger.service';
+
 import { of, throwError } from 'rxjs';
+
+import { AuthService } from '@core/auth/auth.service';
+import { LoggerService } from '@core/services/logger.service';
+import { TokenRefreshService } from '@core/services/token-refresh.service';
+
 import { UserRole } from '@features/auth/models/auth.models';
+
+import { authInterceptor } from './auth.interceptor';
 
 describe('authInterceptor', () => {
   let mockAuthService: jest.Mocked<AuthService>;

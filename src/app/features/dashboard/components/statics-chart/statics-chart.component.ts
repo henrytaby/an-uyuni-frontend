@@ -1,9 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy,Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { ChartModule } from 'primeng/chart';
 import { DatePickerModule } from 'primeng/datepicker';
-import { FormsModule } from '@angular/forms';
-import { ChartData, ChartOptions } from 'chart.js';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { ChartData, ChartOptions } from 'chart.js';
 
 
 @Component({

@@ -1,6 +1,7 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { SidebarService } from '@shared/services/sidebar.service';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy,Component, inject } from '@angular/core';
+
+import { SidebarService } from '@shared/services/sidebar.service';
 
 @Component({
   selector: 'app-backdrop',

@@ -1,8 +1,12 @@
-import { Injectable, inject, signal } from '@angular/core';
-import { BehaviorSubject, Observable, filter, take, switchMap, tap, catchError, throwError, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+
+import { BehaviorSubject, catchError, filter, Observable, of,switchMap, take, tap, throwError } from 'rxjs';
+
 import { ConfigService } from '@core/config/config.service';
+
 import { TokenResponse } from '@features/auth/models/auth.models';
+
 import { LoggerService } from './logger.service';
 
 /**

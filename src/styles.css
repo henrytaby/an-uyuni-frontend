@@ -93,18 +93,18 @@
   --color-white: #ffffff;
   --color-black: #101828;
 
-  --color-brand-25: #fcfaf8;
-  --color-brand-50: #f7f2ed;
-  --color-brand-100: #eee3d6;
-  --color-brand-200: #dec8b0;
-  --color-brand-300: #c29f7b;
-  --color-brand-400: #a17b50;
-  --color-brand-500: #734c19;
-  --color-brand-600: #5e3d14;
-  --color-brand-700: #4a3010;
-  --color-brand-800: #38240c;
-  --color-brand-900: #291a09;
-  --color-brand-950: #1a1105;
+  --color-brand-25: #fefcf5;
+  --color-brand-50: #fdf9e8;
+  --color-brand-100: #faf1cd;
+  --color-brand-200: #f4e29b;
+  --color-brand-300: #e6cd6f;
+  --color-brand-400: #d7bc5e;
+  --color-brand-500: #c8ab51;
+  --color-brand-600: #a88b3f;
+  --color-brand-700: #886e30;
+  --color-brand-800: #685322;
+  --color-brand-900: #483a17;
+  --color-brand-950: #2c230e;
 
   --color-blue-light-25: #f5fbff;
   --color-blue-light-50: #f0f9ff;
@@ -267,7 +267,7 @@
     --p-primary-300: #c29f7b;
     --p-primary-400: #a17b50;
     --p-primary-500: #734c19;
-    --p-primary-600: #5e3d14;
+    --p-primary-600: #3a3835;
     --p-primary-700: #4a3010;
     --p-primary-800: #38240c;
     --p-primary-900: #291a09;
@@ -290,33 +290,33 @@
 
   /* Compact Input Fields */
   .p-inputtext {
-    @apply !py-1.5 px-3 !text-sm; /* Compact padding */
+    @apply py-1.5! px-3 text-sm!; /* Compact padding */
   }
 
   /* Compact Buttons */
   .p-button {
-    @apply !py-1.5 !px-3 !text-sm !font-medium;
+    @apply py-1.5! px-3! text-sm! font-medium!;
     
     .p-button-icon {
-        @apply !text-base; /* Slightly smaller icons */
+        @apply text-base!; /* Slightly smaller icons */
     }
   }
 
   /* Compact DataTables */
   .p-datatable .p-datatable-thead > tr > th {
-    @apply !py-2 !px-3 !text-sm !font-semibold !bg-gray-50 dark:!bg-gray-800;
+    @apply py-2! px-3! text-sm! font-semibold! bg-gray-50! dark:bg-gray-800!;
   }
 
   .p-datatable .p-datatable-tbody > tr > td {
-    @apply !py-2 !px-3 !text-sm;
+    @apply py-2! px-3! text-sm!;
   }
   
   /* Compact Dropdowns */
   .p-dropdown {
-      @apply !items-center;
+      @apply items-center!;
       
       .p-dropdown-label {
-        @apply !py-1.5 !px-3 !text-sm;
+        @apply py-1.5! px-3! text-sm!;
       }
   }
 
@@ -347,7 +347,7 @@
   @apply bg-brand-50 text-brand-800 shadow-xs;
 
   @variant dark {
-    @apply bg-brand-500/[0.25] text-brand-200 font-medium shadow-none;
+    @apply bg-brand-500/25 text-brand-200 font-medium shadow-none;
   }
 }
 
@@ -377,7 +377,7 @@
 
 @utility menu-item-icon-size {
   & svg {
-    @apply !size-6;
+    @apply size-6!;
   }
 }
 
@@ -478,7 +478,7 @@
   @apply bg-brand-50 text-brand-500;
 
   @variant dark {
-    @apply bg-brand-500/[0.25] text-brand-200;
+    @apply bg-brand-500/25 text-brand-200;
   }
 }
 
@@ -595,26 +595,26 @@
 
 /* third-party libraries CSS */
 .apexcharts-legend-text {
-  @apply !text-gray-700;
+  @apply text-gray-700!;
 
   @variant dark {
-    @apply !text-gray-400;
+    @apply text-gray-400!;
   }
 }
 
 .apexcharts-text {
-  @apply !fill-gray-700;
+  @apply fill-gray-700!;
 
   @variant dark {
-    @apply !fill-gray-400;
+    @apply fill-gray-400!;
   }
 }
 
 .apexcharts-tooltip.apexcharts-theme-light {
-  @apply gap-1 !rounded-lg !border-gray-200 p-3 !shadow-theme-sm;
+  @apply gap-1 rounded-lg! border-gray-200! p-3 shadow-theme-sm!;
 
   @variant dark {
-    @apply !border-gray-800 !bg-gray-900;
+    @apply border-gray-800! bg-gray-900!;
   }
 }
 
@@ -625,104 +625,104 @@
 }
 
 .apexcharts-legend-text {
-  @apply !pl-5 !text-gray-700;
+  @apply pl-5! text-gray-700!;
 
   @variant dark {
-    @apply !text-gray-400;
+    @apply text-gray-400!;
   }
 }
 
 .apexcharts-tooltip-series-group {
-  @apply !p-0;
+  @apply p-0!;
 }
 
 .apexcharts-tooltip-y-group {
-  @apply !p-0;
+  @apply p-0!;
 }
 
 .apexcharts-tooltip-title {
-  @apply !mb-0 !border-b-0 !bg-transparent !p-0 !text-[10px] !leading-4 !text-gray-800;
+  @apply mb-0! border-b-0! bg-transparent! p-0! text-[10px]! leading-4! text-gray-800!;
 
   @variant dark {
-    @apply !text-white/90;
+    @apply text-white/90!;
   }
 }
 
 .apexcharts-tooltip-text {
-  @apply !text-theme-xs !text-gray-700;
+  @apply text-theme-xs! text-gray-700!;
 
   @variant dark {
-    @apply !text-white/90;
+    @apply text-white/90!;
   }
 }
 
 .apexcharts-tooltip-text-y-value {
-  @apply !font-medium;
+  @apply font-medium!;
 }
 
 .apexcharts-gridline {
-  @apply !stroke-gray-100;
+  @apply stroke-gray-100!;
 
   @variant dark {
-    @apply !stroke-gray-800;
+    @apply stroke-gray-800!;
   }
 }
 
 #chartTwo .apexcharts-datalabels-group {
-  @apply !-translate-y-24;
+  @apply -translate-y-24!;
 }
 
 #chartTwo .apexcharts-datalabels-group .apexcharts-text {
-  @apply !fill-gray-800 !font-semibold;
+  @apply fill-gray-800! font-semibold!;
 
   @variant dark {
-    @apply !fill-white/90;
+    @apply fill-white/90!;
   }
 }
 
 #chartDarkStyle .apexcharts-datalabels-group .apexcharts-text {
-  @apply !fill-gray-800 !font-semibold;
+  @apply fill-gray-800! font-semibold!;
 
   @variant dark {
-    @apply !fill-white/90;
+    @apply fill-white/90!;
   }
 }
 
 #chartSixteen .apexcharts-legend {
-  @apply !p-0 !pl-6;
+  @apply p-0! pl-6!;
 }
 
 .jvectormap-container {
-  @apply !bg-gray-50;
+  @apply bg-gray-50!;
 
   @variant dark {
-    @apply !bg-gray-900;
+    @apply bg-gray-900!;
   }
 }
 
 .jvectormap-region.jvectormap-element {
-  @apply !fill-gray-300 hover:!fill-brand-500;
+  @apply fill-gray-300! hover:fill-brand-500!;
 
   @variant dark {
-    @apply !fill-gray-700 hover:!fill-brand-500;
+    @apply fill-gray-700! hover:fill-brand-500!;
   }
 }
 
 .jvectormap-marker.jvectormap-element {
-  @apply !stroke-gray-200;
+  @apply stroke-gray-200!;
 
   @variant dark {
-    @apply !stroke-gray-800;
+    @apply stroke-gray-800!;
   }
 }
 
 .jvectormap-tip {
-  @apply !bg-brand-500 !border-none !px-2 !py-1;
+  @apply bg-brand-500! border-none! px-2! py-1!;
 }
 
 .jvectormap-zoomin,
 .jvectormap-zoomout {
-  @apply !hidden;
+  @apply hidden!;
 }
 
 .stocks-slider-outer .swiper-button-next:after,
@@ -732,10 +732,10 @@
 
 .stocks-slider-outer .swiper-button-next,
 .stocks-slider-outer .swiper-button-prev {
-  @apply !static mt-0 h-8 w-9 rounded-full border border-gray-200 !text-gray-700 transition hover:bg-gray-100;
+  @apply static! mt-0 h-8 w-9 rounded-full border border-gray-200 text-gray-700! transition hover:bg-gray-100;
 
   @variant dark {
-    @apply border-white/[0.03] bg-gray-800 !text-gray-400 hover:bg-white/[0.05] hover:!text-white/90;
+    @apply border-white/3 bg-gray-800 text-gray-400! hover:bg-white/5 hover:text-white/90!;
   }
 }
 
@@ -750,7 +750,7 @@
 
 .stocks-slider-outer .swiper-button-next svg,
 .stocks-slider-outer .swiper-button-prev svg {
-  @apply !h-auto !w-auto;
+  @apply h-auto! w-auto!;
 }
 
 .flatpickr-wrapper {
@@ -758,14 +758,14 @@
 }
 
 .flatpickr-calendar {
-  @apply mt-2 !bg-white !rounded-xl !p-5 !border !border-gray-200 !text-gray-500;
+  @apply mt-2 bg-white! rounded-xl! p-5! border! border-gray-200! text-gray-500!;
 
   @variant dark {
-    @apply !border-white/5 !bg-gray-dark !text-gray-400 !shadow-theme-xl;
+    @apply border-white/5! bg-gray-dark! text-gray-400! shadow-theme-xl!;
   }
 
   @variant 2xsm {
-    @apply !w-auto;
+    @apply w-auto!;
   }
 }
 
@@ -780,46 +780,46 @@
 }
 
 .flatpickr-current-month {
-  @apply !p-0;
+  @apply p-0!;
 }
 
 .flatpickr-current-month .cur-month,
 .flatpickr-current-month input.cur-year {
-  @apply !h-auto !pt-0 !text-lg !font-medium !text-gray-800;
+  @apply h-auto! pt-0! text-lg! font-medium! text-gray-800!;
 
   @variant dark {
-    @apply !text-white/90;
+    @apply text-white/90!;
   }
 }
 
 .flatpickr-prev-month,
 .flatpickr-next-month {
-  @apply !p-0;
+  @apply p-0!;
 }
 
 .flatpickr-weekdays {
-  @apply h-auto mt-6 mb-4 !bg-transparent;
+  @apply h-auto mt-6 mb-4 bg-transparent!;
 }
 
 .flatpickr-weekday {
-  @apply !text-theme-sm !font-medium !text-gray-500 !bg-transparent;
+  @apply text-theme-sm! font-medium! text-gray-500! bg-transparent!;
 
   @variant dark {
-    @apply !text-gray-400;
+    @apply text-gray-400!;
   }
 }
 
 .flatpickr-day {
-  @apply !flex !items-center !text-theme-sm !font-medium !text-gray-800;
+  @apply flex! items-center! text-theme-sm! font-medium! text-gray-800!;
 
   @variant dark {
-    @apply !text-white/90 hover:!border-gray-300 hover:!bg-gray-900;
+    @apply text-white/90! hover:border-gray-300! hover:bg-gray-900!;
   }
 }
 
 .flatpickr-day.nextMonthDay,
 .flatpickr-day.prevMonthDay {
-  @apply !text-gray-400;
+  @apply text-gray-400!;
 }
 
 .flatpickr-months>.flatpickr-month {
@@ -840,55 +840,55 @@
 
 .flatpickr-months .flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month {
-  @apply !top-7 !bg-transparent;
+  @apply top-7! bg-transparent!;
 
   @variant dark {
-    @apply !fill-white !text-white;
+    @apply fill-white! text-white!;
   }
 }
 
 .flatpickr-months .flatpickr-prev-month.flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month.flatpickr-prev-month {
-  @apply !left-7;
+  @apply left-7!;
 }
 
 .flatpickr-months .flatpickr-prev-month.flatpickr-next-month,
 .flatpickr-months .flatpickr-next-month.flatpickr-next-month {
-  @apply !right-7;
+  @apply right-7!;
 }
 
 .flatpickr-days {
-  @apply !border-0;
+  @apply border-0!;
 }
 
 span.flatpickr-weekday,
 .flatpickr-months .flatpickr-month {
-  @apply !bg-none;
+  @apply bg-none!;
 
   @variant dark {
-    @apply !fill-white !text-white;
+    @apply fill-white! text-white!;
   }
 }
 
 .flatpickr-rContainer {
   @variant dark {
-    @apply !bg-gray-dark;
+    @apply bg-gray-dark!;
   }
 }
 
 .flatpickr-innerContainer {
-  @apply !border-b-0;
+  @apply border-b-0!;
 }
 
 .flatpickr-months .flatpickr-month {
-  @apply !bg-none;
+  @apply bg-none!;
 }
 
 .flatpickr-day.inRange {
   box-shadow: -5px 0 0 #f9fafb, 5px 0 0 #f9fafb !important;
 
   @variant dark {
-    @apply !shadow-datepicker;
+    @apply shadow-datepicker!;
   }
 }
 
@@ -904,10 +904,10 @@ span.flatpickr-weekday,
 .flatpickr-day:focus,
 .flatpickr-day.prevMonthDay:focus,
 .flatpickr-day.nextMonthDay:focus {
-  @apply !border-gray-50 !bg-gray-50;
+  @apply border-gray-50! bg-gray-50!;
 
   @variant dark {
-    @apply !border-0 !border-white/5 !bg-white/5;
+    @apply border-0! border-white/5! bg-white/5!;
   }
 }
 
@@ -915,10 +915,10 @@ span.flatpickr-weekday,
 .flatpickr-day.startRange,
 .flatpickr-day.selected,
 .flatpickr-day.endRange {
-  @apply !text-white;
+  @apply text-white!;
 
   @variant dark {
-    @apply !text-white;
+    @apply text-white!;
   }
 }
 
@@ -941,7 +941,7 @@ span.flatpickr-weekday,
 .flatpickr-day.startRange.nextMonthDay,
 .flatpickr-day.endRange.nextMonthDay {
   background: #465fff;
-  @apply !border-brand-500 !bg-brand-500 hover:!border-brand-500 hover:!bg-brand-500;
+  @apply border-brand-500! bg-brand-500! hover:border-brand-500! hover:bg-brand-500!;
 }
 
 .flatpickr-day.selected.startRange+.endRange:not(:nth-child(7n + 1)),
@@ -954,7 +954,7 @@ span.flatpickr-weekday,
 .flatpickr-months .flatpickr-next-month svg,
 .flatpickr-months .flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month {
-  @apply hover:!fill-none;
+  @apply hover:fill-none!;
 }
 
 .flatpickr-months .flatpickr-prev-month:hover svg,
@@ -1000,10 +1000,10 @@ span.flatpickr-weekday,
 }
 
 .fc-button-group .fc-button {
-  @apply flex h-10 w-10 items-center justify-center !rounded-lg border border-gray-200 bg-transparent hover:border-gray-200 hover:bg-gray-50 focus:shadow-none active:!border-gray-200 active:!bg-transparent active:!shadow-none capitalize;
+  @apply flex h-10 w-10 items-center justify-center rounded-lg! border border-gray-200 bg-transparent hover:border-gray-200 hover:bg-gray-50 focus:shadow-none active:border-gray-200! active:bg-transparent! active:shadow-none! capitalize;
 
   @variant dark {
-    @apply border-gray-800 hover:border-gray-800 hover:bg-gray-900 active:!border-gray-800;
+    @apply border-gray-800 hover:border-gray-800 hover:bg-gray-900 active:border-gray-800!;
   }
 }
 
@@ -1030,11 +1030,11 @@ span.flatpickr-weekday,
 }
 
 .fc-addEventButton-button {
-  @apply !rounded-lg !border-0 !bg-brand-500 !px-4 !py-2.5 !text-sm !font-medium hover:!bg-brand-600 focus:!shadow-none;
+  @apply rounded-lg! border-0! bg-brand-500! px-4! py-2.5! text-sm! font-medium! hover:bg-brand-600! focus:shadow-none!;
 }
 
 .fc-toolbar-title {
-  @apply !text-lg !font-medium text-gray-800;
+  @apply text-lg! font-medium! text-gray-800;
 
   @variant dark {
     @apply text-white/90;
@@ -1050,7 +1050,7 @@ span.flatpickr-weekday,
 }
 
 .fc-header-toolbar.fc-toolbar .fc-toolbar-chunk:last-child .fc-button {
-  @apply !h-auto !w-auto rounded-md !border-0 bg-transparent !px-5 !py-2 text-sm font-medium text-gray-500 hover:text-gray-700 focus:!shadow-none;
+  @apply h-auto! w-auto! rounded-md border-0! bg-transparent px-5! py-2! text-sm font-medium text-gray-500 hover:text-gray-700 focus:shadow-none!;
 
   @variant dark {
     @apply text-gray-400;
@@ -1066,24 +1066,24 @@ span.flatpickr-weekday,
 }
 
 .fc-theme-standard th {
-  @apply !border-x-0 border-t !border-gray-200 bg-gray-50 !text-left;
+  @apply border-x-0! border-t border-gray-200! bg-gray-50 text-left!;
 
   @variant dark {
-    @apply !border-gray-800 bg-gray-900;
+    @apply border-gray-800! bg-gray-900;
   }
 }
 
 .fc-theme-standard td,
 .fc-theme-standard .fc-scrollgrid {
-  @apply !border-gray-200;
+  @apply border-gray-200!;
 
   @variant dark {
-    @apply !border-gray-800;
+    @apply border-gray-800!;
   }
 }
 
 .fc .fc-col-header-cell-cushion {
-  @apply !px-5 !py-4 text-sm font-medium uppercase text-gray-400;
+  @apply px-5! py-4! text-sm font-medium uppercase text-gray-400;
 }
 
 .fc .fc-daygrid-day.fc-day-today {
@@ -1098,12 +1098,12 @@ span.flatpickr-weekday,
   @apply rounded-sm bg-gray-100;
 
   @variant dark {
-    @apply bg-white/[0.03];
+    @apply bg-white/3;
   }
 }
 
 .fc .fc-daygrid-day-number {
-  @apply !p-3 text-sm font-medium text-gray-700;
+  @apply p-3! text-sm font-medium text-gray-700;
 
   @variant dark {
     @apply text-gray-400;
@@ -1111,7 +1111,7 @@ span.flatpickr-weekday,
 }
 
 .fc .fc-daygrid-day-top {
-  @apply !flex-row;
+  @apply flex-row!;
 }
 
 .fc .fc-day-other .fc-daygrid-day-top {
@@ -1143,7 +1143,7 @@ span.flatpickr-weekday,
 }
 
 .fc-daygrid-event.fc-event-start {
-  @apply !ml-3;
+  @apply ml-3!;
 }
 
 .event-fc-color.fc-bg-success {
@@ -1202,7 +1202,7 @@ span.flatpickr-weekday,
 
 .swiper-button-prev svg,
 .swiper-button-next svg {
-  @apply !h-auto !w-auto;
+  @apply h-auto! w-auto!;
 }
 
 .carouselTwo .swiper-button-next:after,
@@ -1216,34 +1216,34 @@ span.flatpickr-weekday,
 .carouselTwo .swiper-button-prev.swiper-button-disabled,
 .carouselFour .swiper-button-next.swiper-button-disabled,
 .carouselFour .swiper-button-prev.swiper-button-disabled {
-  @apply bg-white/60 !opacity-100;
+  @apply bg-white/60 opacity-100!;
 }
 
 .carouselTwo .swiper-button-next,
 .carouselTwo .swiper-button-prev,
 .carouselFour .swiper-button-next,
 .carouselFour .swiper-button-prev {
-  @apply h-10 w-10 rounded-full border-[0.5px] border-white/10 bg-white/90 !text-gray-700 shadow-slider-navigation backdrop-blur-[10px];
+  @apply h-10 w-10 rounded-full border-[0.5px] border-white/10 bg-white/90 text-gray-700! shadow-slider-navigation backdrop-blur-[10px];
 }
 
 .carouselTwo .swiper-button-prev,
 .carouselFour .swiper-button-prev {
-  @apply !left-3 sm:!left-4;
+  @apply left-3! sm:left-4!;
 }
 
 .carouselTwo .swiper-button-next,
 .carouselFour .swiper-button-next {
-  @apply !right-3 sm:!right-4;
+  @apply right-3! sm:right-4!;
 }
 
 .carouselThree .swiper-pagination,
 .carouselFour .swiper-pagination {
-  @apply !bottom-3 !left-1/2 inline-flex !w-auto -translate-x-1/2 items-center gap-1.5 rounded-[40px] border-[0.5px] border-white/10 bg-white/60 px-2 py-1.5 shadow-slider-navigation backdrop-blur-[10px] sm:!bottom-5;
+  @apply bottom-3! left-1/2! inline-flex w-auto! -translate-x-1/2 items-center gap-1.5 rounded-[40px] border-[0.5px] border-white/10 bg-white/60 px-2 py-1.5 shadow-slider-navigation backdrop-blur-[10px] sm:bottom-5!;
 }
 
 .carouselThree .swiper-pagination-bullet,
 .carouselFour .swiper-pagination-bullet {
-  @apply !m-0 h-2.5 w-2.5 bg-white opacity-100 shadow-theme-xs duration-200 ease-in-out;
+  @apply m-0! h-2.5 w-2.5 bg-white opacity-100 shadow-theme-xs duration-200 ease-in-out;
 }
 
 .carouselThree .swiper-pagination-bullet-active,
@@ -1300,15 +1300,15 @@ span.flatpickr-weekday,
 }
 
 .simplebar-scrollbar::before {
-  @apply !bg-gray-200 !rounded-full !opacity-100;
+  @apply bg-gray-200! rounded-full! opacity-100!;
 
   @variant dark {
-    @apply !bg-gray-700;
+    @apply bg-gray-700!;
   }
 }
 
 .dark .simplebar-scrollbar::before {
-  @apply !bg-gray-700;
+  @apply bg-gray-700!;
 }
 
 .simplebar-scrollbar.simplebar-visible:before {

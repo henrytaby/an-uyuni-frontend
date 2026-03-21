@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Output, input, ChangeDetectionStrategy, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -33,23 +33,25 @@ export class SigninFormComponent {
   isLoading = input<boolean>(false);
   errorMessage = input<string | null>(null);
 
-  username = '';
-  password = '';
+  username = signal('');
+  password = signal('');
+  localError = signal<string | null>(null);
+
+  isFormValid = computed(() => this.username().trim().length > 0 && this.password().trim().length > 0);
 
   onSignIn() {
-    if (!this.username || !this.password) {
-       this.localError = 'Por favor, ingrese su usuario y contraseña.';
+    if (!this.username() || !this.password()) {
+       this.localError.set('Por favor, ingrese su usuario y contraseña.');
+       return;
     }
     
-    if (this.username && this.password) {
-      this.signIn.emit({ username: this.username, password: this.password });
+    if (this.username() && this.password()) {
+      this.signIn.emit({ username: this.username(), password: this.password() });
     }
   }
 
-  localError: string | null = null;
-
   clearError() {
-    this.localError = null;
+    this.localError.set(null);
     this.errorCleared.emit();
   }
 }

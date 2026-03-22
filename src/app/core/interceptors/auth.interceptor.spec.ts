@@ -5,6 +5,7 @@ import { of, throwError } from 'rxjs';
 
 import { AuthService } from '@core/auth/auth.service';
 import { LoggerService } from '@core/services/logger.service';
+import { NetworkErrorService } from '@core/services/network-error.service';
 import { TokenRefreshService } from '@core/services/token-refresh.service';
 
 import { UserRole } from '@features/auth/models/auth.models';
@@ -15,6 +16,7 @@ describe('authInterceptor', () => {
   let mockAuthService: jest.Mocked<AuthService>;
   let mockTokenRefreshService: jest.Mocked<TokenRefreshService>;
   let mockLoggerService: jest.Mocked<LoggerService>;
+  let mockNetworkErrorService: jest.Mocked<NetworkErrorService>;
   let mockHandler: jest.Mock;
 
   // Helper to create mock requests
@@ -46,6 +48,10 @@ describe('authInterceptor', () => {
       warn: jest.fn(),
     } as unknown as jest.Mocked<LoggerService>;
 
+    mockNetworkErrorService = {
+      triggerConnectionError: jest.fn(),
+    } as unknown as jest.Mocked<NetworkErrorService>;
+
     mockHandler = jest.fn();
 
     // Configure TestBed
@@ -54,6 +60,7 @@ describe('authInterceptor', () => {
         { provide: AuthService, useValue: mockAuthService },
         { provide: TokenRefreshService, useValue: mockTokenRefreshService },
         { provide: LoggerService, useValue: mockLoggerService },
+        { provide: NetworkErrorService, useValue: mockNetworkErrorService },
       ],
     });
   });
@@ -380,6 +387,36 @@ describe('authInterceptor', () => {
   });
 
   describe('non-401 errors', () => {
+    it('should trigger connection error on network error (status 0)', (done) => {
+      // Arrange
+      mockAuthService.getToken.mockReturnValue('test-token');
+      mockAuthService.activeRole.mockReturnValue(null);
+      
+      const error0 = new HttpErrorResponse({ status: 0, statusText: 'Unknown Error' });
+      mockHandler.mockReturnValue(throwError(() => error0));
+
+      const request = createRequest('/api/data');
+
+      // Act
+      const result$ = TestBed.runInInjectionContext(() => 
+        authInterceptor(request, mockHandler)
+      );
+
+      // Assert
+      result$.subscribe({
+        next: () => done.fail('Should have thrown error'),
+        error: (error) => {
+          expect(error.status).toBe(0);
+          expect(mockNetworkErrorService.triggerConnectionError).toHaveBeenCalled();
+          expect(mockLoggerService.error).toHaveBeenCalledWith(
+            'Network Error Detected (Status 0)',
+            error,
+            'AuthInterceptor'
+          );
+          done();
+        }
+      });
+    });
     it('should propagate non-401 errors without refresh', (done) => {
       // Arrange
       mockAuthService.getToken.mockReturnValue('test-token');

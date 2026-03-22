@@ -5,6 +5,7 @@ import { catchError, Observable,switchMap, throwError } from 'rxjs';
 
 import { AuthService } from '@core/auth/auth.service';
 import { LoggerService } from '@core/services/logger.service';
+import { NetworkErrorService } from '@core/services/network-error.service';
 import { TokenRefreshService } from '@core/services/token-refresh.service';
 
 /**
@@ -23,6 +24,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const tokenRefreshService = inject(TokenRefreshService);
   const logger = inject(LoggerService);
+  const networkErrorService = inject(NetworkErrorService);
 
   const token = authService.getToken();
   const activeRole = authService.activeRole();
@@ -49,14 +51,19 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(authReq).pipe(
     catchError((error: unknown) => {
-      if (error instanceof HttpErrorResponse && error.status === 401) {
-        // Avoid refresh loops for auth endpoints
-        if (isAuthEndpoint(req.url)) {
-          logger.debug('401 on auth endpoint, not refreshing', { url: req.url }, 'AuthInterceptor');
-          return throwError(() => error);
-        }
+      if (error instanceof HttpErrorResponse) {
+        if (error.status === 0) {
+          logger.error('Network Error Detected (Status 0)', error, 'AuthInterceptor');
+          networkErrorService.triggerConnectionError();
+        } else if (error.status === 401) {
+          // Avoid refresh loops for auth endpoints
+          if (isAuthEndpoint(req.url)) {
+            logger.debug('401 on auth endpoint, not refreshing', { url: req.url }, 'AuthInterceptor');
+            return throwError(() => error);
+          }
 
-        return handle401Error(authReq, next, tokenRefreshService, authService, logger);
+          return handle401Error(authReq, next, tokenRefreshService, authService, logger);
+        }
       }
       return throwError(() => error);
     })
